@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Space+Grotesk:wght@600&display=swap');
+
+
+@font-face {
+	font-family:minecraft10;
+	src: url(./fonts/minecraft10.ttf);
+}
+@font-face {
+	font-family:minecraft5;
+	src: url(./fonts/minecraft5.otf);
+}
+
+/* global styles */
+:root{
+	--colour-bg-dark: #0096a6;
+	--colour-bg-normal: #ffffff;
+	--colour-bg-light: #dfdfdf;
+	--colour-bg-xdark: #00525b;
+	--colour-bg-xxdark:#004850;
+
+	--colour-text-light: rgb(0, 0, 0);
+	--colour-text-dark: #2e2e2e;
+	--colour-text-white: #e7e7e7;
+	--colour-text-xdark: #24272b;
+	--colour-text-orange: #ffb700;
+	--colour-text-whiteish: #71b7be;
+
+	--colour-primary: #ffffff;
+	--colour-primary-dark: #008299;
+	--colour-secondary: #06ffd9;
+	--colour-secondary-dark: #009982;
+
+	--animation-time: 0.85s;
+	--short-animation-time: 0.1s;
+
+	--footer-height: 1.5rem;
+	--footer-padding: .4em;
+}
+
+body {
+	position: relative;
+	margin: 0;
+	background: var(--colour-bg-normal);
+	min-height: 100vh;
+	font-family: 'minecraft10', sans-serif;
+}
+
+a:focus-visible{
+	outline: 2px solid var(--colour-primary);
+}
+
+/* header */
+
+header {
+	overflow: hidden;
+	background-color: var(--colour-bg-dark);
+	/* padding: 20px 10px; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 15;
+	position: relative;
+	box-shadow: 0 -1.5em 1em 2em rgb(56, 56, 56);
+}
+
+header .logo{
+	transition: scale var(--short-animation-time);
+}
+
+header .logo:hover,
+header .logo:focus-visible{
+	scale: 1.05;
+	outline: none;
+}
+
+header .logo:focus-visible > img{
+	outline: 3px solid var(--colour-primary);
+}
+
+header .logo > img {
+	width: 64px;
+	height: 64px;
+	display: block;
+}
+
+header .title {
+	color: var(--colour-text-light);
+	font-size: 95px;
+	margin: 0;
+	height: 1em;
+}
+
+header .menu {
+	width: 64px;
+	cursor: pointer;
+	height: 64px;
+}
+
+header .menu>img{
+	width: 100%;
+	display: block;
+}
+
+#menuCheckbox{
+	display: none;
+}
+
+header > a,
+header > label{
+	padding: 20px 10px;
+}
+
+/* menu */
+
+.burger-bar{
+	transform-origin: center;
+	transition: transform var(--animation-time);
+}
+
+.menu{
+	transition: scale var(--short-animation-time);
+}
+
+.menu:hover,
+.menu:focus-visible{
+	scale: 1.075;
+	outline: none;
+}
+
+.menu:focus-visible > svg{
+	outline: 2px solid var(--colour-primary);
+}
+
+
+#menuCheckbox:checked + header > label .burger-menu .burger-bar.top{
+	transform: rotate(45deg) translate(0,calc(4 / 18 * 100%));
+}
+
+#menuCheckbox:checked + header > label .burger-menu .burger-bar.mid{
+	transform: rotate(45deg);
+}
+
+#menuCheckbox:checked + header > label .burger-menu .burger-bar.low{
+	transform: rotate(315deg) translate(0,calc(4 / 18 * -100%));
+}
+
+#menuCheckbox:checked + header > label .burger-menu{
+	/* transform: rotate(180deg); */
+	transform: rotate(360deg);
+	/* transform: rotate(720deg); */
+	/* transform: rotate(1080deg); */
+	/* transform: rotate(2160deg); */
+}
+
+.burger-menu{
+	transition: transform var(--animation-time);
+	width: 100%;
+	color: var(--colour-text-white);
+	transform-origin: center;
+}
+
+#menuCheckbox:not(:checked) ~ .menu-content{
+	transform: translateY(-100%);
+}
+.menu-content{
+	display:flex;
+	flex-direction: column;
+	background:var(--colour-bg-xdark);
+	position:absolute;
+	z-index: 10;
+	width:17em;
+	height:min-content;
+	border-top: none;
+	border-bottom: none;
+	right: 0;
+	transform: translateY(0);
+	transition: transform var(--animation-time);
+}
+#menuCheckbox:checked ~ .menu-content{
+	animation: slide var(--animation-time);
+	display:flex;
+}
+#menuCheckbox:not(:checked) ~ .menu-content.hidden{
+	display: none;
+}
+@keyframes slide {
+	0%{
+		transform: translateY(-100%);
+	}
+	100%{
+		transform: translateY(0);
+	}
+}
+
+.menu-link-button{
+	padding: .7em 0;
+	width:100%;
+	height:min-content;
+	background-color:var(--colour-bg-xdark);
+	text-align:center;
+	color:var(--colour-text-whiteish);
+	font-size: 2rem;
+	text-decoration: none;
+}
+
+.menu-link-button > span{
+	display: inline-block;
+	transition: scale var(--short-animation-time);
+}
+
+.menu-link-button:hover > span,
+.menu-link-button:focus-visible > span{
+	scale: 1.1;
+}
+.menu-link-button:hover ,
+.menu-link-button:focus-visible {
+	background-color: var(--colour-bg-xxdark);
+}
+
+.menu-link-button:focus-visible{
+	z-index: 20;
+}
+
+/* main */
+
+main{
+	--gap: 3em;
+	display: flex;
+	gap: var(--gap);
+	padding: var(--gap);
+	padding-bottom: calc(var(--gap) + var(--footer-height) + (var(--footer-padding) * 2));
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* link panels */
+
+.panel-link {
+	width: 18em;
+	background: var(--colour-bg-light);
+	opacity: 100%;
+	font-size: 1.2rem;
+	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
+	padding: 0.5em;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.panel-link *{
+	cursor: inherit;
+}
+
+.panel-link:hover,
+.panel-link:focus-visible {
+	scale: 1.05;
+	opacity: 100%;
+}
+
+.panel-link>h2 {
+	text-align: center;
+	margin: .2em 0;
+	padding: .25em;
+	letter-spacing: .05em;
+	font-weight: 100;
+	font-size: 2.5rem;
+	color: var(--colour-text-light);
+}
+
+.panel-link>p {
+	text-align: center;
+	margin: 0;
+	color: var(--colour-text-dark);
+	font-family: "minecraft5";
+}
+
+/* download panels */
+
+.download-pannel{
+	display: grid;
+	grid-template-areas:"title title title"
+						"img subtitle info"
+						"details details info";
+	background-color: var(--colour-bg-light);
+	grid-template-columns: min-content 2fr 1fr;
+	grid-template-rows: min-content min-content 1fr;
+	color: var(--colour-text-light);
+	border-radius: .5em;
+	align-items: start;
+}
+.download-pannel p{
+	margin: 0;
+}
+.download-pannel h3{
+	margin: .5em 0;
+}
+.download-pannel > h2{
+	grid-area: title;
+	border-bottom: 2px solid var(--colour-primary);
+	margin: 0;
+	padding: .8em;
+}
+.download-pannel > .icon{
+	grid-area: img;
+	height: 3em;
+	aspect-ratio: 1/1;
+	margin:.5em;
+}
+.download-pannel > .icon > img{
+	max-height: 100%;
+	max-width: 100%;
+	height: 100%;
+	width: 100%;
+}
+.download-pannel > .title{
+	grid-area: subtitle;
+}
+.download-pannel > .details{
+	grid-area: details;
+	margin: 0.5em;
+}
+.download-pannel > .download-info{
+	grid-area: info;
+	background-color: var(--colour-primary-dark);
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	border-radius: .5em;
+	overflow: hidden;
+	color: var(--text-colour-light-dark);
+}
+.download-pannel > .download-info > h3{
+	margin: 0;
+	background-color: var(--colour-secondary-dark);
+	/* color: var(--colour-text-xdark); */
+	padding: .3em .5em;
+	font-size: 1.3rem;
+}
+.download-pannel > .download-info > ul{
+	list-style-type: none;
+	padding: 0;
+	margin: .5em;
+}
+.download-pannel > .download-info > ul > li{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border-bottom: 1px solid var(--colour-secondary-dark);
+	gap: 1em;
+}
+.download-pannel > .download-info > button{
+	margin: .5em;
+	padding: 1em;
+	border: none;
+	background-color: var(--colour-secondary-dark);
+	color: var(--colour-text-light);
+	border: 1px solid var(--colour-secondary);
+	border-radius: .5em;
+	transition: margin 0.05s, padding 0.05s;
+}
+.download-pannel > .download-info > button:hover,
+.download-pannel > .download-info > button:focus-visible{
+	cursor: pointer;
+	margin: .45em .4em;
+	padding: 1.05em 1.1em;
+	/* not a scale as it messes with text */
+}
+.download-pannel > .download-info > button:focus-visible{
+	outline: 3px solid var(--colour-primary);
+}
+.download-pannel .sub-text{
+	font-size: .8rem;
+	color: var(--colour-text-orange);
+}
+
+/* portfolio */
+
+.images-showcase{
+	display: grid;
+	grid-template-columns: 60% 1fr;
+	gap: 3em;
+	width: 70%;
+	margin: 0 auto;
+}
+.images-showcase .image-containter{
+	width: 100%;
+	display: block;
+}
+.images-showcase .image-containter>img{
+	width: 100%;
+}
+.image-about{
+	font-size: 1.7rem;
+	font-family: "minecraft5";
+}
+
+
+/* footer */
+footer{
+	width: 100%;
+	color: var(--colour-bg-dark);
+	padding: var(--footer-padding);
+	box-sizing: border-box;
+	bottom: 0;
+	font-size: var(--footer-height);
+	background-color: var(--colour-bg-xdark);
+	display: block;
+	position: absolute;
+}
+footer svg{
+	height: 1em;
+}
+footer ul li#twitterLinkFooter:hover{
+	color: #1d9bf0;
+}
+
+footer ul li#discordLinkFooter:hover{
+	color: #5865f2;
+}
+footer ul li#youtubeLinkFooter:hover{
+	color: #ff0000;
+}
+footer ul{
+	justify-content: center;
+	gap: 1em;
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+}
+footer ul a{
+	color: inherit;
+}
+
+
+/* screenReader */
+
+.non-visual{
+	opacity: 0;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	display: block;
+}
