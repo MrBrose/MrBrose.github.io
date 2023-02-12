@@ -7,14 +7,14 @@
 }
 @font-face {
 	font-family:minecraft5;
-	src: url(./fonts/minecraft5.otf);
+	src: url(./fonts/minecraft5.ttf);
 }
 
 /* global styles */
 :root{
 	--colour-bg-dark: #0096a6;
-	--colour-bg-normal: #ffffff;
-	--colour-bg-light: #dfdfdf;
+	--colour-bg-normal: #ede5e2;
+	--colour-bg-light: #ede5e2de;
 	--colour-bg-xdark: #00525b;
 	--colour-bg-xxdark:#004850;
 
@@ -30,7 +30,7 @@
 	--colour-secondary: #06ffd9;
 	--colour-secondary-dark: #009982;
 
-	--animation-time: 0.85s;
+	--animation-time: 0.65s;
 	--short-animation-time: 0.1s;
 
 	--footer-height: 1.5rem;
@@ -43,6 +43,12 @@ body {
 	background: var(--colour-bg-normal);
 	min-height: 100vh;
 	font-family: 'minecraft10', sans-serif;
+}
+html[page=portfolio] body{
+	background-image: url("/images/bg-snow.webp");
+}
+html[page=home] body{
+	background-image: url("/images/bg-snow.webp");
 }
 
 a:focus-visible{
@@ -62,7 +68,6 @@ header {
 	position: relative;
 	box-shadow: 0 -1.5em 1em 2em rgb(56, 56, 56);
 }
-
 header .logo{
 	transition: scale var(--short-animation-time);
 }
@@ -81,6 +86,7 @@ header .logo > img {
 	width: 64px;
 	height: 64px;
 	display: block;
+	padding-left: 0.4em;
 }
 
 header .title {
@@ -198,7 +204,7 @@ header > label{
 	height:min-content;
 	background-color:var(--colour-bg-xdark);
 	text-align:center;
-	color:var(--colour-text-whiteish);
+	color:var(--colour-text-white);
 	font-size: 2rem;
 	text-decoration: none;
 }
@@ -233,21 +239,48 @@ main{
 	justify-content: space-between;
 }
 
-/* link panels */
+/* panel about me */
 
-.panel-link {
-	width: 18em;
+.panel {
 	background: var(--colour-bg-light);
 	opacity: 100%;
 	font-size: 1.2rem;
-	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
 	padding: 0.5em;
+	padding-bottom: 1.5em;
+	margin: 0 auto;
 	text-decoration: none;
-	cursor: pointer;
+	border-radius: 0.5em;
 }
 
-.panel-link *{
+.panel *{
 	cursor: inherit;
+}
+
+
+.panel h2 {
+	text-align: center;
+	margin: 0 0 .2em;
+	padding: .25em;
+	letter-spacing: .015em;
+	font-weight: 100;
+	font-size: 3rem;
+	color: var(--colour-text-light);
+}
+
+.panel p {
+	text-align: center;
+	margin: 0;
+	padding-left: 0.6em;
+	color: var(--colour-text-dark);
+	font-family: "minecraft5";
+}
+
+/* link panels */
+
+.panel-link {
+	width: 22em;
+	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
+	cursor: pointer;
 }
 
 .panel-link:hover,
@@ -256,21 +289,31 @@ main{
 	opacity: 100%;
 }
 
-.panel-link>h2 {
-	text-align: center;
-	margin: .2em 0;
-	padding: .25em;
-	letter-spacing: .05em;
-	font-weight: 100;
-	font-size: 2.5rem;
-	color: var(--colour-text-light);
+/* panel-large-image */
+
+
+.panel-large-image {
+	width: 50em;
+	display: grid;
+	grid-template-areas: "title image" "text image";
+	grid-template-rows: min-content 1fr;
 }
 
-.panel-link>p {
-	text-align: center;
-	margin: 0;
-	color: var(--colour-text-dark);
-	font-family: "minecraft5";
+
+.panel-large-image h2 {
+	text-align: left;
+	grid-area: title;
+}
+
+.panel-large-image p {
+	text-align: left;
+	grid-area: text;
+}
+
+.panel-large-image img{
+	max-height: 20em;
+	grid-area: image;
+	margin: 1em;
 }
 
 /* download panels */
@@ -374,24 +417,30 @@ main{
 /* portfolio */
 
 .images-showcase{
-	display: grid;
-	grid-template-columns: 60% 1fr;
-	gap: 3em;
-	width: 70%;
-	margin: 0 auto;
-}
-.images-showcase .image-containter{
+	display: flex;
+	flex-direction: column;
 	width: 100%;
-	display: block;
-}
-.images-showcase .image-containter>img{
-	width: 100%;
-}
-.image-about{
-	font-size: 1.7rem;
-	font-family: "minecraft5";
+	/* gap: 20em; */
+	overflow: hidden;
+	margin: -2em 10em 0;
 }
 
+.logo-wrapper{
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: -12.5vh 0;
+}
+.logo-image{
+	width: 100%;
+}
+
+.scales-with-scroll> .scales-with-scroll-scaler{
+	scale: var(--scale,1);
+	transition: scale 0.4s;
+}
 
 /* footer */
 footer{

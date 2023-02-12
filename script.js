@@ -1,3 +1,13 @@
+Number.prototype.clamp = function(min,max){
+	if (this<min){
+		return min;
+	}
+	if (this>max){
+		return max;
+	}
+	return this;
+}
+
 var menuCheckbox = document.getElementById("menuCheckbox");
 menuCheckbox.checked = false;
 var menuContent = document.getElementById("menuContent");
@@ -41,4 +51,35 @@ menuLabel.addEventListener("keydown",e=>{
 			}
 		}
 	})
+});
+
+const lerp=(point, start, end)=> start+((end-start)*point);
+const inverseLerp=(
+	newMax,
+	newMin,
+	oldMax,
+	oldMin,
+	value
+)=>lerp((value-oldMin)/(oldMax-oldMin),newMin,newMax)
+
+document.addEventListener("scroll", e => {
+	window.pageYOffset;
+	[...document.getElementsByClassName("scales-with-scroll")].forEach(el=>{
+		var rect = el.getBoundingClientRect();
+		if (
+			rect.top + window.scrollY>window.pageYOffset+window.innerHeight ||
+			rect.bottom + window.scrollY<window.pageYOffset
+		){
+			return;
+		}
+		var centre = rect.top + window.scrollY+(rect.height/2);
+		var pageYCentre = window.pageYOffset+(window.innerHeight/2);
+		var oldMin = centre>pageYCentre?
+		rect.top + window.scrollY:
+		rect.top + window.scrollY + rect.height;
+		el.style.setProperty(
+			"--scale",
+			inverseLerp(1.25, 0.75, centre, oldMin, pageYCentre).clamp(0,1)
+		);
+	});
 });
