@@ -62,16 +62,19 @@ const inverseLerp=(
 	value
 )=>lerp((value-oldMin)/(oldMax-oldMin),newMin,newMax)
 
-document.addEventListener("scroll", e => {
-	window.pageYOffset;
-	[...document.getElementsByClassName("scales-with-scroll")].forEach(el=>{
-		var rect = el.getBoundingClientRect();
-		if (
-			rect.top + window.scrollY>window.pageYOffset+window.innerHeight ||
-			rect.bottom + window.scrollY<window.pageYOffset
-		){
-			return;
-		}
+var scrolly = document.getElementById("scrolly");
+
+if (scrolly!==null){
+	scrolly.addEventListener("scroll", e => {
+		window.pageYOffset;
+		[...document.getElementsByClassName("scales-with-scroll")].forEach(el=>{
+			var rect = el.getBoundingClientRect();
+			if (
+				rect.top + window.scrollY>window.pageYOffset+window.innerHeight ||
+				rect.bottom + window.scrollY<window.pageYOffset
+				){
+					return;
+				}
 		var centre = rect.top + window.scrollY+(rect.height/2);
 		var pageYCentre = window.pageYOffset+(window.innerHeight/2);
 		var oldMin = centre>pageYCentre?
@@ -80,6 +83,7 @@ document.addEventListener("scroll", e => {
 		el.style.setProperty(
 			"--scale",
 			inverseLerp(1.25, 0.75, centre, oldMin, pageYCentre).clamp(0,1)
-		);
-	});
-});
+			);
+		});
+	});	
+}

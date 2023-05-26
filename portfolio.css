@@ -1,0 +1,12 @@
+body{
+    height: min-content;
+    max-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+#scrolly{
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}

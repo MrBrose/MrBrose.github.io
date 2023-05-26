@@ -12,14 +12,14 @@
 
 /* global styles */
 :root{
-	--colour-bg-dark: #0096a6;
+	--colour-bg-dark: #148295;
 	--colour-bg-normal: #ede5e2;
-	--colour-bg-light: #ede5e2de;
-	--colour-bg-xdark: #00525b;
-	--colour-bg-xxdark:#004850;
+	--colour-bg-light: #2c2e3a;
+	--colour-bg-xdark: #2c2e3a;
+	--colour-bg-xxdark:#0c3f53;
 
-	--colour-text-light: rgb(0, 0, 0);
-	--colour-text-dark: #2e2e2e;
+	--colour-text-light: #7f89a2;
+	--colour-text-dark: #6c748b;
 	--colour-text-white: #e7e7e7;
 	--colour-text-xdark: #24272b;
 	--colour-text-orange: #ffb700;
@@ -45,10 +45,13 @@ body {
 	font-family: 'minecraft10', sans-serif;
 }
 html[page=portfolio] body{
-	background-image: url("/images/bg-snow.webp");
+	background-image: linear-gradient(#3c4250,#3c4250);
 }
 html[page=home] body{
-	background-image: url("/images/bg-snow.webp");
+	background-image: linear-gradient(#3c4250,#3c4250);
+}
+html[page=logos] body{
+	background-image: linear-gradient(#3c4250,#3c4250);
 }
 
 a:focus-visible{
@@ -66,7 +69,7 @@ header {
 	align-items: center;
 	z-index: 15;
 	position: relative;
-	box-shadow: 0 -1.5em 1em 2em rgb(56, 56, 56);
+	box-shadow: 0 -2.1em 1em 2em #2c2e3a;
 }
 header .logo{
 	transition: scale var(--short-animation-time);
@@ -74,7 +77,7 @@ header .logo{
 
 header .logo:hover,
 header .logo:focus-visible{
-	scale: 1.05;
+	scale: 1.1;
 	outline: none;
 }
 
@@ -83,23 +86,25 @@ header .logo:focus-visible > img{
 }
 
 header .logo > img {
-	width: 64px;
-	height: 64px;
+	width: 50px;
+	height: 50px;
 	display: block;
-	padding-left: 0.4em;
+	padding-left: 0em;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
 }
 
 header .title {
 	color: var(--colour-text-light);
 	font-size: 95px;
 	margin: 0;
-	height: 1em;
+	height: 0.6em;
 }
 
 header .menu {
-	width: 64px;
+	width: 50px;
 	cursor: pointer;
-	height: 64px;
+	height: 50px;
 }
 
 header .menu>img{
@@ -113,14 +118,17 @@ header .menu>img{
 
 header > a,
 header > label{
-	padding: 20px 10px;
+	padding: 1px 10px;
 }
 
 /* menu */
 
 .burger-bar{
 	transform-origin: center;
-	transition: transform var(--animation-time);
+	--one-way-animation-time: 0s;
+	transition: transform var(--animation-time) ease-in-out 0s, opacity 0s linear var(--one-way-animation-time);
+	opacity: 1;
+	
 }
 
 .menu{
@@ -139,27 +147,33 @@ header > label{
 
 
 #menuCheckbox:checked + header > label .burger-menu .burger-bar.top{
-	transform: rotate(45deg) translate(0,calc(4 / 18 * 100%));
+	transform: rotate(45deg) translate(0,calc(21%));
+	opacity: 0;
+	--one-way-animation-time: var(--animation-time);
 }
 
 #menuCheckbox:checked + header > label .burger-menu .burger-bar.mid{
-	transform: rotate(45deg);
+	transform: rotate(45deg) ;
 }
 
 #menuCheckbox:checked + header > label .burger-menu .burger-bar.low{
-	transform: rotate(315deg) translate(0,calc(4 / 18 * -100%));
+	transform: rotate(135deg) translate(0,calc(4 / 18 * -100%));
 }
 
 #menuCheckbox:checked + header > label .burger-menu{
-	/* transform: rotate(180deg); */
-	transform: rotate(360deg);
-	/* transform: rotate(720deg); */
-	/* transform: rotate(1080deg); */
-	/* transform: rotate(2160deg); */
+	/* transform: rotate(0turn); */
+	/* transform: rotate(0.25turn); */
+	transform: rotate(0.5turn);
+	/* transform: rotate(1turn); */
+	/* transform: rotate(2turn); */
+	/* transform: rotate(3turn); */
+	/* transform: rotate(4turn); */
+	/* transform: rotate(5turn); */
 }
 
 .burger-menu{
 	transition: transform var(--animation-time);
+	opacity: 1;
 	width: 100%;
 	color: var(--colour-text-white);
 	transform-origin: center;
@@ -205,7 +219,7 @@ header > label{
 	background-color:var(--colour-bg-xdark);
 	text-align:center;
 	color:var(--colour-text-white);
-	font-size: 2rem;
+	font-size: 1.65rem;
 	text-decoration: none;
 }
 
@@ -230,7 +244,7 @@ header > label{
 /* main */
 
 main{
-	--gap: 3em;
+	--gap: 2em;
 	display: flex;
 	gap: var(--gap);
 	padding: var(--gap);
@@ -245,9 +259,10 @@ main{
 	background: var(--colour-bg-light);
 	opacity: 100%;
 	font-size: 1.2rem;
-	padding: 0.5em;
-	padding-bottom: 1.5em;
-	margin: 0 auto;
+	padding: 0.0em;
+	padding-bottom: 0.5em;
+	padding-left: 0.5em;	
+	padding-right: 0.5em;
 	text-decoration: none;
 	border-radius: 0.5em;
 }
@@ -263,14 +278,15 @@ main{
 	padding: .25em;
 	letter-spacing: .015em;
 	font-weight: 100;
-	font-size: 3rem;
+	font-size: 2.15rem;
 	color: var(--colour-text-light);
 }
 
 .panel p {
 	text-align: center;
+	size: 1em;
 	margin: 0;
-	padding-left: 0.6em;
+	font-size: 1rem;
 	color: var(--colour-text-dark);
 	font-family: "minecraft5";
 }
@@ -278,42 +294,115 @@ main{
 /* link panels */
 
 .panel-link {
-	width: 22em;
+	width: 16.917em;
+	height:6em;
 	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
 	cursor: pointer;
 }
 
 .panel-link:hover,
 .panel-link:focus-visible {
-	scale: 1.05;
+	scale: 1.1;
 	opacity: 100%;
 }
+
+
+/* link panels 1 */
+
+.panel-link-1 {
+	background: #2c2e3a;
+	width: 2020em;
+	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
+	cursor: pointer;
+	text-align: center;
+	padding: 0.0em;
+	letter-spacing: .015em;
+	font-weight: 100;
+	font-size: 2rem;
+}
+.panel-link-1 h2{
+	color: var(--colour-text-light);
+}
+
+.panel-link-1:hover,
+.panel-link-1:focus-visible {
+	scale: 1.03;
+	background: #2c2e3a;
+}
+
+/* link panels 2 */
+
+.panel-link-2 {
+	background: #2c2e3a;
+	width: 10em;
+	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
+	cursor: pointer;
+	text-align: center;
+	padding: 0.0em;
+	letter-spacing: .015em;
+	font-weight: 100;
+	font-size: 2rem;
+	padding-left: 5em;
+	padding-right: 5em;
+}
+.panel-link-2 h2{
+	color: var(--colour-text-light);
+}
+
+.panel-link-2:hover,
+.panel-link-2:focus-visible {
+	scale: 1.03;
+	background: #2c2e3a;
+}
+
 
 /* panel-large-image */
 
 
 .panel-large-image {
-	width: 50em;
+	width: 60em;
 	display: grid;
 	grid-template-areas: "title image" "text image";
 	grid-template-rows: min-content 1fr;
+	padding-bottom: 0;
+	font-size: 1.1rem;
+	margin: 0 auto;
 }
 
 
 .panel-large-image h2 {
 	text-align: left;
 	grid-area: title;
+	color: #757e96;
+	font-size: 2.5em;
+	margin: 1em 0 0.4em;
 }
 
 .panel-large-image p {
+	margin: 0;
 	text-align: left;
 	grid-area: text;
+	color: #7f89a2;
+	font-family: minecraft5;
+	font-size: 1em;
 }
 
 .panel-large-image img{
 	max-height: 20em;
 	grid-area: image;
 	margin: 1em;
+}
+
+
+/* minecraft-logo-pannel */
+
+.minecraft-logo-pannel img{
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+
 }
 
 /* download panels */
@@ -432,6 +521,7 @@ main{
 	flex-direction: column;
 	justify-content: center;
 	margin: -12.5vh 0;
+	scroll-snap-align: start;
 }
 .logo-image{
 	width: 100%;
@@ -453,6 +543,8 @@ footer{
 	background-color: var(--colour-bg-xdark);
 	display: block;
 	position: absolute;
+	color: #4d5466;
+	background-color: #343845;
 }
 footer svg{
 	height: 1em;
@@ -479,6 +571,31 @@ footer ul a{
 	color: inherit;
 }
 
+/* update logo */
+.update-logo{
+	margin: 0 20%;
+}
+.update-logo p{
+	font-size: 1.8em;
+	margin-top: 0;
+	text-align: center;
+	color: #2c2e3a
+	
+}
+
+.update-logo img{
+	width: 100%;
+
+}
+
+.update-logo-wrapper{
+	display: flex;
+	align-content: center;
+	flex-direction: column;
+	height: fit-content;
+	gap: 2.5em;
+	width: 100%;
+}
 
 /* screenReader */
 
