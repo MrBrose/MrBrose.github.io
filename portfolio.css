@@ -7,6 +7,11 @@ body{
 }
 
 #scrolly{
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-snap-type: y mandatory;
+    scroll-padding-bottom: calc(var(--footer-height) + var(--footer-padding) * 0);
+}
+
+.menu-content{
+    grid-row: 2;
 }

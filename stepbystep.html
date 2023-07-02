@@ -5,7 +5,7 @@
 		<meta property="og:title" content="MrBrose's Offical website">
 		<meta property="og:image" content="./images/MrBrose_logo.png">
 		<meta charset="UTF-8">
-		<title>MrBrose | Home</title>
+		<title>MrBrose | Making a Logo</title>
 		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 		<link rel="stylesheet" href="styles.css">
 		<script src="script.js" defer></script>
@@ -14,10 +14,10 @@
 	<body>
 		<input type="checkbox" id="menuCheckbox">
 		<header>
-			<a href="index.html" class="logo">
-				<img src="./images/logo.png" class="logo-image" alt="logo">
+			<a href="illustrator.html" class="logo">
+				<img src="./images/Backarrow.png" class="logo-image" alt="logo">
 			</a>
-			<img class="title" src="./images/title1.webp" alt="title mrbrose">
+			<img class="title" src="./images/making.png" alt="title mrbrose">
 			<label for="menuCheckbox" class="menu" tabindex="0">
 				<svg class="burger-menu" viewBox="0 0 24 24">
 					<g style="fill:currentColor;" class="burger-bar top">
@@ -37,6 +37,7 @@
 		</header>
 		
 			<nav class="menu-content hidden" id="menuContent">
+				<a class="menu-link-button" href="index.html"><span>Home</span></a>
 				<a class="menu-link-button" href="logos.html"><span>Offical Logos</span></a>
 				<a class="menu-link-button" href="useful.html"><span>Making a Logo</span></a>
 				<a class="menu-link-button" href="portfolio.html"><span>Portfolio</span></a>
@@ -46,29 +47,90 @@
 			</nav>
 		
 		<main>
-			<a class="panel panel-link" href="logos.html">
-				<h2>Offical Logos</h2>
-				<p>Look at and download all of the Offical Minecraft Logos.
+			<div class="panel-large-info2">
+				<h2>		A more indepth tutorial
+				</h2>
+				<p>
+		
+		Made by @cRxPtiCz<br>
+
+		<br><b><u>Text:</u></b>
+		<br>Font: MC Ten lowercase regular
+		<br>Size: 180
+		<br>Make sure to color the text before making it 3d
+		<br>Center Text
+		<br>3d fx -> 3D and Materials -> 3D (Classic) -> Extrude and Bevel (Classic)
+		<br>Angle: 34
+		<br>Perspective: 60
+		<br>Extrude Depth: 80
+		<br>If faces are missing, set the middle angle to 0.001 and press "OK"
+		<br>Object -> Expand Appearance
+		<br>
+		<br><b><u>Stroke:</u></b>
+		<br>Select text
+		<br>Copy text and paste in place (Ctrl C + Ctrl Shift V)
+		<br>Window -> Pathfinder -> Compound Shape; 1st button on top with 2 white squares
+		<br>Color (Darker than text)
+		<br>Object -> Path -> Offset Path -> 10px or whatever looks good
+		<br>Select all and Make Compound Shape
+		<br>Put stroke layer on bottom
+		<br>
+		<br><b><u>Too many faces:</u></b>
+		<br>Select all inner text paths and delete them.
+		<br>
+		<br><b><u>Bevel:</u></b>
+		<br>Select all faces
+		<br>Make compound shape (Window -> Pathfinder -> Compound shape; 1st button on top with 2 white squares.)
+		<br>Copy faces and Paste in place (Ctrl + Shift + V)
+		<br>3D fx -> 3D and Materials -> 3D (Classic) -> Classic Extrude and Bevel
+		<br>Reset everything (Angles & Perspective) to 0 and add a Classic bevel
+		<br>Bevel height should be 4 or 5 if you're using 180 text size.
+		<br>Object -> Expand Appearance
+		<br>Select inner faces and delete them
+		<br>Change color of bevel by selecting them all individually. (Top + bottom = lighter, Sides = darker)
+		<br>
+		<br><b><u>Shine:</u></b>
+		<br>Make a WHITE rectangle and resize to however you want
+		<br>Select the rectangles and faces of the letters
+		<br>Click shape builder tool
+		<br>Hold alt and click on the parts outside of the face/letter
+		<br>For overlay: Select the rectangles and go to Window -> Transparency
+		<br>Where it says "Normal", click the dropdown menu and select "Overlay"
+		<br>Rectangle Opacity: 100
+		<br>Gradient Opacity: 100 to 0 (Gradient fades from white to the bottom color of the text, e.g. white -> red)
+		<br>
+		<br><b><u>Grid/Texture & Coloring:</u></b>
+		<br>Make a grid using the rectangle grid tool
+		<br>Set height of grid to 9
+		<br>Add up the width of all letters & spaces inbetween letters using the cheat sheet
+		<br>Set width of grid to the sum of the letters + spaces, then minus 1. (ex: 37-1=36)
+		<br>Press E to resize grid and match corners
+		<br>Press K to show the live paint bucket tool
+		<br>Draw on your grid using the paint bucket with your desired color.
+		<br>
+		<br><b><u>Smaller Grid:</u></b>
+		<br>Follow directions above
+		<br>Height = 59 (10x6-1)
+		<br>Width = Your original number (ex: 44) times 6 (ex: 44x6 = 264), then minus 1. (263)
+		<br>	
+		<br><b><u>Bottom rectangle & small text:</u></b>
+		<br>Make a rectangle and color it
+		<br>Add a black stroke around the rectangle using the stroke tutorial above
+		<br>Object -> Expand Appearance
+		<br>Select bottom face of rectangle and make it gradient to black
+		<br>OPTIONAL: Select front face and make bevel using the bevel tutorial above
+		<br>Make text with MC Five Lowercase Bold font
+		<br>Center text
+		<br>Select text and extrude it; angle 34
+		<br>
+		<br><b><u>Exporting:</u></b>
+		<br>File -> Export -> Export As
+		<br>Resolution: High (300 ppi)
+		<br>Anti-aliasing: Art Optimized (Supersampling)
+		<br>Check the "Interlaced" box
+		<br>Background Color: Transparent
 				</p>
-			</a>
-			<a class="panel panel-link" href="useful.html">
-				<h2>Making a Logo</h2>
-				<p>Useful links, files and other resources to help you create your ownMinecraft logo.
-				</p>
-			</a>
-			<a class="panel panel-link" href="portfolio.html">
-				<h2>Portfolio</h2>
-				<p>Take a look at what I can do!</p>
-			</a>
-			<a class="panel panel-link" href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title"
-				target="_blank">
-				<h2>Commissions</h2>
-				<p>Purchase your own unique custom Minecraft logo starting at $10!</p>
-			</a>
-			<div class="panel-large-image">
-				<h2>About me</h2>
-				<p>Hi there! I'm MrBrose and I am a graphic designer with a passion for all things Minecraft. I have utilised my design skills to create stunning and eye-catching minecraft logos for clients. Whether you're looking for a custom logo for your server, YouTube channel, or just for fun, I'm here to bring your vision to life. I take pride in delivering high-quality designs that not only look amazing but also accurately reflect the vanilla look. I am dedicated to making sure every customer is happy with the final product, and I am always open to feedback and revisions. So, if you're in need of a Minecraft title logo, look no further.  </p>
-				<img src="images/Render.webp" alt="">
+				<img src="images/" alt="">
 			</div>
 		</main>
 		<footer>

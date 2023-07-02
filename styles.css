@@ -6,8 +6,8 @@
 	src: url(./fonts/minecraft10.ttf);
 }
 @font-face {
-	font-family:minecraft5;
-	src: url(./fonts/minecraft5.ttf);
+	font-family:notosans;
+	src: url(./fonts/NotoSans-bold.ttf);
 }
 
 /* global styles */
@@ -30,7 +30,7 @@
 	--colour-secondary: #06ffd9;
 	--colour-secondary-dark: #009982;
 
-	--animation-time: 0.65s;
+	--animation-time: 0.45s;
 	--short-animation-time: 0.1s;
 
 	--footer-height: 1.5rem;
@@ -42,10 +42,10 @@ body {
 	margin: 0;
 	background: var(--colour-bg-normal);
 	min-height: 100vh;
-	font-family: 'minecraft10', sans-serif;
+	font-family: 'minecraft10', notosans;
 }
 html[page=portfolio] body{
-	background-image: linear-gradient(#3c4250,#3c4250);
+	background-image: linear-gradient(#3c4250,#2c2e3a);
 }
 html[page=home] body{
 	background-image: linear-gradient(#3c4250,#3c4250);
@@ -87,6 +87,7 @@ header .logo:focus-visible > img{
 
 header .logo > img {
 	width: 50px;
+	font-weight: normal;
 	height: 50px;
 	display: block;
 	padding-left: 0em;
@@ -163,7 +164,7 @@ header > label{
 #menuCheckbox:checked + header > label .burger-menu{
 	/* transform: rotate(0turn); */
 	/* transform: rotate(0.25turn); */
-	transform: rotate(0.5turn);
+	transform: rotate(0.0turn);
 	/* transform: rotate(1turn); */
 	/* transform: rotate(2turn); */
 	/* transform: rotate(3turn); */
@@ -200,6 +201,10 @@ header > label{
 	animation: slide var(--animation-time);
 	display:flex;
 }
+#menuCheckbox:checked ~ .menu-content::after{
+	content: "";
+	background-color: rgba(0,0,0,0.4);
+}
 #menuCheckbox:not(:checked) ~ .menu-content.hidden{
 	display: none;
 }
@@ -216,9 +221,10 @@ header > label{
 	padding: .7em 0;
 	width:100%;
 	height:min-content;
+	font-weight: normal;
 	background-color:var(--colour-bg-xdark);
 	text-align:center;
-	color:var(--colour-text-white);
+	color: #a0a7b9;
 	font-size: 1.65rem;
 	text-decoration: none;
 }
@@ -273,6 +279,7 @@ main{
 
 
 .panel h2 {
+	font-weight: normal;
 	text-align: center;
 	margin: 0 0 .2em;
 	padding: .25em;
@@ -288,7 +295,7 @@ main{
 	margin: 0;
 	font-size: 1rem;
 	color: var(--colour-text-dark);
-	font-family: "minecraft5";
+	font-family: "notosans";
 }
 
 /* link panels */
@@ -321,6 +328,7 @@ main{
 	font-size: 2rem;
 }
 .panel-link-1 h2{
+	font-weight: normal;
 	color: var(--colour-text-light);
 }
 
@@ -334,19 +342,35 @@ main{
 
 .panel-link-2 {
 	background: #2c2e3a;
-	width: 10em;
+	width: 1000em;
 	transition: scale var(--short-animation-time),opacity var(--short-animation-time);
 	cursor: pointer;
 	text-align: center;
 	padding: 0.0em;
 	letter-spacing: .015em;
 	font-weight: 100;
-	font-size: 2rem;
-	padding-left: 5em;
-	padding-right: 5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-bottom: 1.6em;
+	padding-top: 0.5em;
 }
 .panel-link-2 h2{
 	color: var(--colour-text-light);
+	font-size: 3rem;
+	text-align: center;
+	font-weight: normal;
+	
+}
+
+.panel-link-2 h2 img{
+	position: absolute;
+	display: block;
+	height: 0.9em;
+}	
+.panel-link-2 p{
+	color: #5d6379;
+	font-size: 1.3rem;
+	
 }
 
 .panel-link-2:hover,
@@ -373,17 +397,19 @@ main{
 .panel-large-image h2 {
 	text-align: left;
 	grid-area: title;
-	color: #757e96;
-	font-size: 2.5em;
+	color: #a0a7b9;
+	font-weight: normal;
+	font-size: 2.6em;
 	margin: 1em 0 0.4em;
+	
 }
 
 .panel-large-image p {
 	margin: 0;
 	text-align: left;
 	grid-area: text;
-	color: #7f89a2;
-	font-family: minecraft5;
+	color: #a0a7b9;
+	font-family: notosans;
 	font-size: 1em;
 }
 
@@ -391,6 +417,96 @@ main{
 	max-height: 20em;
 	grid-area: image;
 	margin: 1em;
+}
+
+/* panel-large-info */
+
+
+.panel-large-info {
+	width: 90em;
+	display: grid;
+	grid-template-areas: "title image" "text image";
+	grid-template-rows: min-content 1fr;
+	padding-bottom: 0;
+	font-size: 1.1rem;
+	margin: 0 auto;
+}
+
+
+.panel-large-info h2 {
+	text-align: center;
+	grid-area: title;
+	color: #a0a7b9;
+	font-size: 3.2em;
+	margin: 0em 0 0.0em;
+	font-weight: normal;
+}
+
+
+.panel-large-info p {
+	margin: 0;
+	text-align: center;
+	grid-area: text;
+	color: #a0a7b9;
+	font-family: notosans;
+	font-size: 1em;
+	padding-right: 15em;
+	padding-left: 15em;
+}
+
+.panel-large-info img{
+	max-height: 29.1em;
+	grid-area: image;
+	padding-top: 0.3em;
+}
+.panel-large-info iframe{
+	padding-top: 0.3em;
+}
+
+
+/* panel-large-info2 */
+
+
+.panel-large-info2 {
+	width: 90em;
+	display: grid;
+	grid-template-areas: "title image" "text image";
+	grid-template-rows: min-content 1fr;
+	padding-bottom: 0;
+	font-size: 1.1rem;
+	margin: 0 auto;
+}
+
+
+.panel-large-info2 h2 {
+	font-weight: normal;
+	text-align: left;
+	grid-area: title;
+	color: #a0a7b9;
+	font-size: 3.2em;
+	margin: 0em 0 0.4em;
+	padding-left: 1em;
+}
+
+
+.panel-large-info2 p {
+	margin: 0;
+	text-align: left;
+	grid-area: text;
+	color: #a0a7b9;
+	font-family: notosans;
+	font-size: 1em;
+	padding-left: 3.2em;
+
+}
+
+.panel-large-info2 img{
+	max-height: 29.1em;
+	grid-area: image;
+	padding-top: 0.3em;
+}
+.panel-large-info2 iframe{
+	padding-top: 0.3em;
 }
 
 
@@ -404,6 +520,7 @@ main{
 	width: 100%;
 
 }
+
 
 /* download panels */
 
@@ -426,6 +543,7 @@ main{
 	margin: .5em 0;
 }
 .download-pannel > h2{
+	font-weight: normal;
 	grid-area: title;
 	border-bottom: 2px solid var(--colour-primary);
 	margin: 0;
@@ -510,18 +628,18 @@ main{
 	flex-direction: column;
 	width: 100%;
 	/* gap: 20em; */
-	overflow: hidden;
+	/* overflow: hidden; */
 	margin: -2em 10em 0;
 }
 
 .logo-wrapper{
-	height: 100vh;
+	height: 33vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: -12.5vh 0;
-	scroll-snap-align: start;
+	margin: 24.5vh 0;
+	scroll-snap-align: center;
 }
 .logo-image{
 	width: 100%;
@@ -606,3 +724,4 @@ footer ul a{
 	height: 1px;
 	display: block;
 }
+

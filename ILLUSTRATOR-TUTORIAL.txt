@@ -1,0 +1,79 @@
+Illustrator Logos
+Made by @cRxPtiCz
+Note: You should know a little bit about illustrator before reading this, although you don't need to know a lot.
+
+Text:
+Font: MC Ten lowercase regular
+Size: 180
+Make sure to color the text before making it 3d
+Center Text
+3d fx -> 3D and Materials -> 3D (Classic) -> Extrude and Bevel (Classic)
+Angle: 34
+Perspective: 60
+Extrude Depth: 80
+If faces are missing, set the middle angle to 0.001 and press "OK"
+Object -> Expand Appearance
+
+Stroke:
+Select text
+Copy text and paste in place (Ctrl C + Ctrl Shift V)
+Window -> Pathfinder -> Compound Shape; 1st button on top with 2 white squares
+Color (Darker than text)
+Object -> Path -> Offset Path -> 10px or whatever looks good
+Select all and Make Compound Shape
+Put stroke layer on bottom
+
+Too many faces:
+Select all inner text paths and delete them.
+
+Bevel:
+Select all faces
+Make compound shape (Window -> Pathfinder -> Compound shape; 1st button on top with 2 white squares.)
+Copy faces and Paste in place (Ctrl + Shift + V)
+3D fx -> 3D and Materials -> 3D (Classic) -> Classic Extrude and Bevel
+Reset everything (Angles & Perspective) to 0 and add a Classic bevel
+Bevel height should be 4 or 5 if you're using 180 text size.
+Object -> Expand Appearance
+Select inner faces and delete them
+Change color of bevel by selecting them all individually. (Top + bottom = lighter, Sides = darker)
+
+Shine:
+Make a WHITE rectangle and resize to however you want
+Select the rectangles and faces of the letters
+Click shape builder tool
+Hold alt and click on the parts outside of the face/letter
+For overlay: Select the rectangles and go to Window -> Transparency
+Where it says "Normal", click the dropdown menu and select "Overlay"
+Rectangle Opacity: 100
+Gradient Opacity: 100 to 0 (Gradient fades from white to the bottom color of the text, e.g. white -> red)
+
+Grid/Texture & Coloring:
+Make a grid using the rectangle grid tool
+Set height of grid to 9
+Add up the width of all letters & spaces inbetween letters using the cheat sheet
+Set width of grid to the sum of the letters + spaces, then minus 1. (ex: 37-1=36)
+Press E to resize grid and match corners
+Press K to show the live paint bucket tool
+Draw on your grid using the paint bucket with your desired color.
+
+Smaller Grid:
+Follow directions above
+Height = 59 (10x6-1)
+Width = Your original number (ex: 44) times 6 (ex: 44x6 = 264), then minus 1. (263)
+
+Bottom rectangle & small text:
+Make a rectangle and color it
+Add a black stroke around the rectangle using the stroke tutorial above
+Object -> Expand Appearance
+Select bottom face of rectangle and make it gradient to black
+OPTIONAL: Select front face and make bevel using the bevel tutorial above
+Make text with MC Five Lowercase Bold font
+Center text
+Select text and extrude it; angle 34
+
+Exporting:
+File -> Export -> Export As
+Resolution: High (300 ppi)
+Anti-aliasing: Art Optimized (Supersampling)
+Check the "Interlaced" box
+Background Color: Transparent
