@@ -371,7 +371,7 @@ main{
 }
 
 
-iframe[component^=youtube-embed] {
+iframe[component^=video-embed] {
 	width: 100%;
 	aspect-ratio: var(--aspect-ratio);
 }
@@ -391,6 +391,10 @@ iframe[component^=youtube-embed] {
 [component^=text-block] p {
 	font-family: notosans, system-ui;
 }
+[component^=text-block] img {
+	width: 100%;
+}
+
 
 [component^=image-list] {
 	width: 60%;
