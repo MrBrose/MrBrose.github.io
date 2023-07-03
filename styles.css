@@ -297,7 +297,6 @@ main{
 
 
 [component^=panel] h2 {
-	font-weight: normal;
 	text-align: center;
 	margin: 0 0 .2em;
 	padding: .25em;
@@ -318,6 +317,7 @@ main{
 
 /* .panel-link */
 [component^=panel-link] {
+	--scale: 1.1;
 	flex-basis: 18em;
 	transition: scale var(--short-animation-time);
 	cursor: pointer;
@@ -325,7 +325,13 @@ main{
 
 [component^=panel-link]:hover,
 [component^=panel-link]:focus-visible {
-	scale: 1.1;
+	scale: var(--scale);
+}
+
+[component^=panel-link-small] {
+	flex-basis: 0;
+	padding: 0;
+	--scale: 1.03;
 }
 
 /* about me */
