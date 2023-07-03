@@ -74,16 +74,17 @@ header *{
 	box-sizing: content-box;
 }
 header {
-	overflow: hidden;
-	background-color: var(--colour-bg-dark);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	z-index: 15;
 	position: sticky;
 	top: 0;
 
 	box-shadow: 0 -2.1em 1em 2em #2c2e3a;
+}
+header .top-bar{
+	background-color: var(--colour-bg-dark);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 header .logo{
 	transition: scale var(--short-animation-time);
@@ -131,8 +132,8 @@ header .menu>img{
 	display: none;
 }
 
-header > a,
-header > label{
+header .top-bar > a,
+header .top-bar > label{
 	padding: 1px 10px;
 }
 
@@ -141,17 +142,15 @@ header > label{
 .burger-bar{
 	transform-origin: center;
 	--one-way-animation-time: 0s;
-	transition: transform var(--animation-time) ease-in-out 0s, opacity 0s linear var(--one-way-animation-time);
+	transition: scale var(--short-animation-time), transform var(--animation-time) ease-in-out 0s, opacity 0s linear var(--one-way-animation-time);
 	opacity: 1;
-	
 }
 
 .menu{
-	transition: scale var(--short-animation-time);
+	overflow: hidden;
 }
 
-.menu:hover,
-.menu:focus-visible{
+.menu:is(:hover,:focus-visible) .burger-bar{
 	scale: 1.075;
 	outline: none;
 }
@@ -161,21 +160,21 @@ header > label{
 }
 
 
-#menuCheckbox:checked + header > label .burger-menu .burger-bar.top{
+#menuCheckbox:checked + header .top-bar > label .burger-menu .burger-bar.top{
 	transform: rotate(45deg) translate(0,calc(21%));
 	opacity: 0;
 	--one-way-animation-time: var(--animation-time);
 }
 
-#menuCheckbox:checked + header > label .burger-menu .burger-bar.mid{
+#menuCheckbox:checked + header .top-bar > label .burger-menu .burger-bar.mid{
 	transform: rotate(45deg) ;
 }
 
-#menuCheckbox:checked + header > label .burger-menu .burger-bar.low{
+#menuCheckbox:checked + header .top-bar > label .burger-menu .burger-bar.low{
 	transform: rotate(135deg) translate(0,calc(4 / 18 * -100%));
 }
 
-#menuCheckbox:checked + header > label .burger-menu{
+#menuCheckbox:checked + header .top-bar > label .burger-menu{
 	/* transform: rotate(0turn); */
 	/* transform: rotate(0.25turn); */
 	transform: rotate(0.0turn);
@@ -194,15 +193,17 @@ header > label{
 	transform-origin: center;
 }
 
-#menuCheckbox:not(:checked) ~ .menu-content{
+#menuCheckbox:not(:checked) ~ header .menu-content{
 	transform: translateY(-100%);
 }
-.menu-content{
+header .menu-content{
 	display:flex;
 	flex-direction: column;
 	background:var(--colour-bg-xdark);
-	position:relative;
-	z-index: 10;
+	position:absolute;
+	right: 0;
+	top: 100%;
+	z-index: -1;
 	width:17em;
 	height:min-content;
 	border-top: none;
@@ -210,17 +211,15 @@ header > label{
 	transform: translateY(0);
 	transition: transform var(--animation-time);
 	margin-left: auto;
-	grid-row-start: 2;
-	grid-column-start: 1;
 }
-#menuCheckbox:checked ~ .menu-content{
+#menuCheckbox:checked ~ header .menu-content{
 	animation: slide var(--animation-time);
 }
-#menuCheckbox:checked ~ .menu-content::after{
+#menuCheckbox:checked ~ header .menu-content::after{
 	content: "";
 	background-color: rgba(0,0,0,0.4);
 }
-#menuCheckbox:not(:checked) ~ .menu-content.hidden{
+#menuCheckbox:not(:checked) ~ header .menu-content.hidden{
 	display: none;
 }
 @keyframes slide {
@@ -268,8 +267,6 @@ main{
 	--gap: 2em;
 	padding: var(--gap);
 	overflow-x: hidden;
-	grid-row-start: 2;
-	grid-column-start: 1;
 }
 [horz], [vert]{
 	display: flex;
@@ -283,8 +280,6 @@ main{
 	flex-direction: column;
 	justify-content: flex-start;
 }
-
-/* panel about me */
 
 [component^=panel] {
 	background: var(--colour-bg-light);
@@ -332,6 +327,8 @@ main{
 	scale: 1.1;
 }
 
+/* about me */
+
 .about-me {
 	max-width: 60em;
 	display: grid;
@@ -340,6 +337,7 @@ main{
 	padding-bottom: 0;
 	font-size: 1.1rem;
 	margin: 0 auto;
+	padding-left: 3em;
 }
 
 .about-me h2 {
@@ -348,8 +346,7 @@ main{
 	color: var(--colour-text-xlight);
 	font-weight: normal;
 	font-size: 2.6em;
-	margin: 1em 0 0.4em;
-	
+	margin: 1em 0 0.4em;	
 }
 
 .about-me p {
