@@ -48,8 +48,8 @@ body {
 	min-height: 100vh;
 	font-family: 'minecraft10', notosans, system-ui;
 	scroll-behavior: smooth;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
 }
 * {
 	box-sizing: border-box;
@@ -76,7 +76,6 @@ header *{
 header {
 	overflow: hidden;
 	background-color: var(--colour-bg-dark);
-	/* padding: 20px 10px; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -202,19 +201,20 @@ header > label{
 	display:flex;
 	flex-direction: column;
 	background:var(--colour-bg-xdark);
-	position:fixed;
+	position:relative;
 	z-index: 10;
 	width:17em;
 	height:min-content;
 	border-top: none;
 	border-bottom: none;
-	right: 0;
 	transform: translateY(0);
 	transition: transform var(--animation-time);
+	margin-left: auto;
+	grid-row-start: 2;
+	grid-column-start: 1;
 }
 #menuCheckbox:checked ~ .menu-content{
 	animation: slide var(--animation-time);
-	display:flex;
 }
 #menuCheckbox:checked ~ .menu-content::after{
 	content: "";
@@ -268,7 +268,8 @@ main{
 	--gap: 2em;
 	padding: var(--gap);
 	overflow-x: hidden;
-	flex: 1 0 auto;
+	grid-row-start: 2;
+	grid-column-start: 1;
 }
 [horz], [vert]{
 	display: flex;
