@@ -369,6 +369,29 @@ main{
 	}
 }
 
+
+iframe[component^=youtube-embed] {
+	width: 100%;
+	aspect-ratio: var(--aspect-ratio);
+}
+
+
+[component^=text-block] {
+	width: 100%;
+	max-width: 60em;
+	margin: 0 auto;
+	text-align: center;
+	color: var(--colour-text-xlight);
+}
+[component^=text-block] h2 {
+	font-size: 3.2em;
+	margin: 0;
+}
+[component^=text-block] p {
+	font-family: notosans, system-ui;
+}
+
+
 /* footer */
 footer{
 	width: 100%;
