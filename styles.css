@@ -152,7 +152,7 @@ header .top-bar > label{
 }
 
 .menu:is(:hover,:focus-visible) .burger-bar{
-	scale: 1.075;
+	scale: 1.15;
 	outline: none;
 }
 
