@@ -1,8 +1,0 @@
-For the main top text:	Minecraft Logotype.ttf
-
-For the Bottom text/update text:   Minecraft Subtitle.ttf
-
-For the middle/edition text:   MinecraftFive-Bold.ttf
-
-
-Also check out the other ones, there are some fun and useful fonts that I haven't mentioned which you might like...
