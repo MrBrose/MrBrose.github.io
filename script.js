@@ -11,12 +11,14 @@ Number.prototype.clamp = function (min, max) {
 var menuCheckbox = document.getElementById("menuCheckbox");
 menuCheckbox.checked = false;
 var menuContent = document.getElementById("menuContent");
-var dialog = document.querySelector("dialog");
+var header = document.querySelector("header");
+var main = document.querySelector("main");
+var footer = document.querySelector("footer");
+var menuLabel = document.querySelector(".menu[for=\"menuCheckbox\"]")
+
 menuCheckbox.addEventListener('change', e => {
 	menuContent.classList.remove("hidden");
 	if (!e.target.checked) {
-
-		
 
 		var value = window.getComputedStyle(menuContent).getPropertyValue("--animation-time");
 		if (value.endsWith("ms")) {
@@ -30,8 +32,17 @@ menuCheckbox.addEventListener('change', e => {
 			menuContent.classList.add("hidden");
 		}, value);
 	}
+	main.toggleAttribute("inert");
+	footer.toggleAttribute("inert");
 });
-menuLabel = document.querySelector(".menu[for=\"menuCheckbox\"]")
+
+header.addEventListener("click", e => {
+	if (menuCheckbox.checked && e.clientY > header.getBoundingClientRect().bottom){
+		menuCheckbox.checked = !menuCheckbox.checked;
+		menuCheckbox.dispatchEvent(new Event("change"));
+	}
+});
+
 menuLabel.addEventListener("keydown", e => {
 	if (e.key == " " || e.key == "Enter" || (menuCheckbox.checked && e.key == "Escape")) {
 		menuCheckbox.checked = !menuCheckbox.checked;
@@ -75,36 +86,3 @@ menuLabel.addEventListener("keydown", e => {
 		}
 	})
 });
-
-// const lerp = (point, start, end) => start + ((end - start) * point);
-// const inverseLerp = (
-// 	newMax,
-// 	newMin,
-// 	oldMax,
-// 	oldMin,
-// 	value
-// ) => lerp((value - oldMin) / (oldMax - oldMin), newMin, newMax)
-
-// var scrolly = document.getElementById("scrolly");
-
-// if (scrolly !== null) {
-// 	scrolly.addEventListener("scroll", e => {
-// 		// window.pageYOffset;
-// 		[...document.getElementsByClassName("scales-with-scroll")].forEach(el => {
-// 			var rect = el.getBoundingClientRect();
-// 			if (
-// 				rect.top + window.scrollY > window.pageYOffset + window.innerHeight ||
-// 				rect.bottom + window.scrollY < window.pageYOffset
-// 			) {
-// 				return;
-// 			}
-// 			var centre = rect.top + window.scrollY + (rect.height / 2);
-// 			var pageYCentre = window.pageYOffset + (window.innerHeight / 2);
-// 			var oldMin = centre > pageYCentre ? rect.top + window.scrollY : rect.top + window.scrollY + rect.height;
-// 			el.style.setProperty(
-// 				"--scale",
-// 				inverseLerp(1, 0.5, centre, oldMin, pageYCentre).clamp(0.5, 1)
-// 			);
-// 		});
-// 	});
-// }
