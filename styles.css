@@ -78,14 +78,13 @@ header {
 	z-index: 15;
 	position: sticky;
 	top: 0;
-
-	box-shadow: 0 -2.1em 1em 2em #2c2e3a;
 }
 header .top-bar{
 	background-color: var(--colour-bg-dark);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 0 -2.1em 1em 2em #2c2e3a;
 }
 header .logo{
 	transition: scale var(--short-animation-time);
