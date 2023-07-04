@@ -213,7 +213,7 @@ header .menu-content{
 }
 #menuCheckbox ~ header::after{
 	content: "";
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 	display: block;
 	position: absolute;
 	top: 0;
@@ -246,7 +246,7 @@ header .menu-content{
 	padding: .7em 0;
 	width:100%;
 	height:min-content;
-	font-weight: normal;
+	font-weight: 100;
 	background-color:var(--colour-bg-xdark);
 	text-align:center;
 	color: var(--colour-text-light);
