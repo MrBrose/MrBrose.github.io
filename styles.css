@@ -400,6 +400,12 @@ iframe[component^=video-embed] {
 [component^=text-block] img {
 	width: 100%;
 }
+[component^=text-block-instructions] {
+	text-align: left;
+}
+[component^=text-block-instructions] p {
+	margin: 0;
+}
 
 
 [component^=image-list] {
