@@ -28,8 +28,6 @@
 
 	--colour-primary: #ffffff;
 	--colour-primary-dark: #008299;
-	--colour-secondary: #06ffd9;
-	--colour-secondary-dark: #009982;
 
 	--animation-time: 0.45s;
 	--short-animation-time: 0.1s;
@@ -400,6 +398,7 @@ iframe[component^=video-embed] {
 	color: var(--colour-text-xlight);
 }
 [component^=text-block] h2 {
+	font-weight: 100;
 	font-size: 3.2em;
 	margin: 0;
 }
@@ -423,6 +422,7 @@ iframe[component^=video-embed] {
 	margin: 1em 0;
 }
 [component^=image-list] h2{
+	font-weight: 100;
 	font-size: 1.8em;
 	text-align: center;
 	margin: 0;
