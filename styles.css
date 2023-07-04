@@ -318,7 +318,7 @@ main{
 /* .panel-link */
 [component^=panel-link] {
 	--scale: 1.1;
-	flex-basis: 18em;
+	flex-basis: 17em;
 	transition: scale var(--short-animation-time);
 	cursor: pointer;
 }
