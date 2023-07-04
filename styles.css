@@ -403,8 +403,9 @@ iframe[component^=video-embed] {
 
 
 [component^=image-list] {
-	width: 60%;
-	margin: 0 auto;
+	width: 100%;
+	padding: 0 calc((100% - var(--width,60%)) / 2);
+	margin: 1em 0;
 }
 [component^=image-list] h2{
 	font-size: 1.8em;
@@ -416,6 +417,35 @@ iframe[component^=video-embed] {
 	width: 100%;
 	margin-top: 2.5em;
 }
+
+/* TODO: remove this dirty has selecctor fallback when firefox adds support (which they claimed was the first half of 2023 however it is now the second half and still no :has) */
+body{ height: 100vh; }
+@supports selector(body:has(>.snap-scroll)) {
+	body{ height: auto; }
+	/* this selector is the only one that is nessisary once FIREFOX adds suport for :has */
+	body:has(>.snap-scroll) {
+		height: 100vh;
+	}
+}
+
+.snap-scroll{
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	margin: 0;
+}
+
+.snap-scroll > *{
+	height: 100%;
+	max-height: 40em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	scroll-snap-align: center;
+	scroll-behavior: smooth;
+	--width: 70%;
+}
+
 
 /* footer */
 footer{
