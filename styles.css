@@ -474,6 +474,9 @@ body{ height: 100vh; }
 	--width: 70%;
 }
 
+.snap-scroll img{
+	margin: 0;
+}
 
 /* footer */
 footer{
