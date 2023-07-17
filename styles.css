@@ -57,7 +57,7 @@ body.rad-grad{
 	background-image: radial-gradient(#3c4250, #2c2e3a);
 }
 body.linear-grad{
-	background-image: linear-gradient(#353946,#353946,#353a49,#394161,#455b83);
+	background-image: linear-gradient(#2d303a,#353946,#353946,#353946,#353946,#353a49,#363c53,#3a4964);
 }
 
 a:focus-visible{
