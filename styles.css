@@ -57,7 +57,7 @@ body.rad-grad{
 	background-image: radial-gradient(#3c4250, #2c2e3a);
 }
 body.linear-grad{
-	background-image: linear-gradient(#353946,#3c4250);
+	background-image: linear-gradient(#353946,#353946,#353a49,#394161,#455b83);
 }
 
 a:focus-visible{
@@ -66,6 +66,16 @@ a:focus-visible{
 a{
 	color: #8ab4f8;
 }
+
+
+
+#dust{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
 
 /* header */
 
