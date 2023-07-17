@@ -441,9 +441,31 @@ iframe[component^=video-embed] {
 	margin: 0;
 	color: var(--colour-text-xlight);
 }
+[component^=image-list] p{
+	font-weight: 100;
+	font-size: 1.2em;
+	text-align: center;
+	margin: 0;
+	font-family: notosans;
+	color: var(--colour-text-light);
+}
 [component^=image-list] img{
 	width: 100%;
 	margin-top: 2.5em;
+}
+[component^=image-list] div{
+position: relative;
+}
+[component^=image-list] div:has( > img[src$=".svg"])::after{
+	content: "svg";
+	position: absolute;
+	transform: translateY(-50%);
+	top: 50%;
+margin-left: 2em;
+	background-color: var(--colour-text-dark);
+	padding: .2em .4em .4em;
+	border-radius: .4em;
+
 }
 
 /* TODO: remove this dirty has selecctor fallback when firefox adds support (which they claimed was the first half of 2023 however it is now the second half and still no :has) */
