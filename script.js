@@ -95,15 +95,24 @@ let previousTimeStamp;
 let particles=[];
 
 const MIN_SIZE=2;			// pixels
-const MAX_SIZE=10;			// pixels
-const MIN_VEL=0.01;
-const MAX_VEL=0.1;
+const MAX_SIZE=10;
+
+const MIN_XVEL=0.01;
+const MAX_XVEL=0.07;
+
+const MIN_YVEL=0.01;
+const MAX_YVEL=0.13;
+
 const MIN_ALPHA=.0;			// 0 < x < 1
-const MAX_ALPHA=.2;
+const MAX_ALPHA=.15;
+
 const PARTICLES_PER_PIXEL=0.05;
+
 const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
 const PARTICLE_B = 255;
+
+const CLICK_AMOUNT = 7;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
@@ -113,10 +122,10 @@ function createParticle(defaultObj={}){
 		Y: defaultObj.Y || (pos<dustCanvas.height? pos:dustCanvas.height),
 		velX: defaultObj.velX || (
 			defaultObj.both ? (Math.random() > .5 ? 1 : -1) : 1
-		) * (Math.random()*(MAX_VEL-MIN_VEL)+MIN_VEL),
+		) * (Math.random()*(MAX_XVEL-MIN_XVEL)+MIN_XVEL),
 		velY: defaultObj.velY || (
 			defaultObj.both ? (Math.random() > .5 ? 1 : -1) : 1
-		) * (-Math.random()*(MAX_VEL-MIN_VEL)-MIN_VEL),
+		) * (-Math.random()*(MAX_YVEL-MIN_YVEL)-MIN_YVEL),
 		alpha: defaultObj.alpha || ( Math.random()*(MAX_ALPHA-MIN_ALPHA)+MIN_ALPHA),
 	}, defaultObj));
 }
@@ -163,8 +172,9 @@ function resizeCanvas(){
 if (dustCanvas !== null) {addEventListener("load", ()=>{
 	window.addEventListener("resize",resizeCanvas);
 	resizeCanvas();
-	createParticles(PARTICLES_PER_PIXEL*dustCanvas.height);
+	for (let i = 0; i < PARTICLES_PER_PIXEL*dustCanvas.height; i++)
+	{createParticle({X: dustCanvas.width * Math.random(), Y: dustCanvas.height * Math.random()})}
 	window.requestAnimationFrame(renderCanvas);
 	
-	document.addEventListener("mousedown", e=>createParticles(7,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
+	document.addEventListener("mousedown", e=>createParticles(CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
 });}
