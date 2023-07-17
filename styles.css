@@ -119,6 +119,8 @@ header .logo > img {
 }
 
 header .title {
+	max-width: 50%;
+	object-fit: contain;
 	color: var(--colour-text-light);
 	font-size: 95px;
 	margin: 0;
