@@ -106,7 +106,7 @@ const MAX_YVEL=0.13;
 const MIN_ALPHA=.0;			// 0 < x < 1
 const MAX_ALPHA=.15;
 
-const PARTICLES_PER_PIXEL=0.05;
+const PARTICLES_PER_PIXEL=5.05;
 
 const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
@@ -175,6 +175,16 @@ function resizeCanvas(){
 }
 
 
+function makeParticlesScaredOfPoint(x,y){particles.forEach(p=>{
+	let dist = Math.sqrt((p.X - x)**2 + (p.Y - y)**2);
+
+	let dirX = (p.X - x)/dist;
+	let dirY = (p.Y - y)/dist;
+
+	p.fadeVelX = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirX;
+	p.fadeVelY = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirY;
+}); }
+
 if (dustCanvas !== null) {addEventListener("load", ()=>{
 	window.addEventListener("resize",resizeCanvas);
 	resizeCanvas();
@@ -183,23 +193,8 @@ if (dustCanvas !== null) {addEventListener("load", ()=>{
 	window.requestAnimationFrame(renderCanvas);
 	
 
-	let mousePos;
-	document.addEventListener("mousemove", e=> {
-		if (mousePos == undefined){
-			mousePos = {X:e.pageX,Y:e.pageY};
-			return;
-		}
-
-		particles.forEach(p=>{
-			let dist = Math.sqrt((p.X - e.pageX)**2 + (p.Y - e.pageY)**2);
-		
-			let dirX = (p.X - e.pageX)/dist;
-			let dirY = (p.Y - e.pageY)/dist;
-		
-			p.fadeVelX = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirX;
-			p.fadeVelY = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirY;
-		});
-	});
+	document.addEventListener("mousemove", e=>makeParticlesScaredOfPoint(e.pageX,e.pageY));
+	document.addEventListener("touchmove", e=>makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
 
 	document.addEventListener("mousedown", e=>createParticles(CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
 });}
