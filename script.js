@@ -114,6 +114,8 @@ const PARTICLE_B = 255;
 
 const CLICK_AMOUNT = 7;
 
+const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 20.5;
+
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
 	particles.push(Object.assign({
@@ -127,6 +129,8 @@ function createParticle(defaultObj={}){
 			defaultObj.both ? (Math.random() > .5 ? 1 : -1) : 1
 		) * (-Math.random()*(MAX_YVEL-MIN_YVEL)-MIN_YVEL),
 		alpha: defaultObj.alpha || ( Math.random()*(MAX_ALPHA-MIN_ALPHA)+MIN_ALPHA),
+		fadeVelY: 0,
+		fadeVelX: 0,
 	}, defaultObj));
 }
 function createParticles(amount, defaultObj={}){for (let i = 0; i < amount; i++) {createParticle(defaultObj)}}
@@ -147,8 +151,10 @@ function renderCanvas(timeStamp) {
 	let oldParticleLen = particles.filter(p=>!p.mouseMade).length;
 
 	particles=particles.map(particle=>{
-		particle.X+=particle.velX*dt;
-		particle.Y+=particle.velY*dt;
+		particle.X += ( particle.fadeVelX + particle.velX ) * dt;
+		particle.fadeVelX -= particle.fadeVelX * .0005 * dt;
+		particle.Y += ( particle.fadeVelY + particle.velY ) * dt;
+		particle.fadeVelY -= particle.fadeVelY * .0005 * dt;
 		return particle;
 	}).filter(isInBounds);
 
@@ -176,5 +182,24 @@ if (dustCanvas !== null) {addEventListener("load", ()=>{
 	{createParticle({X: dustCanvas.width * Math.random(), Y: dustCanvas.height * Math.random()})}
 	window.requestAnimationFrame(renderCanvas);
 	
+
+	let mousePos;
+	document.addEventListener("mousemove", e=> {
+		if (mousePos == undefined){
+			mousePos = {X:e.pageX,Y:e.pageY};
+			return;
+		}
+
+		particles.forEach(p=>{
+			let dist = Math.sqrt((p.X - e.pageX)**2 + (p.Y - e.pageY)**2);
+		
+			let dirX = (p.X - e.pageX)/dist;
+			let dirY = (p.Y - e.pageY)/dist;
+		
+			p.fadeVelX = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirX;
+			p.fadeVelY = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirY;
+		});
+	});
+
 	document.addEventListener("mousedown", e=>createParticles(CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
 });}
