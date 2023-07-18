@@ -114,7 +114,7 @@ const PARTICLE_B = 255;
 
 const CLICK_AMOUNT = 7;
 
-const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 20.5;
+const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 2.5;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
