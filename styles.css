@@ -451,7 +451,7 @@ iframe[component^=video-embed] {
 	font-size: 1.8em;
 	text-align: center;
 	margin: 0;
-	color: var(--colour-text-xlight);
+	color: var(--colour-text-dark);
 }
 [component^=image-list] p{
 	font-weight: 100;
@@ -459,7 +459,8 @@ iframe[component^=video-embed] {
 	text-align: center;
 	margin: 0;
 	font-family: notosans;
-	color: var(--colour-text-light);
+	color: var(--colour-text-dark);
+	opacity: 60%;
 }
 [component^=image-list] img{
 	width: 100%;
