@@ -97,10 +97,10 @@ let particles=[];
 const MIN_SIZE=2;			// pixels
 const MAX_SIZE=10;
 
-const MIN_XVEL=0.01;
+const MIN_XVEL=-0.03;
 const MAX_XVEL=0.07;
 
-const MIN_YVEL=0.01;
+const MIN_YVEL=-0.0;
 const MAX_YVEL=0.13;
 
 const MIN_ALPHA=.0;			// 0 < x < 1
