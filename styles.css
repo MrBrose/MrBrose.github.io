@@ -14,7 +14,7 @@
 :root{
 	--colour-bg-dark: #148295;
 	--colour-bg-normal: #3c4250;
-	--colour-bg-light: #2c2e3a;
+	--colour-bg-light: rgba(0, 0, 0, 0.192);
 	--colour-bg-xdark: #2c2e3a;
 	--colour-bg-xxdark:#0c3f53;
 

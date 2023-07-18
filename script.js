@@ -112,7 +112,7 @@ const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
 const PARTICLE_B = 255;
 
-const CLICK_AMOUNT = 7;
+const CLICK_AMOUNT = 10;
 
 const MOUSE_VEL_FADE_SPEED = 0.0005;
 
