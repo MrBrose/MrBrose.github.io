@@ -116,7 +116,7 @@ const CLICK_AMOUNT = 7;
 
 const MOUSE_VEL_FADE_SPEED = 0.0005;
 
-const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 22.5;
+const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 2.5;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
