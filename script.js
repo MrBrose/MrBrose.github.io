@@ -104,9 +104,9 @@ const MIN_YVEL=-0.0;
 const MAX_YVEL=0.13;
 
 const MIN_ALPHA=.0;			// 0 < x < 1
-const MAX_ALPHA=.15;
+const MAX_ALPHA=.2;
 
-const PARTICLES_PER_PIXEL=0.05;
+const PARTICLES_PER_PIXEL = 0.1;
 
 const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
@@ -114,7 +114,9 @@ const PARTICLE_B = 255;
 
 const CLICK_AMOUNT = 7;
 
-const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 2.5;
+const MOUSE_VEL_FADE_SPEED = 0.0005;
+
+const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 22.5;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
@@ -152,9 +154,9 @@ function renderCanvas(timeStamp) {
 
 	particles=particles.map(particle=>{
 		particle.X += ( particle.fadeVelX + particle.velX ) * dt;
-		particle.fadeVelX -= particle.fadeVelX * .0005 * dt;
+		particle.fadeVelX -= particle.fadeVelX * MOUSE_VEL_FADE_SPEED * dt;
 		particle.Y += ( particle.fadeVelY + particle.velY ) * dt;
-		particle.fadeVelY -= particle.fadeVelY * .0005 * dt;
+		particle.fadeVelY -= particle.fadeVelY * MOUSE_VEL_FADE_SPEED * dt;
 		return particle;
 	}).filter(isInBounds);
 
