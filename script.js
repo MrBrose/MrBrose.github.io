@@ -133,6 +133,9 @@ function createParticle(defaultObj={}){
 		alpha: defaultObj.alpha || ( Math.random()*(MAX_ALPHA-MIN_ALPHA)+MIN_ALPHA),
 		fadeVelY: 0,
 		fadeVelX: 0,
+		R: PARTICLE_R,
+		G: PARTICLE_G,
+		B: PARTICLE_B,
 	}, defaultObj));
 }
 function createParticles(amount, defaultObj={}){for (let i = 0; i < amount; i++) {createParticle(defaultObj)}}
@@ -198,5 +201,13 @@ if (dustCanvas !== null) {addEventListener("load", ()=>{
 	document.addEventListener("mousemove", e=>makeParticlesScaredOfPoint(e.pageX,e.pageY));
 	document.addEventListener("touchmove", e=>makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
 
-	document.addEventListener("mousedown", e=>createParticles(CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
+	document.addEventListener("mousedown", e=>createParticles(CLICK_AMOUNT,{
+		X:e.pageX,
+		Y:e.pageY,
+		mouseMade:true,
+		both: true,
+		R: 255,
+		G: 50,
+		B: 0,
+	}));
 });}
