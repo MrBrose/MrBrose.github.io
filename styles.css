@@ -367,10 +367,10 @@ main{
 /* about me */
 
 .about-me {
-	max-width: 64em;
+	max-width: 60em;
 	display: grid;
 	background-color: #38435c;
-	border-radius: .5em;
+	border-radius:1em;
 	grid-template-areas: "title image" "text image";
 	grid-template-rows: min-content min-content;
 	font-size: 1.1rem;
@@ -402,7 +402,7 @@ main{
 }
 
 .about-me img{
-margin-left: auto;
+	margin-left: auto;
 	max-height: 20em;
 	grid-area: image;
 	height: 90%;
