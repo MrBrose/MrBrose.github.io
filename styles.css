@@ -12,11 +12,11 @@
 
 /* global styles */
 :root{
-	--colour-bg-dark: #148295;
+	--colour-bg-dark: #2c4d71;
 	--colour-bg-normal: #3c4250;
 	--colour-bg-light: rgba(0, 0, 0, 0.192);
 	--colour-bg-xdark: #2c2e3a;
-	--colour-bg-xxdark:#0c3f53;
+	--colour-bg-xxdark:#2a3452;
 
 	--colour-text-xlight: #a0a7b9;
 	--colour-text-light: #7f89a2;
@@ -100,7 +100,7 @@ header .logo{
 
 header .logo:hover,
 header .logo:focus-visible{
-	scale: 1.1;
+	scale: 1.2;
 	outline: none;
 }
 
@@ -109,9 +109,9 @@ header .logo:focus-visible > img{
 }
 
 header .logo > img {
-	width: 50px;
+	width: 42px;
 	font-weight: normal;
-	height: 50px;
+	height: 50x;
 	display: block;
 	padding-left: 0em;
 	padding-top: 0.6em;
@@ -307,7 +307,7 @@ main{
 [component^=panel] {
 	background: var(--colour-bg-light);
 	font-size: 1.2rem;
-	padding: 1em;
+	padding: 0.5em;
 	padding-top: 0;
 	text-decoration: none;
 	border-radius: 0.5em;
@@ -320,8 +320,6 @@ main{
 
 [component^=panel] h2 {
 	text-align: center;
-	margin: 0 0 .2em;
-	padding: .25em;
 	letter-spacing: .015em;
 	font-weight: 100;
 	font-size: 2.15rem;
@@ -369,27 +367,33 @@ main{
 /* about me */
 
 .about-me {
-	max-width: 60em;
+	max-width: 64em;
 	display: grid;
+	background-color: #38435c;
+	border-radius: .5em;
 	grid-template-areas: "title image" "text image";
-	grid-template-rows: min-content 1fr;
-	padding-bottom: 0;
+	grid-template-rows: min-content min-content;
 	font-size: 1.1rem;
 	margin: 0 auto;
-	padding-left: 3em;
+	padding-left: 1.6em;
 }
 
 .about-me h2 {
+	margin: 0em;
+	padding-top: 0.3em;
 	text-align: left;
 	grid-area: title;
 	color: var(--colour-text-xlight);
 	font-weight: normal;
-	font-size: 2.6em;
-	margin: 1em 0 0.4em;	
+	font-size: 2.1em;
+	padding-bottom: 0.05em;
 }
 
 .about-me p {
+	padding-bottom: 1.6em;
 	margin: 0;
+	padding-right: 3em;
+	padding-top: 0.3em;
 	text-align: left;
 	grid-area: text;
 	color: var(--colour-text-xlight);
@@ -398,14 +402,25 @@ main{
 }
 
 .about-me img{
+margin-left: auto;
 	max-height: 20em;
 	grid-area: image;
-	margin: 1em;
+	height: 90%;
+	margin-top: auto;
 }
-@media (max-width: 50em) {
+@media (max-width: 60em) {
 	.about-me img{
 		display: none;
 	}
+}
+
+.about-us > h2 {
+	margin: 0%;
+	padding-bottom: 0.4em;
+	text-align: center;
+	color: var(	--colour-text-dark);
+	font-weight: normal;
+	font-size: 2em;
 }
 
 
@@ -511,6 +526,16 @@ body{ height: 100vh; }
 
 .snap-scroll img{
 	margin: 0;
+}
+
+[component^="embed-page"]{
+	padding: 0;
+}
+
+[component^="embed-page"] > iframe{
+	border: none;
+	width: 100%;
+	height: 100%
 }
 
 /* footer */
