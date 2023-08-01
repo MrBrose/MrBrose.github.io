@@ -339,7 +339,7 @@ main{
 [component^=panel-link] {
 
 	flex-basis: 17em;
-	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time);
+	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time), scale var(--short-animation-time), opacity var(--short-animation-time);
 	cursor: pointer;
 	border-bottom: .1em solid rgba(255, 255, 255, 0.055);
 	box-shadow: 0 .4em rgba(0, 0, 0, 0.466);
@@ -349,7 +349,7 @@ main{
 [component^=panel-link]:hover,
 [component^=panel-link]:focus-visible {
 	translate: 0 .5em;
-	box-shadow: none;
+	box-shadow: none
 }
 
 [component^=panel-link] img{
