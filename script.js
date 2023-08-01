@@ -106,7 +106,7 @@ const MAX_YVEL=0.13;
 const MIN_ALPHA=.0;			// 0 < x < 1
 const MAX_ALPHA=.2;
 
-const PARTICLES_PER_PIXEL = 0.1;
+const PARTICLES_PER_PIXEL = 0.05;
 
 const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
