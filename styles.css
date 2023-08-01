@@ -369,7 +369,7 @@ main{
 .about-me {
 	max-width: 60em;
 	display: grid;
-	background-color: #38435c;
+	background-image: linear-gradient(#23222727,#23222713,#3570df09,#4284ff13);
 	border-radius:1em;
 	grid-template-areas: "title image" "text image";
 	grid-template-rows: min-content min-content;
@@ -390,9 +390,8 @@ main{
 }
 
 .about-me p {
-	padding-bottom: 1.6em;
+	padding-bottom: 4em;
 	margin: 0;
-	padding-right: 3em;
 	padding-top: 0.3em;
 	text-align: left;
 	grid-area: text;
@@ -415,12 +414,18 @@ main{
 }
 
 .about-us > h2 {
+	background-color: #23222727;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
 	margin: 0%;
 	padding-bottom: 0.4em;
 	text-align: center;
 	color: var(	--colour-text-dark);
 	font-weight: normal;
 	font-size: 2em;
+	max-width: 12em;
+	display: grid;
+	margin: 0 auto;
 }
 
 
