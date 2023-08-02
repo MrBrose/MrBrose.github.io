@@ -17,6 +17,7 @@
 	--colour-bg-light: rgba(0, 0, 0, 0.192);
 	--colour-bg-xdark: #2c2e3a;
 	--colour-bg-xxdark:#2a3452;
+	--colour-bg-xxxdark:rgba(0, 0, 0, 0.3);
 
 	--colour-text-xlight: #a0a7b9;
 	--colour-text-light: #7f89a2;
@@ -166,7 +167,6 @@ header .top-bar > label{
 .menu:is(:hover,:focus-visible) .burger-bar{
 	scale: 1.15;
 }
-
 
 #menuCheckbox:checked + header .top-bar > label .burger-menu .burger-bar.top{
 	transform: rotate(45deg) translate(0,calc(21%));
@@ -337,19 +337,33 @@ main{
 
 /* .panel-link */
 [component^=panel-link] {
+	--pressed: 0em;
 
 	flex-basis: 17em;
 	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time), scale var(--short-animation-time), opacity var(--short-animation-time);
 	cursor: pointer;
 	border-bottom: .1em solid rgba(255, 255, 255, 0.055);
-	box-shadow: 0 .4em rgba(0, 0, 0, 0.466);
 	border-radius: .5em;
+	translate: 0 var(--pressed);
+	box-shadow: 0 calc(.4em - var(--pressed)) rgba(0, 0, 0, 0.466);
+}
+[component^=panel-link]::after{
+	content: "";
+	width: 100%;
+	height: calc(100% + (.45em - var(--pressed)));
+	display: block;
+	top: 0;
+	position: absolute;
+	left: 0;
 }
 
 [component^=panel-link]:hover,
 [component^=panel-link]:focus-visible {
-	translate: 0 .5em;
-	box-shadow: none
+	--pressed: -.2em;
+}
+
+[component^=panel-link]:active{
+	--pressed: .4em;
 }
 
 [component^=panel-link] img{
