@@ -68,7 +68,9 @@ a{
 	color: #8ab4f8;
 }
 
-
+button[disabled]{
+	pointer-events: none;
+}
 
 #dust{
 	position: absolute;
@@ -77,6 +79,13 @@ a{
 	z-index: -1;
 }
 
+
+.fake-img{
+	background-image: var(--src);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height:100%;
+}
 
 /* header */
 
@@ -397,15 +406,13 @@ main{
 
 .about-me {
 	max-width: 60em;
-	display: grid;
-	background-color: var(--colour-bg-light);
-	border-radius:1em;
-	grid-template-areas: "title image" "text image";
-	grid-template-rows: min-content min-content;
-	font-size: 1.1rem;
 	margin: 0 auto;
-	padding-left: 1.6em;
-	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
+	display: grid;
+	grid-template-areas: "title image" "text image" "spacer image";
+	grid-template-rows: min-content min-content;
+	grid-template-columns: 1fr 30%;
+	font-size: 1.1rem;
+	height: 100%;
 }
 
 .about-me h2 {
@@ -420,7 +427,7 @@ main{
 }
 
 .about-me p {
-	padding-bottom: 4em;
+	padding-bottom: 3.7em;
 	margin: 0;
 	padding-top: 0.3em;
 	text-align: left;
@@ -430,15 +437,14 @@ main{
 	font-size: 1em;
 }
 
-.about-me img{
-	margin-left: auto;
-	max-height: 20em;
-	grid-area: image;
+.about-me .fake-img{
 	height: 90%;
 	margin-top: auto;
+	margin-left: 2em;
+	grid-area: image;
 }
 @media (max-width: 60em) {
-	.about-me img{
+	.about-me .fake-img{
 		display: none;
 	}
 }
