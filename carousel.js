@@ -48,7 +48,7 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 	}
 
 	function get_current_el_index(){
-		return scroll.scrollLeft / get_scroll_width()
+		return (scroll.scrollLeft / get_scroll_width())>>0;
 	}
 	function set_icon_state(index){
 		icons.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));
@@ -61,12 +61,10 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 	}
 
 	function scrollLeft(){
-		scroll.scrollBy({left:-el.scrollWidth});
-		onScroll(get_current_el_index()-1);
+		scrollTo(get_current_el_index()-1);
 	}
 	function scrollRight(){
-		scroll.scrollBy({left:el.scrollWidth});
-		onScroll(get_current_el_index()+1);
+		scrollTo(get_current_el_index()+1);
 	}
 
 	function onScroll(nextIndex){
@@ -110,6 +108,7 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 
 	// disable fallback
 	scroll.style.overflow = "hidden"; //this is done in js so it still works with no js
+	scroll.style.scrollSnapType = "none"; //this is because on some screen sizes and OS's it would snap back to the incorect page
 
 	// setup state
 	inertify_elements();
