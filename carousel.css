@@ -1,5 +1,6 @@
 
 [component^="carousel"] {
+	max-width: 75em;
 	display: grid;
 	position: relative;
 	border-radius:1em;

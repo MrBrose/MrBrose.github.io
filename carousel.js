@@ -29,6 +29,10 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 	function get_current_el_index(){
 		return scroll.scrollLeft / get_scroll_width()
 	}
+	function set_icon_state(index){
+		icons.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));
+		icons.children[index].classList.add("selected");
+	}
 
 	function inertify_elements(){
 		[...scroll.children].forEach(el=>el.setAttribute("inert",""));
@@ -50,13 +54,13 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 			song = new Audio("/Bödibödi - Avve N.mp3");
 			song.play();
 		}
-		icons.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));
-		icons.children[nextIndex].classList.add("selected");
+		set_icon_state(nextIndex);
 	}
 
 	function scrollStop(){
 		inertify_elements();
 		clicking = false;
+		set_icon_state(get_current_el_index());
 	}
 
 	function scrollTo(index){

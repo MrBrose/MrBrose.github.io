@@ -435,7 +435,6 @@ main{
 /* about me */
 
 .about-me {
-	max-width: 60em;
 	margin: 0 auto;
 	display: grid;
 	grid-template-areas: "title image" "text image" "spacer image";
