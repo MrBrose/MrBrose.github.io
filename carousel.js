@@ -1,3 +1,24 @@
+// START POLYFILL FOR SCROLL MAX PROPERTIES (https://stackoverflow.com/a/48246003)
+(function(elmProto){
+	if ('scrollTopMax' in elmProto) {
+		return;
+	}
+	Object.defineProperties(elmProto, {
+		'scrollTopMax': {
+			get: function scrollTopMax() {
+				return this.scrollHeight - this.clientHeight;
+			}
+		},
+		'scrollLeftMax': {
+			get: function scrollLeftMax() {
+				return this.scrollWidth - this.clientWidth;
+			}
+		}
+	});
+}
+)(Element.prototype);
+// END POLYFILL FOR SCROLL MAX PROPERTIES
+
 document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 	if (
 		el.children.length != 3 ||
