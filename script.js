@@ -116,7 +116,8 @@ const CLICK_AMOUNT = 10;
 
 const MOUSE_VEL_FADE_SPEED = 0.0005;
 
-const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 2.5;
+const MOUSE_REPULSION = 2.5;
+const MAX_REPULSION_SPEED = .05;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
@@ -183,8 +184,11 @@ function makeParticlesScaredOfPoint(x,y){particles.forEach(p=>{
 	let dirX = (p.X - x)/dist;
 	let dirY = (p.Y - y)/dist;
 
-	p.fadeVelX = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirX;
-	p.fadeVelY = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirY;
+	p.fadeVelX = MOUSE_REPULSION*(1/dist)*dirX;
+	p.fadeVelX = Math.sign(p.fadeVelX) * Math.min(Math.abs(p.fadeVelX), MAX_REPULSION_SPEED);
+
+	p.fadeVelY = MOUSE_REPULSION*(1/dist)*dirY;
+	p.fadeVelY = Math.sign(p.fadeVelY) * Math.min(Math.abs(p.fadeVelY), MAX_REPULSION_SPEED);
 }); }
 
 if (dustCanvas !== null) {addEventListener("load", ()=>{
