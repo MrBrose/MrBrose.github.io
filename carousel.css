@@ -30,7 +30,7 @@
 }
 [component^="carousel"] > button:not([disabled]):is(:hover,:focus-visible){
 	outline: transparent;
-	--scale: 15%;
+	--scale: 18%;
 	scale: calc(100% + var(--scale));
 	translate: 0 calc(var(--scale) / 2);
 }
@@ -39,13 +39,13 @@
 	height: 2em;
 	aspect-ratio: 1;
 	display: block;
-	border: 0.4em solid blue;
+	border: 0.4em solid var(--colour-text-dark);
 	border-bottom: 0;
 	border-right: 0;
 	transition: border-color var(--short-animation-time);
 }
 [component^="carousel"] > button[disabled]::before{
-	border-color: red;
+	border-color: rgba(0, 0, 0, 0);
 }
 [component^="carousel"] > button:focus-visible::before{
 	box-shadow: 0 0 0 2px white, inset 0 0 0 2px white;
@@ -98,7 +98,7 @@
 	gap: .5em;
 	margin: 0;
 	padding-left: var(--button-width);
-	bottom: 1.2em
+	bottom: 1em
 }
 [component^="carousel"] > ul.icons li {
 	display: block;
@@ -121,5 +121,5 @@
 	display: block;
 }
 [component^="carousel"] > ul.icons li.selected {
-	scale: 1.1;
+	translate: 0 -.3em;
 }
