@@ -21,44 +21,44 @@ function isPointInRect(p, r){ return (
 	p.Y < r.bottomRight.Y
 ); }
 
-// function renderTriangle(ctx, t){
-// 	let points;
-// 	switch (t.side){
-// 		case "topLeft":points = [
-// 			t.topLeft,
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
-// 			{X:t.topLeft.X, Y: t.topLeft.Y+t.size}
-// 		];break;
-// 		case "topRight":points = [
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
-// 			t.topLeft
-// 		];break;
-// 		case "bottomLeft":points = [
-// 			{X:t.topLeft.X, Y: t.topLeft.Y+t.size},
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
-// 			t.topLeft
-// 		];break;
-// 		case "bottomRight":points = [
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
-// 			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
-// 			{X:t.topLeft.X, Y: t.topLeft.Y+t.size}
-// 		];break;
-// 		default: throw "ERROR: triangle invalid format";
-// 	}
-// 	let path=new Path2D();
-// 	path.moveTo(points[0].X, points[0].Y);
-// 	path.lineTo(points[1].X, points[1].Y);
-// 	path.lineTo(points[2].X, points[2].Y);
-// 	ctx.fill(path);
-// }
+function renderTriangle(ctx, t){
+	let points;
+	switch (t.side){
+		case "topLeft":points = [
+			t.topLeft,
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
+			{X:t.topLeft.X, Y: t.topLeft.Y+t.size}
+		];break;
+		case "topRight":points = [
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
+			t.topLeft
+		];break;
+		case "bottomLeft":points = [
+			{X:t.topLeft.X, Y: t.topLeft.Y+t.size},
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
+			t.topLeft
+		];break;
+		case "bottomRight":points = [
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y+t.size},
+			{X:t.topLeft.X+t.size, Y: t.topLeft.Y},
+			{X:t.topLeft.X, Y: t.topLeft.Y+t.size}
+		];break;
+		default: throw "ERROR: triangle invalid format";
+	}
+	let path=new Path2D();
+	path.moveTo(points[0].X, points[0].Y);
+	path.lineTo(points[1].X, points[1].Y);
+	path.lineTo(points[2].X, points[2].Y);
+	ctx.fill(path);
+}
 
-// function renderRect(ctx, r){ ctx.fillRect(
-// 	r.topLeft.X,
-// 	r.topLeft.Y,
-// 	r.bottomRight.X - r.topLeft.X,
-// 	r.bottomRight.Y - r.topLeft.Y,
-// ); }
+function renderRect(ctx, r){ ctx.fillRect(
+	r.topLeft.X,
+	r.topLeft.Y,
+	r.bottomRight.X - r.topLeft.X,
+	r.bottomRight.Y - r.topLeft.Y,
+); }
 
 class fancyParticles extends Particles{
 	INITIAL_PARTICLES_PER_PIXEL = 3;
@@ -81,7 +81,8 @@ class fancyParticles extends Particles{
 		return (
 			thisAndNotThat(
 				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:200}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX-338, Y:300}, size:50, side: "bottomRight"})
+				isPointInTriangle(p, {topLeft:{X:centerX-338, Y:300}, size:50, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:350}, size:50, side: "bottomRight"})
 			) ||
 			isPointInRect(p, {topLeft:{X:centerX-288,Y:400},bottomRight:{X:centerX-238,Y:500}}) ||
 			isPointInRect(p, {topLeft:{X:centerX-238,Y:350},bottomRight:{X:centerX-188,Y:400}})
@@ -100,11 +101,12 @@ class fancyParticles extends Particles{
 			isPointInTriangle(p, {topLeft:{X:centerX+37, Y:450}, size:50, side: "topLeft"})
 		) || (
 			thisAndNotThat(
-				isPointInTriangle(p, {topLeft:{X:centerX+187, Y:200}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX+287, Y:300}, size:50, side: "bottomRight"})
+				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:200}, size:200, side: "bottomRight"}),
+				isPointInTriangle(p, {topLeft:{X:centerX+237, Y:300}, size:50, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:350}, size:50, side: "bottomRight"})
 			) || (
-				isPointInRect(p, {topLeft:{X:centerX+337,Y:400},bottomRight:{X:centerX+387,Y:500}}) ||
-				isPointInRect(p, {topLeft:{X:centerX+387,Y:350},bottomRight:{X:centerX+437,Y:400}})
+				isPointInRect(p, {topLeft:{X:centerX+287,Y:400},bottomRight:{X:centerX+337,Y:500}}) ||
+				isPointInRect(p, {topLeft:{X:centerX+337,Y:350},bottomRight:{X:centerX+387,Y:400}})
 			)
 		);
 	}
@@ -126,12 +128,12 @@ class fancyParticles extends Particles{
 		
 		// let ctx = this.dustCanvas.getContext('2d');
 		// ctx.fillStyle = this.p ? "#00ff00": "#ff0000";
-		// FOUR
+		// // FOUR
 		// renderTriangle(ctx, {topLeft:{X:200, Y:200}, size:200, side: "bottomRight"});
 		// renderRect(ctx, {topLeft:{X:350,Y:400},bottomRight:{X:400,Y:500}});
 		// renderRect(ctx, {topLeft:{X:400,Y:350},bottomRight:{X:450,Y:400}});
 		
-		// NAUGHT
+		// // NAUGHT
 		// renderRect(ctx, {topLeft:{X: 550, Y: 250}, bottomRight:{X: 600, Y: 450}});
 		// renderTriangle(ctx, {topLeft:{X:550, Y:200}, size:50, side: "bottomRight"});
 		// renderTriangle(ctx, {topLeft:{X:600, Y:250}, size:25, side: "topLeft"});
@@ -145,13 +147,15 @@ class fancyParticles extends Particles{
 		// renderTriangle(ctx, {topLeft:{X:650, Y:425}, size:25, side: "bottomRight"});
 		// renderTriangle(ctx, {topLeft:{X:675, Y:450}, size:50, side: "topLeft"});
 		
-		// FOUR
+		// // FOUR
 		// renderTriangle(ctx, {topLeft:{X:825, Y:200}, size:200, side: "bottomRight"});
 		// renderRect(ctx, {topLeft:{X:975,Y:400},bottomRight:{X:1025,Y:500}});
 		// renderRect(ctx, {topLeft:{X:1025,Y:350},bottomRight:{X:1075,Y:400}});
 		
 		// ctx.fillStyle = "#000000";
+		// renderTriangle(ctx, {topLeft:{X:200, Y:350}, size:50, side: "bottomRight"});
 		// renderTriangle(ctx, {topLeft:{X:300, Y:300}, size:50, side: "bottomRight"});
+		// renderTriangle(ctx, {topLeft:{X:825, Y:350}, size:50, side: "bottomRight"});
 		// renderTriangle(ctx, {topLeft:{X:925, Y:300}, size:50, side: "bottomRight"});
 	}
 
