@@ -309,7 +309,7 @@ main{
 }
 [horz] {
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 [vert] {
 	flex-direction: column;
