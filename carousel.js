@@ -69,10 +69,6 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 
 	function onScroll(nextIndex){
 		song?.pause();
-		if (scroll.children[nextIndex].hasAttribute("titus")){
-			song = new Audio("/Bödibödi - Avve N.mp3");
-			song.play();
-		}
 		set_icon_state(nextIndex);
 	}
 
