@@ -79,6 +79,13 @@ button[disabled]{
 	z-index: -1;
 }
 
+.notfound-text {
+	font-size: 50px;
+	color: white;
+	text-align: center;
+	margin-top: 9em;
+	opacity: 0.5;
+}
 
 .fake-img{
 	background-image: var(--src);

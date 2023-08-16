@@ -63,10 +63,10 @@ function renderRect(ctx, r){ ctx.fillRect(
 class fancyParticles extends Particles{
 	INITIAL_PARTICLES_PER_PIXEL = 3;
 	MIN_ALPHA =  0;
-	MAX_ALPHA = 0.75;
+	MAX_ALPHA = 1;
 	MOUSE_REPULSION = 1;
 	IN_TEXT_SPEED_MODIFIER = 0.1;
-	OUT_OF_TEXT_OPACITY_MODIFIER = 0.3;
+	OUT_OF_TEXT_OPACITY_MODIFIER = 0.5;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
@@ -128,11 +128,6 @@ class fancyParticles extends Particles{
 		});
 		super.renderCanvas(ts);
 
-		let ctx = this.dustCanvas.getContext('2d');
-		ctx.font = "50px minecraft10";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("Nothing to see here", this.dustCanvas.width / 2, 600);
 		// ctx.fillStyle = this.p ? "#00ff00": "#ff0000";
 		// // FOUR
 		// renderTriangle(ctx, {topLeft:{X:200, Y:200}, size:200, side: "bottomRight"});
