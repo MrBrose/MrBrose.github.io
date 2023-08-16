@@ -19,7 +19,7 @@ class Particles {
 	MIN_ALPHA=.0;			// 0 < x < 1
 	MAX_ALPHA=.2;
 	
-	PARTICLES_PER_PIXEL = 2.05;
+	PARTICLES_PER_PIXEL = 0.05;
 	
 	PARTICLE_R = 0;		// 0 < x < 255
 	PARTICLE_G = 150;
