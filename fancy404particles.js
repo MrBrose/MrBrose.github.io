@@ -65,6 +65,8 @@ class fancyParticles extends Particles{
 	MIN_ALPHA = .5;
 	MAX_ALPHA = 1;
 	MOUSE_REPULSION = 1;
+	IN_TEXT_SPEED_MODIFIER = 0.1;
+	OUT_OF_TEXT_OPACITY_MODIFIER = 0.5;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
@@ -117,10 +119,10 @@ class fancyParticles extends Particles{
 			if (!this.isInFormation(p)){
 				p.velX = p.initVelX;
 				p.velY = p.initVelY;
-				p.alpha = 0.5*p.initAlpha;
+				p.alpha = this.OUT_OF_TEXT_OPACITY_MODIFIER*p.initAlpha;
 			} else {
-				p.velX = 0.1*p.initVelX;
-				p.velY = 0.1*p.initVelY;
+				p.velX = this.IN_TEXT_SPEED_MODIFIER*p.initVelX;
+				p.velY = this.IN_TEXT_SPEED_MODIFIER*p.initVelY;
 				p.alpha = p.initAlpha;
 			}
 		});
