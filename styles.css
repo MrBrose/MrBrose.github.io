@@ -607,6 +607,7 @@ body{ height: 100vh; }
 }
 
 [component^="embed-page"] > iframe{
+	display: block;
 	border: none;
 	width: 100%;
 	height: 100%
