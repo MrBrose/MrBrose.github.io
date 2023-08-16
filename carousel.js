@@ -48,7 +48,7 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 	}
 
 	function get_current_el_index(){
-		return (scroll.scrollLeft / get_scroll_width())>>0;
+		return Math.round(scroll.scrollLeft / get_scroll_width());
 	}
 	function set_icon_state(index){
 		icons.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));
@@ -124,4 +124,5 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 		if (preButtonScroll()){return;}
 		scrollRight();
 	});
+	window.addEventListener("resize", () => scrollTo(get_current_el_index()));
 });
