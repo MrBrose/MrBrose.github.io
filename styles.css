@@ -556,7 +556,7 @@ iframe[component^=video-embed] {
 	margin-top: 2.5em;
 }
 [component^=image-list] div{
-position: relative;
+	position: relative;
 }
 [component^=image-list] div:has( > img[src$=".svg"])::after{
 	content: "svg";
