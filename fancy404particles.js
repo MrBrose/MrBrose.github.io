@@ -62,7 +62,7 @@ function renderRect(ctx, r){ ctx.fillRect(
 
 class fancyParticles extends Particles{
 	INITIAL_PARTICLES_PER_PIXEL = 3;
-	MIN_ALPHA = .5;
+	MIN_ALPHA =  0;
 	MAX_ALPHA = 1;
 	MOUSE_REPULSION = 1;
 	IN_TEXT_SPEED_MODIFIER = 0.1;
