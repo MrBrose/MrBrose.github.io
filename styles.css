@@ -11,7 +11,7 @@
 }
 
 /* global styles */
-:root{
+:root {
 	--colour-bg-dark: #2c4d71;
 	--colour-bg-normal: #3c4250;
 	--colour-bg-light: rgba(0, 0, 0, 0.192);
@@ -309,7 +309,7 @@ main{
 }
 [horz] {
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 [vert] {
 	flex-direction: column;
@@ -556,7 +556,7 @@ iframe[component^=video-embed] {
 	margin-top: 2.5em;
 }
 [component^=image-list] div{
-position: relative;
+	position: relative;
 }
 [component^=image-list] div:has( > img[src$=".svg"])::after{
 	content: "svg";

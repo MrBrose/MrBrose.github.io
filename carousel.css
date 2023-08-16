@@ -1,3 +1,6 @@
+:root {
+	--colour-text-light: #7f89a2;
+}
 
 [component^="carousel"] {
 	max-width: 75em;
@@ -9,6 +12,11 @@
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
 	--gap: 4em;
 	--button-width: calc(2.5em + 17px);/*this calc is the width of the button including the shadow*/
+}
+@media only screen and (max-width: 500px) {
+	[component^="carousel"] {
+		border-radius: 0 0 1em 1em;
+	}
 }
 [component^="carousel"] > button{
 	position: absolute;
@@ -112,6 +120,16 @@
 	outline: none;
 	border: none;
 }
+
+[component^="carousel"] > ul.icons li:not(.selected) button{
+	cursor: pointer;
+}
+
+[component^="carousel"] > ul.icons li:not(.selected) button:hover{
+	outline: 2px solid var(--colour-text-light);
+}
+
+
 [component^="carousel"] > ul.icons button:focus-visible{
 	outline: 2px solid white;
 }
