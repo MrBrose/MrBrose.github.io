@@ -19,7 +19,7 @@ class Particles {
 	MIN_ALPHA=.0;			// 0 < x < 1
 	MAX_ALPHA=.2;
 	
-	PARTICLES_PER_PIXEL = 0.05;
+	PARTICLES_PER_PIXEL = 2.05;
 	
 	PARTICLE_R = 0;		// 0 < x < 255
 	PARTICLE_G = 150;
@@ -37,27 +37,34 @@ class Particles {
 		this.dustCanvas = dustCanvas;
 		this.previousTimeStamp;
 		this.particles=[];
-		OnLoad(()=>{
-			window.addEventListener("resize",this.resizeCanvas.bind(this));
-			this.resizeCanvas();
-			for (let i = 0; i < this.PARTICLES_PER_PIXEL*this.dustCanvas.height; i++)
-			{this.createParticle({X: this.dustCanvas.width * Math.random(), Y: this.dustCanvas.height * Math.random()})}
-			window.requestAnimationFrame(this.renderCanvas.bind(this));
-			
+	}
+
+	start(){ OnLoad(()=>{
+		window.addEventListener("resize",this.resizeCanvas.bind(this));
+		this.resizeCanvas();
+
+		window.requestAnimationFrame(this.renderCanvas.bind(this));
 		
-			document.addEventListener("mousemove", e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY));
-			document.addEventListener("touchmove", e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
-		
-			document.addEventListener("mousedown", e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
+		for (let i = 0; i < this.PARTICLES_PER_PIXEL*this.dustCanvas.height; i++){this.createInitialParticle()}
+	
+		document.addEventListener("mousemove", e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY));
+		document.addEventListener("touchmove", e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
+	
+		document.addEventListener("mousedown", e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
+	}); }
+	
+	createInitialParticle(){
+		this.createParticle({
+			X: this.dustCanvas.width * Math.random(),
+			Y: this.dustCanvas.height * Math.random()
 		});
 	}
-	
+
 	createParticle(defaultObj={}){
-		console.log("particle created")
 		let pos=Math.random()*(this.dustCanvas.width+this.dustCanvas.height)
-		this.particles.push(Object.assign({
+		let p = Object.assign({
 			size: defaultObj.size || (Math.random()*(this.MAX_SIZE-this.MIN_SIZE)+this.MIN_SIZE),
-			X: defaultObj.X || (pos>this.dustCanvas.height? pos-this.dustCanvas.height:0),
+			X: defaultObj.X || (pos>this.dustCanvas.height? pos-this.dustCanvas.height:-this.MAX_SIZE),
 			Y: defaultObj.Y || (pos<this.dustCanvas.height? pos:this.dustCanvas.height),
 			velX: defaultObj.velX || (
 				defaultObj.both ? (Math.random() > .5 ? 1 : -1) : 1
@@ -68,7 +75,9 @@ class Particles {
 			alpha: defaultObj.alpha || ( Math.random()*(this.MAX_ALPHA-this.MIN_ALPHA)+this.MIN_ALPHA),
 			fadeVelY: 0,
 			fadeVelX: 0,
-		}, defaultObj));
+		}, defaultObj);
+		this.particles.push(p);
+		return p;
 	}
 	createParticles(amount, defaultObj={}){for (let i = 0; i < amount; i++) {this.createParticle(defaultObj)}}
 
@@ -129,7 +138,8 @@ class Particles {
 		p.fadeVelY = Math.min(this.MAX_REPULSION_VEL, Math.abs(t)) * Math.sign(t);
 	}
 }
-
-const TheDustCanvas=document.getElementById("dust");
-if (TheDustCanvas !== null) {new Particles(TheDustCanvas)}
+OnLoad(()=>{
+	const TheDustCanvas=document.getElementById("dust");
+	if (TheDustCanvas !== null) { (new Particles(TheDustCanvas)).start(); }
+})
 
