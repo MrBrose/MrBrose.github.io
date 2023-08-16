@@ -20,6 +20,7 @@ class Particles {
 	MAX_ALPHA=.2;
 	
 	PARTICLES_PER_PIXEL = 0.05;
+	INITIAL_PARTICLES_PER_PIXEL = this.PARTICLES_PER_PIXEL;
 	
 	PARTICLE_R = 0;		// 0 < x < 255
 	PARTICLE_G = 150;
@@ -45,7 +46,7 @@ class Particles {
 
 		window.requestAnimationFrame(this.renderCanvas.bind(this));
 		
-		for (let i = 0; i < this.PARTICLES_PER_PIXEL*this.dustCanvas.height; i++){this.createInitialParticle()}
+		for (let i = 0; i < this.INITIAL_PARTICLES_PER_PIXEL*this.dustCanvas.height; i++){this.createInitialParticle()}
 	
 		document.addEventListener("mousemove", e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY));
 		document.addEventListener("touchmove", e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
