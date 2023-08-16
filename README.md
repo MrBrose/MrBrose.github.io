@@ -1,2 +1,2 @@
-# https://mrbrose.github.io
+# https://MCTitles.com
 Website for MCTitles projects
