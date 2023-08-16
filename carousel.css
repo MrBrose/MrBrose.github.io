@@ -1,3 +1,6 @@
+:root {
+	--colour-text-light: #7f89a2;
+}
 
 [component^="carousel"] {
 	max-width: 75em;
@@ -112,6 +115,16 @@
 	outline: none;
 	border: none;
 }
+
+[component^="carousel"] > ul.icons li:not(.selected) button{
+	cursor: pointer;
+}
+
+[component^="carousel"] > ul.icons li:not(.selected) button:hover{
+	outline: 2px solid var(--colour-text-light);
+}
+
+
 [component^="carousel"] > ul.icons button:focus-visible{
 	outline: 2px solid white;
 }
