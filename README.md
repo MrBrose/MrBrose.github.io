@@ -1,2 +1,2 @@
-# https://MrBrose.github.io
-Website for MrBrose's projects
+# https://MCTitles.github.io
+Website for MCTitles projects

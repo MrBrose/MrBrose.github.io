@@ -106,7 +106,7 @@ const MAX_YVEL=0.13;
 const MIN_ALPHA=.0;			// 0 < x < 1
 const MAX_ALPHA=.2;
 
-const PARTICLES_PER_PIXEL = 0.1;
+const PARTICLES_PER_PIXEL = 0.05;
 
 const PARTICLE_R = 0;		// 0 < x < 255
 const PARTICLE_G = 150;
@@ -116,7 +116,8 @@ const CLICK_AMOUNT = 10;
 
 const MOUSE_VEL_FADE_SPEED = 0.0005;
 
-const HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE = 2.5;
+const MOUSE_REPULSION = 2.5;
+const MAX_REPULSION_VEL = .3;
 
 function createParticle(defaultObj={}){
 	let pos=Math.random()*(dustCanvas.width+dustCanvas.height)
@@ -177,15 +178,22 @@ function resizeCanvas(){
 }
 
 
-function makeParticlesScaredOfPoint(x,y){particles.forEach(p=>{
-	let dist = Math.sqrt((p.X - x)**2 + (p.Y - y)**2);
+function makeParticlesScaredOfPoint(x,y){particles.forEach(p=>makeParticleScaredOfPoint(p,x,y))}
+function makeParticleScaredOfPoint(p,x,y){
+	let Vx = (p.X - x);
+	let Vy = (p.Y - y);
 
-	let dirX = (p.X - x)/dist;
-	let dirY = (p.Y - y)/dist;
+	let dist = Math.sqrt(Vx*Vx + Vy*Vy);
 
-	p.fadeVelX = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirX;
-	p.fadeVelY = HOW_SCARED_PARTICLES_ARE_OF_THE_MOUSE*(1/dist)*dirY;
-}); }
+	let unitX = Vx/dist;
+	let unitY = Vy/dist;
+
+	let t;
+	t = MOUSE_REPULSION*(unitX/dist);
+	p.fadeVelX = Math.min(MAX_REPULSION_VEL, Math.abs(t)) * Math.sign(t);
+	t = MOUSE_REPULSION*(unitY/dist);
+	p.fadeVelY = Math.min(MAX_REPULSION_VEL, Math.abs(t)) * Math.sign(t);
+}
 
 if (dustCanvas !== null) {addEventListener("load", ()=>{
 	window.addEventListener("resize",resizeCanvas);

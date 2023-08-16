@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-	<canvas id="dust"></canvas>
-
+	
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta property="og:title" content="MrBrose's website">
+		<meta property="og:title" content="MCTitles website">
 		<meta property="og:description" content="Home">
 		<meta charset="UTF-8">
-		<title>MrBrose | Home</title>
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<title>MCTitles | Home</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.png">
 		<link rel="stylesheet" href="/styles.css">
 		<script src="/script.js" defer></script>
+		
+		<script src="/carousel.js" defer></script>
+		<link rel="stylesheet" href="/carousel.css">
 	</head>
 
 	<body class="linear-grad">
+		<canvas id="dust"></canvas>
 		<input type="checkbox" id="menuCheckbox">
 		<header>
 			<div class="top-bar">
 				<a href="/" class="logo">
 					<img src="/images/logo.png" class="logo-image" alt="logo">
 				</a>
-				<img class="title" src="/images/MrBrose.svg" alt="title mrbrose">
+				<img class="title" src="/images/MCTitles.svg" alt="title MCTitles">
 				<label for="menuCheckbox" class="menu" tabindex="0">
 					<svg class="burger-menu" viewBox="0 0 24 24">
 						<g style="fill:currentColor;" class="burger-bar top">
@@ -41,53 +44,69 @@
 			<nav class="menu-content hidden" id="menuContent">
 				<a class="menu-link-button" href="/official-logos"><span>Offical Logos</span></a>
 				<a class="menu-link-button" href="/making-a-logo"><span>Making a Logo</span></a>
-				<a class="menu-link-button" href="/portfolio.html"><span>Portfolio</span></a>
-				<a class="menu-link-button" href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title"target="_blank"><span>Commissions</span></a>
+				<a class="menu-link-button" href="/calculator"><span>Grid Calculator</span></a>
+				<a class="menu-link-button" href="/download-fonts"target="_blank"><span>Fonts</span></a>
 				<a class="menu-link-button" href="https://discord.gg/mxV7yXhXH3"target="_blank"><span>Discord</span></a>
 			</nav>
 		</header>
-
-
 		<main vert>
 			<div horz>
 				<a component="panel-link" href="/official-logos">
 					<h2>Offical Logos</h2>
-					<p>Look at and download all of the Offical Minecraft Logos.
-					</p>
 				</a>
 				<a component="panel-link" href="/making-a-logo">
 					<h2>Making a Logo</h2>
-					<p>Useful resources to help you create your own Minecraft logo.
-					</p>
 				</a>
-				<a component="panel-link" href="/portfolio.html">
-					<h2>Portfolio</h2>
-					<p>Take a look at what I can do!</p>
+				<a component="panel-link" href="/calculator">
+					<h2>Grid Calculator</h2>
 				</a>
-				<a component="panel-link" href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title"
-					target="_blank">
-					<h2>Commissions</h2>
-					<p>Purchase your own unique custom Minecraft logo starting at $5!</p>
+				<a component="panel-link" href="/download-fonts">
+					<h2>Fonts</h2>
 				</a>
 			</div>
-			<div class="about-me">
-				<h2>About me</h2>
-				<p>Hi there! I'm MrBrosᴇ and I am a graphic designer who creates Minecraft related things.
-					You might know me for my Minecraft Style Logos, where I create stunning and eye-catching Minecraft
-					logos for clients. You can see the Minecraft logos I have created in my portfolio, 
-					and you can purchase one too!
-					 I also help other people learn how to make their very own Minecraft Style logos themselves!
-					Using resources from this website you too can become a Minecraft Logo expert. 
-					I am also documenting every official Minecraft logo ever, 
-					which you can find on here on this website as well.
-					</p>
-				<img src="/images/Render.webp" alt="">
+			<div class="about-us">
+				<h2>-Meet the Community-</h2>
+				<div component="carousel">
+					<button disabled><span class="non-visual">Previous Item</span></button>
+					<ul>
+						<li img-src="/images/heads/mrbrose.png"><div class="about-me">
+							<h2>MrBrose</h2>
+							<p>Hi there! I'm MrBrosᴇ and I am a graphic designer who creates Minecraft related things. You might know me for my Minecraft Style Logos, which you can see in my <a href="portfolio" target="_blank">portfolio</a>, and you can purchase one too, Just click <a href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title" target="_blank">here!</a> <br> I also help other people learn how to make their very own Minecraft Style logos themselves! Using resources from this website you too can become a Minecraft Logo expert.</p>
+							<div class="fake-img" style="--src:url('/images/MrBrose.webp');" alt="">
+						</div></li>
+						<li img-src="/images/heads/Floiden.png"><div class="about-me">
+							<h2>FloideN</h2>
+							<p>Hello! Im FloideN and I still havent given MrBrose an about me to put onto the website. FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN FloideN 
+							</p>
+							<div class="fake-img" style="--src:url('/images/FloideN.webp');" alt="">
+						</div></li>
+						<li img-src="/images/heads/Annoying.png"><div class="about-me">
+							<h2>TheAnnoying</h2>
+							<p>Hey, I'm TheAnnoying! I always wanted to create Minecraft titles, but never knew there was a community for it. After I came across the Minecraft Titles Discord server, I realized there are others like me, who find these titles really awesome. I started using Mineimator and Photoshop for my logos, but then moved to Adobe Illustrator. I'm very happy with how my logos look, and I'm glad there are many guides on the server to help out!
+							</p>
+							<div class="fake-img" style="--src:url('/images/TheAnnoying.webp');" alt="">
+						</div></li>
+						<li img-src="/images/heads/RJ.png"><div class="about-me">
+							<h2>RJ_Infinity</h2>
+							<p>Hello. I am the guy who created almost all the website that you see in front of you. including much time spent creating the excelent particles in the background. I also make other programs and the odd other thing. you can find most of my work at
+								<a href="http://github.com/RJ-Infinity/" target="_blank">github.com/RJ-Infinity/</a>.
+							</p>
+							<div class="fake-img" style="--src:url('/images/RJ.webp');" alt="">
+						</div></li>
+						<li titus img-src="/images/heads/TitusHM.png"><div class="about-me">
+							<h2>TitusHM</h2>
+							<p>Hello, fellow fellows! I'm the brains that used a python script to introduce the fonts to this website. While i didnt personally design every aspect of the site, i'm the sole reason behind the smooth navigation and user-friendly experience (when in the fonts page). So, as you explore the amazing virtual world here, remeber that it is my expert coding touch that is making it all (of the fonts page) click seamlessly.</p>
+							<div class="fake-img" style="--src:url('/images/Titus.webp');" alt="">
+						</div></li>
+					</ul>
+					<button disabled><span class="non-visual">Next Item</span></button>
+				</div>
 			</div>
 		</main>
 		<footer>
 			<ul>
 				<li id="twitterLinkFooter">
-					<a href="https://twitter.com/MrBrose_" target="_blank">
+					<a href="https://twitter.com/mrbrose_" target="_blank">
 						<span class="non-visual">Twitter</span>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 							<!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -107,7 +126,7 @@
 					</a>
 				</li>
 				<li id="youtubeLinkFooter">
-					<a href="https://www.youtube.com/MrBrose" target="_blank">
+					<a href="https://www.youtube.com/mrbrose" target="_blank">
 						<span class="non-visual">YouTube</span>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
 							<!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->

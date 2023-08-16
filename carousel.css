@@ -1,0 +1,125 @@
+
+[component^="carousel"] {
+	max-width: 75em;
+	display: grid;
+	position: relative;
+	border-radius:1em;
+	background-color: var(--colour-bg-light);
+	margin: 0 auto;
+	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
+	--gap: 4em;
+	--button-width: calc(2.5em + 17px);/*this calc is the width of the button including the shadow*/
+}
+[component^="carousel"] > button{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 4em;
+	aspect-ratio: 0.5;
+	margin: 1em;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+[component^="carousel"] > button:not([disabled]){
+	cursor: pointer;
+	transition: scale var(--short-animation-time), translate var(--short-animation-time);
+}
+[component^="carousel"] > button:not([disabled]):is(:hover,:focus-visible){
+	outline: transparent;
+	--scale: 18%;
+	scale: calc(100% + var(--scale));
+	translate: 0 calc(var(--scale) / 2);
+}
+[component^="carousel"] > button::before{
+	content: "";
+	height: 2em;
+	aspect-ratio: 1;
+	display: block;
+	border: 0.4em solid var(--colour-text-dark);
+	border-bottom: 0;
+	border-right: 0;
+	transition: border-color var(--short-animation-time);
+}
+[component^="carousel"] > button[disabled]::before{
+	border-color: rgba(0, 0, 0, 0);
+}
+[component^="carousel"] > button:focus-visible::before{
+	box-shadow: 0 0 0 2px white, inset 0 0 0 2px white;
+}
+[component^="carousel"] > button:first-of-type{
+	left: 0;
+	justify-content: flex-start;
+	padding-left: .5em;
+}
+[component^="carousel"] > button:first-of-type::before{
+	rotate: -0.125turn;
+}
+[component^="carousel"] > button:last-of-type{
+	right: 0;
+	justify-content: flex-end;
+	padding-right: .5em;
+}
+[component^="carousel"] > button:last-of-type::before{
+	rotate: 0.38turn;
+}
+[component^="carousel"] > ul:not(.icons){
+	overflow-y: hidden;
+	overflow-x: auto;
+	padding: 0 var(--button-width);
+	margin: 2px;
+	list-style: none;
+	display: grid;
+	grid-auto-flow: column;
+	gap: var(--gap);
+	grid-auto-columns: 100%;
+	overscroll-behavior-inline: contain;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	height: calc(100% - 4px);
+	font-size: inherit;
+}
+[component^="carousel"] > ul:not(.icons):focus-visible{
+	outline: 1px solid black;
+}
+[component^="carousel"] > ul:not(.icons) > li{
+	font-size: inherit;
+	scroll-snap-align: center;
+	height: 100%;
+}
+[component^="carousel"] > ul.icons {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	position: absolute;
+	gap: .5em;
+	margin: 0;
+	padding-left: var(--button-width);
+	bottom: 1em
+}
+[component^="carousel"] > ul.icons li {
+	display: block;
+	aspect-ratio: 1;
+	width: 2em;
+	transition: var(--short-animation-time) scale;
+}
+[component^="carousel"] > ul.icons button{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+[component^="carousel"] > ul.icons button:focus-visible{
+	outline: 2px solid white;
+}
+[component^="carousel"] > ul.icons img{
+	min-width: 0;
+	width: 100%;
+	display: block;
+}
+[component^="carousel"] > ul.icons li.selected {
+	translate: 0 -.3em;
+}
