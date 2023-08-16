@@ -13,6 +13,11 @@
 	--gap: 4em;
 	--button-width: calc(2.5em + 17px);/*this calc is the width of the button including the shadow*/
 }
+@media only screen and (max-width: 500px) {
+	[component^="carousel"] {
+		border-radius: 0 0 1em 1em;
+	}
+}
 [component^="carousel"] > button{
 	position: absolute;
 	top: 50%;
