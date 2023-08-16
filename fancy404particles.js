@@ -127,8 +127,12 @@ class fancyParticles extends Particles{
 			}
 		});
 		super.renderCanvas(ts);
-		
-		// let ctx = this.dustCanvas.getContext('2d');
+
+		let ctx = this.dustCanvas.getContext('2d');
+		ctx.font = "50px minecraft10";
+		ctx.fillStyle = "white";
+		ctx.textAlign = "center";
+		ctx.fillText("Nothing to see here", this.dustCanvas.width / 2, 600);
 		// ctx.fillStyle = this.p ? "#00ff00": "#ff0000";
 		// // FOUR
 		// renderTriangle(ctx, {topLeft:{X:200, Y:200}, size:200, side: "bottomRight"});
@@ -165,10 +169,10 @@ class fancyParticles extends Particles{
 }
 
 
-OnLoad(()=>{
+OnLoad(()=> {
 	const TheDustCanvas=document.getElementById("dust404");
 	if (TheDustCanvas !== null) {
-		let p = new fancyParticles(TheDustCanvas)
+		let p = new fancyParticles(TheDustCanvas);
 		p.start();
 	}
 })
