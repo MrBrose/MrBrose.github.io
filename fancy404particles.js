@@ -62,11 +62,11 @@ function renderRect(ctx, r){ ctx.fillRect(
 
 class fancyParticles extends Particles{
 	INITIAL_PARTICLES_PER_PIXEL = 3;
-	MIN_ALPHA = .5;
+	MIN_ALPHA =  0;
 	MAX_ALPHA = 1;
 	MOUSE_REPULSION = 1;
 	IN_TEXT_SPEED_MODIFIER = 0.1;
-	OUT_OF_TEXT_OPACITY_MODIFIER = 0.5;
+	OUT_OF_TEXT_OPACITY_MODIFIER = 0.4;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
@@ -82,33 +82,33 @@ class fancyParticles extends Particles{
 
 		return (
 			thisAndNotThat(
-				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:200}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX-338, Y:300}, size:50, side: "bottomRight"}) ||
-				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:350}, size:50, side: "bottomRight"})
+				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:200-50}, size:200, side: "bottomRight"}),
+				isPointInTriangle(p, {topLeft:{X:centerX-338, Y:300-50}, size:60, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:350-50}, size:50, side: "bottomRight"})
 			) ||
-			isPointInRect(p, {topLeft:{X:centerX-288,Y:400},bottomRight:{X:centerX-238,Y:500}}) ||
-			isPointInRect(p, {topLeft:{X:centerX-238,Y:350},bottomRight:{X:centerX-188,Y:400}})
+			isPointInRect(p, {topLeft:{X:centerX-288,Y:400-50},bottomRight:{X:centerX-238,Y:500-50}}) ||
+			isPointInRect(p, {topLeft:{X:centerX-238,Y:350-50},bottomRight:{X:centerX-188,Y:400-50}})
 		) || (
-			isPointInRect(p, {topLeft:{X: centerX-88, Y: 250}, bottomRight:{X: centerX-38, Y: 450}}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX-88, Y:200}, size:50, side: "bottomRight"}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX-38, Y:250}, size:25, side: "topLeft"}) ||
-			isPointInRect(p, {topLeft:{X: centerX-38, Y: 200}, bottomRight:{X: centerX+37, Y: 250}}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX+12, Y:250}, size:25, side: "topRight"}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX+37, Y:200}, size:50, side: "bottomLeft"}) ||
-			isPointInRect(p, {topLeft:{X: centerX+37, Y: 250}, bottomRight:{X: centerX+87, Y: 450}}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX-88, Y:450}, size:50, side: "topRight"}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX-38, Y:425}, size:25, side: "bottomLeft"}) ||
-			isPointInRect(p, {topLeft:{X: centerX-38, Y: 450}, bottomRight:{X: centerX+37, Y: 500}}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX+12, Y:425}, size:25, side: "bottomRight"}) ||
-			isPointInTriangle(p, {topLeft:{X:centerX+37, Y:450}, size:50, side: "topLeft"})
+			isPointInRect(p, {topLeft:{X: centerX-88, Y: 250-50}, bottomRight:{X: centerX-38, Y: 450-50}}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX-88, Y:200-50}, size:50, side: "bottomRight"}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX-38, Y:250-50}, size:25, side: "topLeft"}) ||
+			isPointInRect(p, {topLeft:{X: centerX-38, Y: 200-50}, bottomRight:{X: centerX+37, Y: 250-50}}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX+12, Y:250-50}, size:25, side: "topRight"}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX+37, Y:200-50}, size:50, side: "bottomLeft"}) ||
+			isPointInRect(p, {topLeft:{X: centerX+37, Y: 250-50}, bottomRight:{X: centerX+87, Y: 450-50}}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX-88, Y:450-50}, size:50, side: "topRight"}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX-38, Y:425-50}, size:25, side: "bottomLeft"}) ||
+			isPointInRect(p, {topLeft:{X: centerX-38, Y: 450-50}, bottomRight:{X: centerX+37, Y: 500-50}}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX+12, Y:425-50}, size:25, side: "bottomRight"}) ||
+			isPointInTriangle(p, {topLeft:{X:centerX+37, Y:450-50}, size:50, side: "topLeft"})
 		) || (
 			thisAndNotThat(
-				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:200}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX+237, Y:300}, size:50, side: "bottomRight"}) ||
-				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:350}, size:50, side: "bottomRight"})
+				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:200-50}, size:200, side: "bottomRight"}),
+				isPointInTriangle(p, {topLeft:{X:centerX+237, Y:300-50}, size:60, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:350-50}, size:50, side: "bottomRight"})
 			) || (
-				isPointInRect(p, {topLeft:{X:centerX+287,Y:400},bottomRight:{X:centerX+337,Y:500}}) ||
-				isPointInRect(p, {topLeft:{X:centerX+337,Y:350},bottomRight:{X:centerX+387,Y:400}})
+				isPointInRect(p, {topLeft:{X:centerX+287,Y:400-50},bottomRight:{X:centerX+337,Y:500-50}}) ||
+				isPointInRect(p, {topLeft:{X:centerX+337,Y:350-50},bottomRight:{X:centerX+387,Y:400-50}})
 			)
 		);
 	}
@@ -127,8 +127,7 @@ class fancyParticles extends Particles{
 			}
 		});
 		super.renderCanvas(ts);
-		
-		// let ctx = this.dustCanvas.getContext('2d');
+
 		// ctx.fillStyle = this.p ? "#00ff00": "#ff0000";
 		// // FOUR
 		// renderTriangle(ctx, {topLeft:{X:200, Y:200}, size:200, side: "bottomRight"});
@@ -165,10 +164,10 @@ class fancyParticles extends Particles{
 }
 
 
-OnLoad(()=>{
+OnLoad(()=> {
 	const TheDustCanvas=document.getElementById("dust404");
 	if (TheDustCanvas !== null) {
-		let p = new fancyParticles(TheDustCanvas)
+		let p = new fancyParticles(TheDustCanvas);
 		p.start();
 	}
 })
