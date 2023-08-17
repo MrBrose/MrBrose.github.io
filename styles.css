@@ -582,7 +582,6 @@ iframe[component^=video-embed] {
 
 [component^=image-list] {
 	width: 100%;
-	padding: 0 calc((100% - var(--width,60%)) / 2);
 	margin: 1em 0;
 }
 [component^=image-list] h2{
@@ -602,6 +601,7 @@ iframe[component^=video-embed] {
 	opacity: 60%;
 }
 [component^=image-list] img{
+	padding: 0 calc((100% - var(--width,60%)) / 2);
 	width: 100%;
 	margin-top: 2.5em;
 }
@@ -619,6 +619,33 @@ margin-left: 2em;
 	border-radius: .4em;
 
 }
+
+
+@media only screen and (max-width: 1100px) {
+	[component^=image-list] img{
+		padding: 0 calc((100% - var(--width,80%)) / 2);
+		width: 100%;
+		margin-top: 2.5em;
+	}
+}
+@media only screen and (max-width: 500px) {
+	[component^=image-list] img{
+		padding: 0 calc((100% - var(--width,100%)) / 2);
+		width: 100%;
+		margin-top: 2.5em;
+	}
+}
+@media only screen and (max-width: 560px) {
+	[component^=image-list] p{
+		font-size: 0;
+	}
+	[component^=image-list] h2{
+		padding-left: .1em;
+		padding-right: .1em;
+	}
+}
+
+
 
 /* TODO: remove this dirty has selecctor fallback when firefox adds support (which they claimed was the first half of 2023 however it is now the second half and still no :has) */
 body{ height: 100vh; }
