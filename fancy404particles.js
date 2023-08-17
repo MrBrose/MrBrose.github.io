@@ -61,12 +61,12 @@ function renderRect(ctx, r){ ctx.fillRect(
 ); }
 
 class fancyParticles extends Particles{
-	INITIAL_PARTICLES_PER_PIXEL = 3;
+	INITIAL_PARTICLES_PER_PIXEL = 10;
 	MIN_ALPHA =  0;
 	MAX_ALPHA = 1;
-	MOUSE_REPULSION = 1;
+	MOUSE_REPULSION = 5;
 	IN_TEXT_SPEED_MODIFIER = 0.1;
-	OUT_OF_TEXT_OPACITY_MODIFIER = 0.4;
+	OUT_OF_TEXT_OPACITY_MODIFIER = 0;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
@@ -83,7 +83,7 @@ class fancyParticles extends Particles{
 		return (
 			thisAndNotThat(
 				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:200-50}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX-338, Y:300-50}, size:60, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX-338-15, Y:300-70}, size:80, side: "bottomRight"}) ||
 				isPointInTriangle(p, {topLeft:{X:centerX-438, Y:350-50}, size:50, side: "bottomRight"})
 			) ||
 			isPointInRect(p, {topLeft:{X:centerX-288,Y:400-50},bottomRight:{X:centerX-238,Y:500-50}}) ||
@@ -104,7 +104,7 @@ class fancyParticles extends Particles{
 		) || (
 			thisAndNotThat(
 				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:200-50}, size:200, side: "bottomRight"}),
-				isPointInTriangle(p, {topLeft:{X:centerX+237, Y:300-50}, size:60, side: "bottomRight"}) ||
+				isPointInTriangle(p, {topLeft:{X:centerX+237-15, Y:300-70}, size:80, side: "bottomRight"}) ||
 				isPointInTriangle(p, {topLeft:{X:centerX+137, Y:350-50}, size:50, side: "bottomRight"})
 			) || (
 				isPointInRect(p, {topLeft:{X:centerX+287,Y:400-50},bottomRight:{X:centerX+337,Y:500-50}}) ||
