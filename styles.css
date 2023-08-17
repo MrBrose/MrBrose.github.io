@@ -81,10 +81,10 @@ button[disabled]{
 
 .notfound-text {
 	font-size: 50px;
-	color: #bac6ff;
+	color: var(--colour-text-light);
 	text-align: center;
 	margin-top: 8.5em;
-	opacity: 0.5;
+	opacity: 1;
 	
 }
 
