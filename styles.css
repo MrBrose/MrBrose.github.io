@@ -402,6 +402,10 @@ main{
 	[component^=panel-link] img{
 		display: none;
 	}
+	[component^=panel-link-small] {
+		border-radius: 0;
+		width:100%;
+	}
   }
 
 [component^=panel-link-small] {
@@ -494,6 +498,29 @@ main{
 	}
 	.about-me .fake-img{
 		display: none;
+	}
+	[component^=panel-link-f] {
+		width: 100%;
+	}
+	[component^=panel-link-f] p {
+		font-size: 3em;
+		font-family: var(--font-url);
+	}
+	[component^=panel-link-f] h2 {
+		font-size: 0.9em;
+		font-family: notosans;
+	}
+	[component^=panel-link-f] .big {
+		font-size: 2.3em;
+	}
+	[component^=panel-link-f] .mobilesmaller{
+		font-size: 2.3em;
+
+	}
+	[component^=panel-link-f] .negmargin{
+		font-size: 2.5em;
+		margin-bottom: 0;
+
 	}
 }
 
