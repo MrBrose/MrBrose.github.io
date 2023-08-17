@@ -479,6 +479,7 @@ main{
 	margin-top: auto;
 	margin-left: 2em;
 	grid-area: image;
+	background-position: bottom;
 }
 @media (max-width: 60em) {
 	.about-me{
