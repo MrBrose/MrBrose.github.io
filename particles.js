@@ -40,18 +40,35 @@ class Particles {
 		this.particles=[];
 	}
 
+	stop(){
+		this.running = false;
+		window.removeEventListener("resize",this.resizeListner);
+
+		document.removeEventListener("mousemove", this.mousemoveListner);
+		document.removeEventListener("touchmove", this.touchmoveListner);
+
+		document.removeEventListener("mousedown", this.mousedownListner);
+	}
+
 	start(){ OnLoad(()=>{
-		window.addEventListener("resize",this.resizeCanvas.bind(this));
+		this.running = true;
+
+		this.resizeListner = this.resizeCanvas.bind(this);
+		window.addEventListener("resize",this.resizeListner);
+
 		this.resizeCanvas();
 
 		window.requestAnimationFrame(this.renderCanvas.bind(this));
 		
 		for (let i = 0; i < this.INITIAL_PARTICLES_PER_PIXEL*this.dustCanvas.height; i++){this.createInitialParticle()}
 	
-		document.addEventListener("mousemove", e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY));
-		document.addEventListener("touchmove", e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
+		this.mousemoveListner = e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY);
+		document.addEventListener("mousemove", this.mousemoveListner);
+		this.touchmoveListner = e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+		document.addEventListener("touchmove", this.touchmoveListner);
 	
-		document.addEventListener("mousedown", e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true}));
+		this.mousedownListner = e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true});
+		document.addEventListener("mousedown", this.mousedownListner);
 	}); }
 	
 	createInitialParticle(){
@@ -113,7 +130,9 @@ class Particles {
 		});
 
 		this.previousTimeStamp=timeStamp;
-		window.requestAnimationFrame(this.renderCanvas.bind(this));
+		if (this.running){
+			window.requestAnimationFrame(this.renderCanvas.bind(this));
+		}
 	}
 
 	resizeCanvas(){
