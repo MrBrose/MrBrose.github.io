@@ -74,17 +74,18 @@ button[disabled]{
 
 #dust, #dust404{
 	position: absolute;
-	top: 0;
+	top: -1em;
 	left: 0;
 	z-index: -1;
 }
 
 .notfound-text {
 	font-size: 50px;
-	color: white;
+	color: #bac6ff;
 	text-align: center;
-	margin-top: 9em;
+	margin-top: 8.5em;
 	opacity: 0.5;
+	
 }
 
 .fake-img{

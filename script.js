@@ -9,7 +9,6 @@ Number.prototype.clamp = function (min, max) {
 }
 
 var menuCheckbox = document.getElementById("menuCheckbox");
-var notFoundText = document.querySelector(".notfound-text");
 menuCheckbox.checked = false;
 var menuContent = document.getElementById("menuContent");
 var header = document.querySelector("header");
@@ -58,10 +57,6 @@ menuLabel.addEventListener("keydown", e => {
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	}
-});
-
-notFoundText.addEventListener("click", e => {
-	notFoundText.textContent = "Oops, looks like the enderman stole that page."
 });
 
 [...menuContent.children].forEach(el => {
