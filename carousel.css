@@ -15,7 +15,7 @@
 }
 @media only screen and (max-width: 500px) {
 	[component^="carousel"] {
-		border-radius: 0 0 1em 1em;
+		border-radius: 0 0 0 0;
 	}
 }
 [component^="carousel"] > button{
