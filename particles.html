@@ -10,14 +10,28 @@
 		<link rel="icon" type="image/x-icon" href="/images/favicon.png">
 		<link rel="stylesheet" href="/styles.css">
 		<script src="/script.js" defer></script>
-		<script src="/particles.js" defer></script>
-		
-		<script src="/carousel.js" defer></script>
-		<link rel="stylesheet" href="/carousel.css">
+		<script src="/particles.js"></script>
+		<style>
+			label[for="show"]{
+				color: white;
+			}
+			.value{
+				font-family: "notosans";
+				color: white;
+				width: min-content;
+				display: flex;
+			}
+			.value input[type="number"]{
+				width: 10ch;
+			}
+			#show:not(:checked) ~ .value{
+				display: none;
+			}
+		</style>
 	</head>
 
 	<body class="linear-grad">
-		<canvas id="dust"></canvas>
+		<canvas id="CustomDust" class="dust"></canvas>
 		<input type="checkbox" id="menuCheckbox">
 		<header>
 			<div class="top-bar">
@@ -50,55 +64,191 @@
 				<a class="menu-link-button" href="https://discord.gg/mxV7yXhXH3"target="_blank"><span>Discord</span></a>
 			</nav>
 		</header>
-		<main vert>
-			<div horz>
-				<a component="panel-link" href="/official-logos">
-					<h2>Offical Logos</h2>
-				</a>
-				<a component="panel-link" href="/making-a-logo">
-					<h2>Making a Logo</h2>
-				</a>
-				<a component="panel-link" href="/calculator">
-					<h2>Grid Calculator</h2>
-				</a>
-				<a component="panel-link" href="/download-fonts">
-					<h2>Fonts</h2>
-				</a>
+		<main>
+			<label for="show">show options</label>
+			<input type="checkbox" id="show">
+			<div class="value">
+				<label>MIN_SIZE</label>
+				<input type="range" step="any" min="0" max="50" id="MIN_SIZE_R">
+				<input type="number" id="MIN_SIZE_N">
 			</div>
-			<div class="about-us">
-				<h2>-Meet the Community-</h2>
-				<div component="carousel">
-					<button disabled><span class="non-visual">Previous Item</span></button>
-					<ul>
-						<li img-src="/images/heads/MrBrose.png"><div class="about-me">
-							<h2>MrBrose</h2>
-							<p>Hi there! I'm MrBrosᴇ and I am a graphic designer who creates Minecraft related things. You might know me for my Minecraft Style Logos, which you can see in my <a href="portfolio" target="_blank">portfolio</a>, and you can purchase one too, Just click <a href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title" target="_blank">here!</a> <br> I also help other people learn how to make their very own Minecraft Style logos themselves! Using resources from this website you too can become a Minecraft Logo expert.</p>
-							<div class="fake-img" style="--src:url('/images/MrBrose.webp');" alt="">
-						</div></li>
-						<li img-src="/images/heads/Annoying.png"><div class="about-me">
-							<h2>TheAnnoying</h2>
-							<p>Hey, I'm TheAnnoying! I always wanted to create Minecraft titles, but never knew there was a community for it. After I came across the Minecraft Titles Discord server, I realized there are others like me, who find these titles really awesome. I started using Mineimator and Photoshop for my logos, but then moved to Adobe Illustrator. I'm very happy with how my logos look, and I'm glad there are many guides on the server to help out!</p>
-							<div class="fake-img" style="--src:url('/images/TheAnnoying.webp');" alt="">
-						</div></li>
-						<li img-src="/images/heads/RJ.png"><div class="about-me">
-							<h2>RJ_Infinity</h2>
-							<p>Hello. I am the guy who created almost all the website that you see in front of you. including much time spent creating the excelent particles in the background (if you want to see how cool they can be look at the 404 page). I also make other programs and the odd other thing. you can find most of my work at <a href="http://github.com/RJ-Infinity/" target="_blank">github.com/RJ-Infinity/</a><a href="/particles">.</a></p>
-							<div class="fake-img" style="--src:url('/images/RJ.webp');" alt="">
-						</div></li>
-						<li img-src="/images/heads/Floiden.png"><div class="about-me">
-							<h2>FloideN</h2>
-							<p>Hey, my name is FloideN, I am a graphic designer, I love to create something unique, beautiful and professional. I am always looking for something new and when I start doing something I try to make it perfect! And I also love to create Minecraft related content, logos, key art, unique fonts inspired by official fonts (you can find them in the "fonts" tab) and much more!							</p>
-							<div class="fake-img" style="--src:url('/images/FloideN.webp');" alt="">
-						</div></li>
-						<li img-src="/images/heads/TitusHM.png"><div class="about-me">
-							<h2>TitusHM</h2>
-							<p>Hello, fellow fellows! I'm the brains that used a python script to introduce the fonts to this website. While i didnt personally design every aspect of the site, i'm the sole reason behind the smooth navigation and user-friendly experience (when in the fonts page). So, as you explore the amazing virtual world here, remember that it is my expert coding touch that is making it all (of the fonts page) click seamlessly. <a href="https://github.com/titushm" target="_blank">my github</a></p>
-							<div class="fake-img" style="--src:url('/images/Titus.webp');" alt="">
-						</div></li>
-					</ul>
-					<button disabled><span class="non-visual">Next Item</span></button>
-				</div>
+			<div class="value">
+				<label>MAX_SIZE</label>
+				<input type="range" step="any" min="0" max="50" id="MAX_SIZE_R">
+				<input type="number" id="MAX_SIZE_N">
 			</div>
+			<div class="value"></div>
+			<div class="value">
+				<label>MIN_XVEL</label>
+				<input type="range" step="any" min="-10" max="10" id="MIN_XVEL_R">
+				<input type="number" id="MIN_XVEL_N">
+			</div>
+			<div class="value">
+				<label>MAX_XVEL</label>
+				<input type="range" step="any" min="-10" max="10" id="MAX_XVEL_R">
+				<input type="number" id="MAX_XVEL_N">
+			</div>
+			
+			<div class="value">
+				<label>MIN_YVEL</label>
+				<input type="range" step="any" min="-10" max="10" id="MIN_YVEL_R">
+				<input type="number" id="MIN_YVEL_N">
+			</div>
+			<div class="value">
+				<label>MAX_YVEL</label>
+				<input type="range" step="any" min="-10" max="10" id="MAX_YVEL_R">
+				<input type="number" id="MAX_YVEL_N">
+			</div>
+			
+			<div class="value">
+				<label>MIN_ALPHA</label>
+				<input type="range" step="any" min="0" max="1" id="MIN_ALPHA_R">
+				<input type="number" id="MIN_ALPHA_N">
+			</div>
+			<div class="value">
+				<label>MAX_ALPHA</label>
+				<input type="range" step="any" min="0" max="1" id="MAX_ALPHA_R">
+				<input type="number" id="MAX_ALPHA_N">
+			</div>
+			
+			<div class="value">
+				<label>PARTICLES_PER_PIXEL</label>
+				<input type="range" step="any" min="0" max="50" id="PARTICLES_PER_PIXEL_R">
+				<input type="number" id="PARTICLES_PER_PIXEL_N">
+			</div>
+			<div class="value">
+				<label>INITIAL_PARTICLES_PER_PIXEL</label>
+				<input type="range" step="any" min="0" max="50" id="INITIAL_PARTICLES_PER_PIXEL_R">
+				<input type="number" id="INITIAL_PARTICLES_PER_PIXEL_N">
+			</div>
+			
+			<div class="value">
+				<label>PARTICLE_R</label>
+				<input type="range" step="any" min="0" max="255" id="PARTICLE_R_R">
+				<input type="number" id="PARTICLE_R_N">
+			</div>
+			<div class="value">
+				<label>PARTICLE_G</label>
+				<input type="range" step="any" min="0" max="255" id="PARTICLE_G_R">
+				<input type="number" id="PARTICLE_G_N">
+			</div>
+			<div class="value">
+				<label>PARTICLE_B</label>
+				<input type="range" step="any" min="0" max="255" id="PARTICLE_B_R">
+				<input type="number" id="PARTICLE_B_N">
+			</div>
+			
+			<div class="value">
+				<label>CLICK_AMOUNT</label>
+				<input type="range" step="any" min="0" max="50" id="CLICK_AMOUNT_R">
+				<input type="number" id="CLICK_AMOUNT_N">
+			</div>
+			
+			<div class="value">
+				<label>MOUSE_VEL_FADE_SPEED</label>
+				<input type="range" step="any" min="0" max="0.001" id="MOUSE_VEL_FADE_SPEED_R">
+				<input type="number" id="MOUSE_VEL_FADE_SPEED_N">
+			</div>
+			
+			<div class="value">
+				<label>MOUSE_REPULSION</label>
+				<input type="range" step="any" min="0" max="10" id="MOUSE_REPULSION_R">
+				<input type="number" id="MOUSE_REPULSION_N">
+			</div>
+			<div class="value">
+				<label>MAX_REPULSION_VEL</label>
+				<input type="range" step="any" min="0" max="2" id="MAX_REPULSION_VEL_R">
+				<input type="number" id="MAX_REPULSION_VEL_N">
+			</div>
+			<div class="value">
+				<button id="restart">restart</button>
+			</div>
+			<script>
+				window.particles = new Particles(document.getElementById("CustomDust"));
+				
+				function create(prop) {
+					const R = document.getElementById(prop+"_R");
+					const N = document.getElementById(prop+"_N");
+					R.value = particles[prop];
+					N.value = particles[prop];
+					update = (v) => {
+						R.value = v;
+						N.value = v;
+					}
+					R.addEventListener("input", ()=>{
+						N.value = R.value;
+						particles[prop] = R.value;
+					});
+					N.addEventListener("change", ()=>{
+						R.value = N.value;
+						particles[prop] = N.value;
+					});
+				}
+
+				create("MIN_SIZE");
+				create("MAX_SIZE");
+				
+				create("MIN_XVEL");
+				create("MAX_XVEL");
+				
+				create("MIN_YVEL");
+				create("MAX_YVEL");
+				
+				create("MIN_ALPHA");
+				create("MAX_ALPHA");
+				
+				create("PARTICLES_PER_PIXEL");
+				create("INITIAL_PARTICLES_PER_PIXEL");
+				
+				create("PARTICLE_R");
+				create("PARTICLE_G");
+				create("PARTICLE_B");
+				
+				create("CLICK_AMOUNT");
+				
+				create("MOUSE_VEL_FADE_SPEED");
+				
+				create("MOUSE_REPULSION");
+				create("MAX_REPULSION_VEL");
+
+				window.particles.start();
+
+				document.getElementById("restart").addEventListener("click",()=>{
+					let p = new Particles(document.getElementById("CustomDust"));
+					p.MIN_SIZE = window.particles.MIN_SIZE;
+					p.MAX_SIZE = window.particles.MAX_SIZE;
+					
+					p.MIN_XVEL = window.particles.MIN_XVEL;
+					p.MAX_XVEL = window.particles.MAX_XVEL;
+					
+					p.MIN_YVEL = window.particles.MIN_YVEL;
+					p.MAX_YVEL = window.particles.MAX_YVEL;
+					
+					p.MIN_ALPHA = window.particles.MIN_ALPHA;
+					p.MAX_ALPHA = window.particles.MAX_ALPHA;
+					
+					p.PARTICLES_PER_PIXEL = window.particles.PARTICLES_PER_PIXEL;
+					p.INITIAL_PARTICLES_PER_PIXEL = window.particles.INITIAL_PARTICLES_PER_PIXEL;
+					
+					p.PARTICLE_R = window.particles.PARTICLE_R;
+					p.PARTICLE_G = window.particles.PARTICLE_G;
+					p.PARTICLE_B = window.particles.PARTICLE_B;
+					
+					p.CLICK_AMOUNT = window.particles.CLICK_AMOUNT;
+					
+					p.MOUSE_VEL_FADE_SPEED = window.particles.MOUSE_VEL_FADE_SPEED;
+					
+					p.MOUSE_REPULSION = window.particles.MOUSE_REPULSION;
+					p.MAX_REPULSION_VEL = window.particles.MAX_REPULSION_VEL;
+					
+					window.particles.stop();
+
+					window.particles = p;
+
+					p.start();
+				});
+
+			</script>
 		</main>
 		<footer>
 			<ul>

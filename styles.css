@@ -72,9 +72,9 @@ button[disabled]{
 	pointer-events: none;
 }
 
-#dust, #dust404{
+#dust, .dust{
 	position: absolute;
-	top: -1em;
+	top: 0;
 	left: 0;
 	z-index: -1;
 }
@@ -481,6 +481,9 @@ main{
 	grid-area: image;
 }
 @media (max-width: 60em) {
+	.about-me{
+		grid-template-columns: 1fr 0;
+	}
 	.about-me .fake-img{
 		display: none;
 	}
