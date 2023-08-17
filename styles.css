@@ -311,6 +311,13 @@ main{
 	padding: var(--gap);
 	overflow-x: hidden;
 }
+
+@media only screen and (max-width: 500px) {
+	main{
+		padding: var(--gap) 0;
+	}
+}
+
 [horz], [vert]{
 	display: flex;
 	gap: var(--gap);
