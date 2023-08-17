@@ -74,7 +74,7 @@ class Particles {
 	createInitialParticle(){
 		this.createParticle({
 			X: this.dustCanvas.width * Math.random(),
-			Y: this.dustCanvas.height * Math.random()
+			Y: this.dustCanvas.height * Math.random(),
 		});
 	}
 
@@ -94,12 +94,16 @@ class Particles {
 			fadeVelY: 0,
 			fadeVelX: 0,
 		}, defaultObj);
+
+		if (p.velX < 0 && p.X === -this.MAX_SIZE){ p.X = this.dustCanvas.width; }
+		if (p.velY > 0 && p.Y === this.dustCanvas.height){ p.Y = -this.MAX_SIZE; }
+
 		this.particles.push(p);
 		return p;
 	}
 	createParticles(amount, defaultObj={}){for (let i = 0; i < amount; i++) {this.createParticle(defaultObj)}}
 
-	isInBounds(particle) { return particle.X < this.dustCanvas.width && particle.Y > 0 && particle.X > 0 && particle.Y < this.dustCanvas.height;}
+	isInBounds(particle) { return particle.X < this.dustCanvas.width && particle.Y > -this.MAX_SIZE && particle.X > -this.MAX_SIZE && particle.Y < this.dustCanvas.height;}
 
 	renderCanvas(timeStamp) {
 		let dt=timeStamp-this.previousTimeStamp;
