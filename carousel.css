@@ -13,11 +13,6 @@
 	--gap: 4em;
 	--button-width: calc(2.5em + 17px);/*this calc is the width of the button including the shadow*/
 }
-@media only screen and (max-width: 500px) {
-	[component^="carousel"] {
-		border-radius: 0 0 0 0;
-	}
-}
 [component^="carousel"] > button{
 	position: absolute;
 	top: 50%;
@@ -44,7 +39,7 @@
 }
 [component^="carousel"] > button::before{
 	content: "";
-	height: 2em;
+	height: 50%;
 	aspect-ratio: 1;
 	display: block;
 	border: 0.4em solid var(--colour-text-dark);
@@ -140,4 +135,27 @@
 }
 [component^="carousel"] > ul.icons li.selected {
 	translate: 0 -.3em;
+}
+@media only screen and (max-width: 500px) {
+	[component^="carousel"] {
+		border-radius: 0 0 0 0;
+		--button-width: 1em;
+	}
+	[component^="carousel"] > button{
+		height: 2em;
+		bottom: 0;
+		top: auto;
+		transform: none;
+	}
+	[component^="carousel"] > button:first-of-type{
+		padding-left: .25em;
+	}
+	[component^="carousel"] > button:last-of-type{
+		padding-right: .25em;
+	}
+	[component^="carousel"] > ul.icons {
+		padding: 0;
+		left: 50%;
+		translate: -50%;
+	}
 }
