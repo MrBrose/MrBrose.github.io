@@ -67,6 +67,10 @@ class fancyParticles extends Particles{
 	MOUSE_REPULSION = 5;
 	IN_TEXT_SPEED_MODIFIER = 0.1;
 	OUT_OF_TEXT_OPACITY_MODIFIER = 0;
+	PARTICLE_R = 225;		// 0 < x < 255
+	PARTICLE_G = 0;
+	PARTICLE_B = 50;
+
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
