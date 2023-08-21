@@ -604,12 +604,13 @@ iframe[component^=video-embed] {
 	opacity: 60%;
 }
 [component^=image-list] img{
-	padding: 0 calc((100% - var(--width,60%)) / 2);
 	width: 100%;
 	margin-top: 2.5em;
 }
 [component^=image-list] div{
 	position: relative;
+	width: var(--width,60%);
+	margin: 0 auto;
 }
 [component^=image-list] div:has( > img[src$=".svg"])::after{
 	content: "svg";
