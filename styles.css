@@ -144,11 +144,18 @@ header .logo > img {
 
 header .title {
 	max-width: 50%;
-	object-fit: contain;
 	color: var(--colour-text-light);
-	font-size: 95px;
 	margin: 0;
-	height: 0.6em;
+	padding: 0;
+	display: block;
+	position: relative;
+	font-size: 3.6rem;
+}
+
+header .title img{
+	object-fit: contain;
+	margin: 0;
+	height: 1em;
 }
 
 header .menu {
@@ -166,7 +173,7 @@ header .menu>img{
 	display: none;
 }
 
-header .top-bar > a,
+header .top-bar > .logo,
 header .top-bar > label{
 	padding: 1px 10px;
 }
