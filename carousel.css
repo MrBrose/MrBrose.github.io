@@ -1,13 +1,9 @@
-:root {
-	--colour-text-light: #7f89a2;
-}
-
 [component^="carousel"] {
 	max-width: 75em;
 	display: grid;
 	position: relative;
 	border-radius:1em;
-	background-color: var(--colour-bg-light);
+	background-color: var(--colour-bg-object);
 	margin: 0 auto;
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
 	--gap: 4em;
@@ -42,7 +38,7 @@
 	height: 50%;
 	aspect-ratio: 1;
 	display: block;
-	border: 0.4em solid var(--colour-text-dark);
+	border: 0.4em solid var(--colour-text-light);
 	border-bottom: 0;
 	border-right: 0;
 	transition: border-color var(--short-animation-time);
