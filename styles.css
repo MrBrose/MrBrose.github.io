@@ -22,6 +22,7 @@
 
 	--colour-text-light: #c7d0da;
 	--colour-text-dark: #c7d0da;
+	--colour-text-red: #ff1e0065;
 
 	--colour-white: #ffffff;
 	
@@ -54,7 +55,7 @@ body.linear-grad{
 }
 
 body.linear-grad-red{
-	background-image: linear-gradient(#2d303a,#353946,#353946,#383546,#3d3546,#473549,#53364c,#643a4b);
+	background-image: linear-gradient(#1e222b,#1e222b,#1e222b,#1e222b,#1e2433,#1b2336,#232c43);
 }
 a:focus-visible{
 	outline: 2px solid var(--colour-white);
@@ -76,7 +77,7 @@ button[disabled]{
 
 .notfound-text {
 	font-size: 50px;
-	color: #ff002b46;
+	color: var(--colour-text-red);
 	text-align: center;
 	margin-top: 8.5em;
 	opacity: 1;
