@@ -4,10 +4,12 @@
 @font-face {
 	font-family:minecraft10;
 	src: url(./fonts/minecraft10.ttf);
+	font-display: swap;
 }
 @font-face {
 	font-family:notosans;
 	src: url(./fonts/NotoSans-bold.ttf);
+	font-display: swap;
 }
 
 /* global styles */
