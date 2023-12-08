@@ -161,6 +161,7 @@ header .title img{
 	object-fit: contain;
 	margin: 0;
 	height: 1em;
+	max-width: 100%;
 }
 
 header .menu {
