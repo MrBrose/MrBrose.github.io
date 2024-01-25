@@ -59,6 +59,10 @@ body.linear-grad{
 body.linear-grad-red{
 	background-image: linear-gradient(#1e222b,#1e222b,#1e222b,#1e222b,#1e2433,#1b2336,#232c43);
 }
+
+body.linear-black{
+	background-image: linear-gradient(#000000,#000000);
+}
 a:focus-visible{
 	outline: 2px solid var(--colour-white);
 }
