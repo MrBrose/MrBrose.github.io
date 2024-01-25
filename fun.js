@@ -64,13 +64,18 @@ class fancyParticles extends Particles{
 	INITIAL_PARTICLES_PER_PIXEL = 0.1;
 	MIN_ALPHA =  0;
 	MAX_ALPHA = 0.75;
-	MOUSE_REPULSION = 30;
+	MOUSE_REPULSION = 1;
 	IN_TEXT_SPEED_MODIFIER = 1;
 	OUT_OF_TEXT_OPACITY_MODIFIER = 1;
-	PARTICLE_R = 0;		// 0 < x < 255
-	PARTICLE_G = 100;
-	PARTICLE_B = 160;
-	CLICK_AMOUNT = 100;
+	PARTICLE_R = 130;		// 0 < x < 255
+	PARTICLE_G = 140;
+	PARTICLE_B = 170;
+	CLICK_AMOUNT = 5000;
+	MIN_XVEL=-0.05;
+	MAX_XVEL=0.05;
+	MIN_YVEL=-0.05;
+	MAX_YVEL=0.05;
+	MOUSE_VEL_FADE_SPEED = -0.005;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
