@@ -105,6 +105,11 @@ class Particles {
 
 	isInBounds(particle) { return particle.X < this.dustCanvas.width && particle.Y > -this.MAX_SIZE && particle.X > -this.MAX_SIZE && particle.Y < this.dustCanvas.height;}
 
+	renderParticle(ctx, particle){
+		ctx.fillStyle = `rgba(${this.PARTICLE_R}, ${this.PARTICLE_G}, ${this.PARTICLE_B}, ${particle.alpha})`;
+		ctx.fillRect(particle.X, particle.Y, particle.size, particle.size);
+	}
+
 	renderCanvas(timeStamp) {
 		let dt=timeStamp-this.previousTimeStamp;
 		if (this.previousTimeStamp === undefined){
@@ -128,10 +133,7 @@ class Particles {
 
 		this.createParticles(oldParticleLen-this.particles.filter(p=>!p.mouseMade).length);
 
-		this.particles.forEach(particle=>{
-			ctx.fillStyle = `rgba(${this.PARTICLE_R}, ${this.PARTICLE_G}, ${this.PARTICLE_B}, ${particle.alpha})`;
-			ctx.fillRect(particle.X, particle.Y, particle.size, particle.size);
-		});
+		this.particles.forEach(p=>this.renderParticle(ctx, p));
 
 		this.previousTimeStamp=timeStamp;
 		if (this.running){
