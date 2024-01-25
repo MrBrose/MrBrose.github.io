@@ -75,7 +75,7 @@ class fancyParticles extends Particles{
 	MAX_XVEL=0.05;
 	MIN_YVEL=-0.05;
 	MAX_YVEL=0.05;
-	MOUSE_VEL_FADE_SPEED = -0.005;
+	MOUSE_VEL_FADE_SPEED = -0.003;
 
 	createParticle(defaultArg){
 		let p = super.createParticle(defaultArg);
