@@ -95,6 +95,9 @@ class Particles {
 			fadeVelX: 0,
 		}, defaultObj);
 
+
+		if ((p.velX**2)/(this.MAX_XVEL**2)+(p.velY**2)/(this.MAX_YVEL**2)>1){return this.createParticle(defaultObj);}
+
 		if (p.velX < 0 && p.X === -this.MAX_SIZE){ p.X = this.dustCanvas.width; }
 		if (p.velY > 0 && p.Y === this.dustCanvas.height){ p.Y = -this.MAX_SIZE; }
 
