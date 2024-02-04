@@ -10,11 +10,11 @@ class Particles {
 	MIN_SIZE=2;			// pixels
 	MAX_SIZE=10;
 	
-	MIN_XVEL=-0.03;
+	MIN_XVEL=-0.07;
 	MAX_XVEL=0.07;
 	
-	MIN_YVEL=-0.0;
-	MAX_YVEL=0.13;
+	MIN_YVEL=-0.07;
+	MAX_YVEL=0.07;
 	
 	MIN_ALPHA=0;			// 0 < x < 1
 	MAX_ALPHA=1;

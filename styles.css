@@ -53,7 +53,7 @@ body.rad-grad{
 	background-image: radial-gradient(#142639, #1e222b, #000000);
 }
 body.linear-grad{
-	background-image: linear-gradient(#1e222b,#1e222b,#1e222b,#1e222b,#1e2433,#1b2336,#232c43)
+	background-image: linear-gradient(#1e222b,#1e222b)
 }
 
 body.linear-grad-red{
@@ -458,11 +458,38 @@ main{
 	}
   }
 
+
+
+  [component^=panel-link-wide] {
+	flex-basis: 0;
+	padding: 0;
+	--scale: 1.03;
+	padding-bottom: 0.5em;
+	max-width: 75em;
+	display: grid;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+}
+
+[component^=panel-link-wide] p {
+	padding-bottom: 1em;
+	padding: 0 1em 1em 1em;
+}
+
+
+
 [component^=panel-link-small] {
 	flex-basis: 0;
 	padding: 0;
 	--scale: 1.03;
 	padding-bottom: 0.5em;
+	max-width: 75em;
+	display: grid;
+	position: relative;
+	width: 100%;
+	max-width: 63.1em;
+	margin: 0 auto;
 }
 
 [component^=panel-link-small] p {
@@ -628,6 +655,26 @@ iframe[component^=video-embed] {
 [component^=text-block-instructions] p {
 	margin: 0;
 }
+
+
+
+
+[component^=title] {
+	width: 100%;
+	max-width: 60em;
+	margin: 0 auto;
+	text-align: center;
+	color: var(--colour-text-light);
+	font-size: 400%;
+	padding-top: .5em;
+}
+@media (max-width: 60em) {
+	[component^=title] {
+		font-size: 300%;
+	}
+}
+
+
 
 
 [component^=image-list] {
