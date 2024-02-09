@@ -784,7 +784,7 @@ margin-left: 2em;
 	position: absolute;
 	transform: translateY(-50%);
 	top: 50%;
-margin-left: 2em;
+	margin-left: 2em;
 	background-color: var(--colour-text-light);
 	padding: .2em .4em .4em;
 	border-radius: .4em;
@@ -792,7 +792,14 @@ margin-left: 2em;
 }
 
 
-
+.bottom-img{
+	height: 300px;
+	background-image: url("/images/bottombanner.png");
+	margin-bottom: 0em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
 
 
 
