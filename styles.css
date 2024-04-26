@@ -7,8 +7,8 @@
 	font-display: swap;
 }
 @font-face {
-	font-family:notosans;
-	src: url(./fonts/NotoSans-SemiBold.ttf);
+	font-family:poppins;
+	src: url(./fonts/Poppins-SemiBold.ttf);
 	font-display: swap;
 }
 
@@ -41,7 +41,7 @@ body {
 	background: var(--colour-bg-light);
 	min-height: 100vh;
 	width: 100%;
-	font-family: 'minecraft10', notosans, system-ui;
+	font-family: 'minecraft10', poppins, system-ui;
 	scroll-behavior: smooth;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
@@ -409,7 +409,7 @@ main{
 	margin: 0;
 	font-size: 1rem;
 	color: var(--colour-text-light);
-	font-family: "notosans";
+	font-family: "poppins";
 }
 
 /* .panel-link */
@@ -513,7 +513,7 @@ main{
 
 [component^=panel-link-f] h2 {
 	font-size: 1.3em;
-	font-family: notosans;
+	font-family: poppins;
 }
 
 [component^=panel-link-f] .negmargin {
@@ -538,7 +538,7 @@ main{
 	}
 	[component^=panel-link-f] h2 {
 		font-size: 0.9em;
-		font-family: notosans;
+		font-family: poppins;
 	}
 	[component^=panel-link-f] .big {
 		font-size: 2.3em;
@@ -585,7 +585,7 @@ main{
 	text-align: left;
 	grid-area: text;
 	color: var(--colour-text-light);
-	font-family: notosans;
+	font-family: poppins;
 	font-size: 1em;
 }
 
@@ -644,7 +644,7 @@ iframe[component^=video-embed] {
 	margin: 0;
 }
 [component^=text-block] p {
-	font-family: notosans, system-ui;
+	font-family: poppins, system-ui;
 }
 [component^=text-block] img {
 	width: 100%;
@@ -693,7 +693,7 @@ iframe[component^=video-embed] {
 	font-size: 1.2em;
 	text-align: center;
 	margin: 0;
-	font-family: notosans;
+	font-family: poppins;
 	color: var(--colour-text-light);
 	opacity: 60%;
 }
@@ -790,7 +790,7 @@ body.no-scroll{
 	font-size: 0.9em;
 	text-align: center;
 	margin: 0;
-	font-family: notosans;
+	font-family: poppins;
 	color: var(--colour-text-light);
 	opacity: 60%;
 	margin-top: -2em;
