@@ -50,7 +50,7 @@ body {
 	box-sizing: border-box;
 }
 body.rad-grad{
-	background-image: radial-gradient(#142639, #1e222b, #000000);
+	background-image: radial-gradient(#c7d0da, #c7d0da);
 }
 body.linear-grad{
 	background-image: linear-gradient(#1e222b,#1e222b)
@@ -749,37 +749,29 @@ margin-left: 2em;
 
 
 
-
-[component^=image-list-p] {
-	width: 100%;
-	margin: 1em 0;
-}
-[component^=image-list-p] h2{
-	font-weight: 100;
-	font-size: 1.8em;
-	text-align: center;
+main:has(>[component^=side-scroll]){
 	margin: 0;
-	color: var(--colour-text-light);
+	display: grid;
+	gap: 3em;
+	padding: 3em;
+  	overflow-x: auto;
 }
-[component^=image-list-p] p{
-	font-weight: 100;
-	font-size: 1.2em;
-	text-align: center;
-	margin: 0;
-	font-family: notosans;
-	color: var(--colour-text-light);
-	opacity: 60%;
+[component^=side-scroll] {
+	display: flex;
+	width: min-content;
+	overflow-x: auto;
+	height: 100%;
+	gap: 5em;
 }
-[component^=image-list-p] img{
-	width: 100%;
-	margin-top: 2.5em;
+[component^=side-scroll] div{
+	height: 100%;
+	display: block;
 }
-[component^=image-list-p] div{
-	position: relative;
-	width: var(--width,60%);
-	margin: 0 auto;
+[component^=side-scroll] img{
+	height: 100%;
+	display: block;
 }
-[component^=image-list-p] div:has( > img[src$=".svg"])::after{
+[component^=side-scroll] div:has( > img[src$=".svg"])::after{
 	content: "svg";
 	position: absolute;
 	transform: translateY(-50%);
@@ -790,8 +782,20 @@ margin-left: 2em;
 	border-radius: .4em;
 
 }
+body.no-scroll{
+	height: 100vh;
+}
 
-
+[component^=small-text] p{
+	font-size: 0.9em;
+	text-align: center;
+	margin: 0;
+	font-family: notosans;
+	color: var(--colour-text-light);
+	opacity: 60%;
+	margin-top: -2em;
+	margin-bottom: -4em;
+}
 .bottom-img{
 	height: 300px;
 	background-image: url("/images/bottombanner.png");
