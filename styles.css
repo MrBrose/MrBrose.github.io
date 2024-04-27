@@ -618,14 +618,11 @@ main{
 	font-weight: normal;
 	font-size: 2em;
 	max-width: 12em;
-	margin: 0 auto;
-	margin-top: .8em;
-	
+	margin: .8em auto 0;
 }
 
 .about-us {
 	margin-top: .8em;
-	
 }
 
 iframe[component^=video-embed] {
@@ -917,3 +914,49 @@ footer ul a{
 	position: absolute;
 }
 
+/* Ewan Changes */
+
+#carousel-list {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#carousel-list li {
+	padding: 0 var(--button-width);
+}
+
+.about-us [component="carousel"] {
+	overflow: hidden;
+}
+
+.about-me {
+	position: relative;
+	z-index: 1;
+	padding: 2px 0;
+}
+
+.about-me .background-img {
+	position: absolute;
+	inset: 0 calc(var(--button-width) * -1);
+	z-index: -1;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+#carousel-list + .icons {
+	z-index: 1;
+}
+
+.about-us [component="carousel"] button {
+	z-index: 2;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+@media (max-width: 60em) {
+	.about-me .background-img {
+		display: none;
+	}
+}
