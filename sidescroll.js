@@ -13,6 +13,7 @@ const insertNextEl = (el, neu)=>{
 }
 
 const splitscroller = ()=>[...document.querySelectorAll("[component^=side-scroll]")].forEach(async el=>{
+    el.setAttribute("OG","");
     let kids = [...el.children];
     await Promise.allSettled(kids.map(imageLoaded));
     let rows = (el.getBoundingClientRect().height/250)|0;
@@ -28,18 +29,29 @@ const splitscroller = ()=>[...document.querySelectorAll("[component^=side-scroll
         rowItems.push(div);
     }
     zip(rowItems, imgs).forEach(([row, img])=>row.replaceChildren(...img));
+    el.parentElement.style.setProperty("--width", Math.max(
+        ...rowItems.map(row=>row.lastChild.getBoundingClientRect().right - row.getBoundingClientRect().left)
+    )+"px");
 });
+const mergeScroller = ()=>{
+    let lastOG;
+    [...document.querySelectorAll("[component^=side-scroll]")].forEach(async el=>{
+        if (typeof el.getAttribute("OG") == "string"){
+            lastOG = el;
+        }else{
+            lastOG.append(...el.childNodes);
+            el.remove()
+        }
+    });
+}
+document.addEventListener('load', splitscroller, false);
 splitscroller();
-document.addEventListener('resize', splitscroller);
+window.addEventListener('resize', ()=>{
+    mergeScroller();
+    splitscroller();
+});
  
 let main = document.querySelector("main");
 main.addEventListener("wheel",e=>{
-    if (e.deltaX == 0 && e.deltaY != 0){
-        main.dispatchEvent(new WheelEvent("wheel", {
-            deltaX: e.deltaY,
-            deltaY: 0,
-            deltaZ: 0,
-            deltaMode: e.deltaMode
-        }));
-    }
+    main.scrollLeft += e.deltaY * 1.5
 })

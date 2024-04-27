@@ -46,6 +46,9 @@ body {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 }
+body[no-header]{
+	grid-template-rows: 1fr min-content;	
+}
 * {
 	box-sizing: border-box;
 }
@@ -738,14 +741,11 @@ margin-left: 2em;
 	[component^=image-list] p{
 		font-size: 0;
 	}
-	[component^=image-list] h2{
+		[component^=image-list] h2{
 		padding-left: .1em;
 		padding-right: .1em;
 	}
 }
-
-
-
 
 
 
@@ -754,12 +754,13 @@ main:has(>[component^=side-scroll]){
 	display: grid;
 	gap: 3em;
 	padding: 3em;
-  	overflow-x: auto;
+ 	overflow-x: auto;
 }
 [component^=side-scroll] {
 	display: flex;
 	width: min-content;
-	overflow-x: auto;
+	width: var(--width);
+	overflow: hidden;
 	height: 100%;
 	gap: 5em;
 }
@@ -770,6 +771,8 @@ main:has(>[component^=side-scroll]){
 [component^=side-scroll] img{
 	height: 100%;
 	display: block;
+	max-width: 90vw;
+	object-fit: contain;
 }
 [component^=side-scroll] div:has( > img[src$=".svg"])::after{
 	content: "svg";

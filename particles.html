@@ -179,11 +179,11 @@
 					}
 					R.addEventListener("input", ()=>{
 						N.value = R.value;
-						particles[prop] = R.value;
+						particles[prop] = +R.value;
 					});
 					N.addEventListener("change", ()=>{
 						R.value = N.value;
-						particles[prop] = N.value;
+						particles[prop] = +N.value;
 					});
 				}
 

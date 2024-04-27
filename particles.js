@@ -89,7 +89,7 @@ class Particles {
 			) * (Math.random()*(this.MAX_XVEL-this.MIN_XVEL)+this.MIN_XVEL),
 			velY: defaultObj.velY || (
 				defaultObj.both ? (Math.random() > .5 ? 1 : -1) : 1
-			) * (-Math.random()*(this.MAX_YVEL-this.MIN_YVEL)-this.MIN_YVEL),
+			) * -(Math.random()*(this.MAX_YVEL-this.MIN_YVEL)+this.MIN_YVEL),
 			alpha: defaultObj.alpha || ( Math.random()*(this.MAX_ALPHA-this.MIN_ALPHA)+this.MIN_ALPHA),
 			fadeVelY: 0,
 			fadeVelX: 0,
@@ -129,7 +129,7 @@ class Particles {
 		this.particles=this.particles.map(particle=>{
 			particle.X += ( particle.fadeVelX + particle.velX ) * dt;
 			particle.fadeVelX -= particle.fadeVelX * this.MOUSE_VEL_FADE_SPEED * dt;
-			particle.Y += ( particle.fadeVelY + particle.velY ) * dt;
+			particle.Y += ( particle.fadeVelY + particle.velY + particle.grav) * dt;
 			particle.fadeVelY -= particle.fadeVelY * this.MOUSE_VEL_FADE_SPEED * dt;
 			return particle;
 		}).filter(this.isInBounds.bind(this));

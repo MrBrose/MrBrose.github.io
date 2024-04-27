@@ -9,19 +9,19 @@ Number.prototype.clamp = function (min, max) {
 }
 
 if (document.body.getAttribute("no-header")==null){
-	var menuCheckbox = document.getElementById("menuCheckbox");
+	let menuCheckbox = document.getElementById("menuCheckbox");
 	menuCheckbox.checked = false;
-	var menuContent = document.getElementById("menuContent");
-	var header = document.querySelector("header");
-	var main = document.querySelector("main");
-	var footer = document.querySelector("footer");
-	var menuLabel = document.querySelector(".menu[for=\"menuCheckbox\"]")
+	let menuContent = document.getElementById("menuContent");
+	let header = document.querySelector("header");
+	let main = document.querySelector("main");
+	let footer = document.querySelector("footer");
+	let menuLabel = document.querySelector(".menu[for=\"menuCheckbox\"]")
 
 	menuCheckbox.addEventListener('change', e => {
 		menuContent.classList.remove("hidden");
 		if (!e.target.checked) {
 
-			var value = window.getComputedStyle(menuContent).getPropertyValue("--animation-time");
+			let value = window.getComputedStyle(menuContent).getPropertyValue("--animation-time");
 			if (value.endsWith("ms")) {
 				value = value.slice(0, -2);
 			} else if (value.endsWith("s")) {
