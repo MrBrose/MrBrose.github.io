@@ -129,7 +129,7 @@ class Particles {
 		this.particles=this.particles.map(particle=>{
 			particle.X += ( particle.fadeVelX + particle.velX ) * dt;
 			particle.fadeVelX -= particle.fadeVelX * this.MOUSE_VEL_FADE_SPEED * dt;
-			particle.Y += ( particle.fadeVelY + particle.velY + particle.grav) * dt;
+			particle.Y += ( particle.fadeVelY + particle.velY ) * dt;
 			particle.fadeVelY -= particle.fadeVelY * this.MOUSE_VEL_FADE_SPEED * dt;
 			return particle;
 		}).filter(this.isInBounds.bind(this));

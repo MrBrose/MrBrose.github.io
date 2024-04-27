@@ -11,12 +11,12 @@
 	<link rel="icon" type="image/x-icon" href="/images/heads/MrBrose.png">
 	<link rel="stylesheet" href="/styles.css">
 	<script src="/script.js" defer></script>
-	<script src="/particles.js" defer></script>
+	<script src="/particles.js" ></script>
 	<script src="/sidescroll.js" defer></script>
 </head>
 
 	<body class="rad-grad no-scroll" no-header>
-		<canvas id="dust"></canvas>
+		<canvas id="lightdust" class="dust"></canvas>
 		<main>
 			<div component="side-scroll">
 				<img src="/images/portfolio/LuxuryLogos.webp" alt="Luxury Logos logo">
@@ -107,5 +107,21 @@
 				</li>
 			</ul>
 		</footer>
+		<script>
+			class lightParticles extends Particles{
+				PARTICLE_R = 0;		// 0 < x < 255
+				PARTICLE_G = 0;
+				PARTICLE_B = 30;
+				MIN_ALPHA =  0;
+				MAX_ALPHA = 0.1;
+			}
+			OnLoad(()=> {
+				const TheDustCanvas=document.getElementById("lightdust");
+				if (TheDustCanvas !== null) {
+					let p = new lightParticles(TheDustCanvas);
+					p.start();
+				}
+			})
+		</script>
 	</body>
 </html>
