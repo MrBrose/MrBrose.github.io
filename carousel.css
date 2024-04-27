@@ -33,6 +33,9 @@
 	scale: calc(100% + var(--scale));
 	translate: 0 calc(var(--scale) / 2);
 }
+[component^="carousel"] > button:not([disabled]):active{
+	--scale: -9%;
+}
 [component^="carousel"] > button::before{
 	content: "";
 	height: 50%;
