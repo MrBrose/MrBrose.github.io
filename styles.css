@@ -386,7 +386,7 @@ main{
 
 [component^=panel] {
 	background: var(--colour-bg-object);
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	padding: 0.5em;
 	padding-top: 0;
 	text-decoration: none;
