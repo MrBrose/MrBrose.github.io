@@ -100,7 +100,7 @@
 	gap: .5em;
 	margin: 0;
 	padding-left: var(--button-width);
-	bottom: 1em
+	bottom: 1em;
 }
 [component^="carousel"] > ul.icons li {
 	display: block;
@@ -113,6 +113,7 @@
 	padding: 0;
 	outline: none;
 	border: none;
+	background-color: transparent;
 }
 
 [component^="carousel"] > ul.icons li:not(.selected) button{
