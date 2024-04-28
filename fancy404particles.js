@@ -73,10 +73,10 @@ class fancyParticles extends Particles{
 
 
 	createParticle(defaultArg){
-		let p = super.createParticle(defaultArg);
-		p.initVelX = p.velX;
-		p.initVelY = p.velY;
-		p.initAlpha = p.alpha;
+		super.createParticle(defaultArg);
+		this.initVelX = this.velX;
+		this.initVelY = this.velY;
+		this.initAlpha = this.alpha;
 	}
 
 	isInFormation(p){
