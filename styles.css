@@ -451,16 +451,11 @@ main{
 	position: absolute;
 	margin: .75em;
 }
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 80em) {
 	[component^=panel-link] img{
 		display: none;
 	}
-	[component^=panel-link-small] {
-		width:90%;
-		margin: 0 auto;
-	}
-  }
-
+}
 
 
   [component^=panel-link-wide] {
@@ -482,7 +477,7 @@ main{
 
 
 
-[component^=panel-link-small] {
+[component^=panel-link-long] {
 	flex-basis: 0;
 	padding: 0;
 	--scale: 1.03;
@@ -490,12 +485,18 @@ main{
 	max-width: 75em;
 	display: grid;
 	position: relative;
-	width: 100%;
+	width: 70%;
 	max-width: 63.1em;
 	margin: 0 auto;
 }
 
-[component^=panel-link-small] p {
+@media only screen and (max-width: 65em) {
+	[component^=panel-link-long] {
+		width: 100%;
+	}
+}
+
+[component^=panel-link-long] p {
 	padding-bottom: 1em;
 	padding: 0 1em 1em 1em;
 }
