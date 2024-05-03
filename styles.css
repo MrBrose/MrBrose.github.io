@@ -719,6 +719,80 @@ margin-left: 2em;
 }
 
 
+[component^=history] {
+	width: 100%;
+	margin: 1em 0;
+}
+[component^=history] h2{
+	font-weight: 100;
+	font-size: 2.5em;
+	text-align: center;
+	margin: 0;
+	color: var(--colour-text-light);
+}
+[component^=history] p{
+	font-weight: 100;
+	font-size: 1.2em;
+	text-align: center;
+	margin: 0;
+	font-family: poppins;
+	color: var(--colour-text-light);
+	opacity: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+[component^=history] img{
+	width: 100%;
+	margin-top: 1em;
+}
+
+[component^=history] div{
+	position: relative;
+	width: var(--width,60%);
+	margin: 0 auto;
+}
+[component^=history] div:has( > img[src$=".svg"])::after{
+	content: "svg";
+	position: absolute;
+	transform: translateY(-50%);
+	top: 50%;
+margin-left: 2em;
+	background-color: var(--colour-text-light);
+	padding: .2em .4em .4em;
+	border-radius: .4em;
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+	[component^=history] div:has( > img[src$=".svg"])::after{
+		content: "svg";
+		position: absolute;
+		transform: translateY(-50%);
+		transform: translateX(-501em);
+		top: 50%;
+	}
+	[component^=history] img{
+		padding: 0 calc((100% - var(--width,100%)) / 2);
+		width: 160%;
+		margin-left: -30%;
+	}
+}
+@media only screen and (max-width: 560px) {
+	[component^=history] p{
+		font-size: 0.8em;
+		margin-left: 8%;
+		margin-right: 8%;
+	}
+		[component^=history] h2{
+		font-size: 1.8em;
+		padding-left: .1em;
+		padding-right: .1em;
+		margin-top: -1em;
+	}
+}
+
+
 @media only screen and (max-width: 1000px) {
 	[component^=image-list] div:has( > img[src$=".svg"])::after{
 		content: "svg";
