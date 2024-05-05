@@ -422,10 +422,8 @@ main{
 	flex-basis: 17em;
 	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time), scale var(--short-animation-time), opacity var(--short-animation-time);
 	cursor: pointer;
-	border-bottom: .1em solid rgba(255, 255, 255, 0.055);
 	border-radius: .5em;
 	translate: 0 var(--pressed);
-	box-shadow: 0 calc(.4em - var(--pressed)) var(--colour-bg-dark);
 }
 [component^=panel-link]::after{
 	content: "";
@@ -443,7 +441,7 @@ main{
 }
 
 [component^=panel-link]:active{
-	--pressed: .4em;
+	--pressed: .2em;
 }
 
 [component^=panel-link] img{
