@@ -88,11 +88,17 @@ button[disabled]{
 	font-size: 50px;
 	color: var(--colour-text-red);
 	text-align: center;
-	margin-top: 8.5em;
+	margin-top: 1em;
 	opacity: 1;
 	
 }
 
+.notfound-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
 .fake-img{
 	background-image: var(--src);
 	background-repeat: no-repeat;
