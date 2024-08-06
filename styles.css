@@ -890,7 +890,7 @@ body.no-scroll{
 body{ height: 100vh; }
 @supports selector(body:has(>.snap-scroll)) {
 	body{ height: auto; }
-	/* this selector is the only one that is nessisary once FIREFOX adds suport for :has */
+	/* this selector is the only one that is nessisary once FIREFOX adds support for :has */
 	body:has(>.snap-scroll) {
 		height: 100vh;
 	}
