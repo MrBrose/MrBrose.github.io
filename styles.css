@@ -23,7 +23,7 @@
 	--colour-bg-dark:#0f1d2c;
 
 	--colour-text-light: #c7d0da;
-	--colour-text-dark: #c7d0da;
+	--colour-text-dark: #c7d0daa2;
 	--colour-text-red: #ff1e0065;
 
 	--colour-white: #ffffff;
@@ -1039,3 +1039,76 @@ footer ul a{
 		display: none;
 	}
 }
+
+
+/* My try */
+  #page > nav {
+	grid-area: nav;	
+	margin: 0em;
+	font-size: large;
+	font-family: poppins, system-ui;
+  }
+  
+  #page > main {
+	grid-area: main;
+	margin: 0;
+  }
+
+  [component^=page1] {
+	display: grid;
+	width: 100%;
+	grid-template-areas:
+	  "head head"
+	  "nav  main"
+	  ".  foot";
+	grid-template-columns: 30% 1fr;
+	background: linear-gradient(to right, #2c4d7100, #2c4d712a, #2c4d714d, #2c4d71c9, #2c4d71, #2c4d71, #2c4d71af);
+	color: var(--colour-text-light);
+	padding-bottom: 2em;
+	padding-left: 2em;
+	padding-right: 1em;
+	padding-top: 4em;
+  }
+
+  [component^=page1] h2 {
+	font-weight: 100;
+	font-size: 1.8em;
+	margin: 0;
+  }
+  [component^=page1] p {
+	font-weight: 100;
+	margin: 0;
+  }
+  [component^=page1] img {
+	width: 100%;
+  }
+
+  [component^=page2] {
+	display: grid;
+	margin: 1em;
+	grid-template-areas:
+	  "head head"
+	  "main nav"
+	  ".  foot";
+	grid-template-columns:  1fr 40%;
+	color: var(--colour-bg-dark);
+	align-items: center; 
+	background-color: var(--colour-text-light);
+	margin-bottom: 0;
+	border-radius: 1em;
+  }
+
+  [component^=page2] h2 {
+	font-weight: 100;
+	font-size: 1.5em;
+	margin: 0;
+  }
+  [component^=page2] p {
+	font-weight: 100;
+	margin: 0;
+	padding-right: 1.2em;
+	font-size: 0.9em;
+  }
+  [component^=page2] img {
+	width: 100%;
+  }
