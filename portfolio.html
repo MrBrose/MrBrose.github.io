@@ -8,7 +8,7 @@
 	<meta property="og:image" content="/images/MCTitles_logo.png">
 	<meta charset="UTF-8">
 	<title>MrBrose's Portfolio</title>
-	<link rel="icon" type="image/x-icon" href="/images/heads/MrBrose.png">
+	<link rel="icon" type="image/x-icon" href="/images/MB.png">
 	<link rel="stylesheet" href="/styles.css">
 	<script src="/script.js" defer></script>
 	<script src="/particles.js" ></script>
@@ -16,7 +16,6 @@
 </head>
 
 	<body class="rad-grad no-scroll" no-header>
-		<canvas id="lightdust" class="dust"></canvas>
 		<main>
 			<div component="side-scroll">
 				<img src="/images/portfolio/portfolio.webp" alt="Portfolio logo">
@@ -54,6 +53,7 @@
 				<img src="/images/portfolio/genesect.webp" alt="Genesect logo">
 				<img src="/images/portfolio/Can AI beat minecraft.webp" alt="Pirates Landing logo">
 				<img src="/images/portfolio/challengers.webp" alt="challengers logo">
+				<img src="/images/portfolio/vampirism.webp" alt="vampirism MC logo">
 				<img src="/images/portfolio/zombie.webp" alt="Zombie Apocalypse logo">
 				<img src="/images/portfolio/Legion.webp" alt="Legion logo">
 				<img src="/images/portfolio/Maxster.webp" alt="Maxster logo">
@@ -62,24 +62,7 @@
 				<img src="/images/portfolio/Wavemc.webp" alt="WaveMC logo">
 				<img src="/images/portfolio/KAMIDOGU.webp" alt="Kamidogu logo">
 				<img src="/images/portfolio/tensura.webp" alt="Tensura Reincarnated logo">
-				<img src="/images/portfolio/vampirism.webp" alt="vampirism MC logo">
 			</div>
 		</main>
-		<script>
-			class lightParticles extends Particles{
-				PARTICLE_R = 0;		// 0 < x < 255
-				PARTICLE_G = 0;
-				PARTICLE_B = 30;
-				MIN_ALPHA =  0;
-				MAX_ALPHA = 0.1;
-			}
-			OnLoad(()=> {
-				const TheDustCanvas=document.getElementById("lightdust");
-				if (TheDustCanvas !== null) {
-					let p = new lightParticles(TheDustCanvas);
-					p.start();
-				}
-			})
-		</script>
 	</body>
 </html>
