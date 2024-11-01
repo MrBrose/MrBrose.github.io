@@ -1161,6 +1161,11 @@ footer ul a{
 	padding: 0.5em 0.5em 1.3em;
 	flex-basis: 49.25%;
 }
+
+[component^=panel-link-com]:not(.recommended) {
+	padding-top: 25px;
+}
+
 [component^=panel-link-com].pressable::after{
 	content: "";
 	width: 100%;
@@ -1212,6 +1217,24 @@ footer ul a{
 	padding: 0.5em;
 	justify-content: space-around;
 }
+
+#recommended-banner {
+	background: goldenrod;
+	height: 25px;
+	font-size: 0.8em;
+	text-align: center;
+	font-family: poppins-medium, sans-serif;
+	color: var(--colour-bg-object);
+}
+
+
+.recommended {
+	padding: 0 0 0 0;
+}
+.recommended p {
+	margin: 0.5em 0.5em 1.3em;
+}
+
 @media (max-width: 800px) {
 	[component="page1"] {
 		display: flex;
