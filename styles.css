@@ -158,9 +158,9 @@ header .logo:focus-visible > img{
 header .logo > img {
 	width: 42px;
 	font-weight: normal;
-	height: 50x;
+	height: 50px;
 	display: block;
-	padding-left: 0em;
+	padding-left: 0;
 	padding-top: 0.6em;
 	padding-bottom: 0.6em;
 }
@@ -398,8 +398,7 @@ main{
 [component^=panel] {
 	background: var(--colour-bg-object);
 	font-size: 1.4rem;
-	padding: 0.5em;
-	padding-top: 0;
+	padding: 0 0.5em 0.5em;
 	text-decoration: none;
 	border-radius: 0.5em;
 }
@@ -423,7 +422,7 @@ main{
 	margin: 0;
 	font-size: 1rem;
 	color: var(--colour-text-light);
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 }
 
 /* .panel-link */
@@ -469,10 +468,9 @@ main{
 
   [component^=panel-link-wide] {
 	flex-basis: 0;
-	padding: 0;
-	--scale: 1.03;
-	padding-bottom: 0.5em;
-	max-width: 75em;
+	  --scale: 1.03;
+	  padding: 0 0 0.5em;
+	  max-width: 75em;
 	display: grid;
 	position: relative;
 	width: 100%;
@@ -480,7 +478,6 @@ main{
 }
 
 [component^=panel-link-wide] p {
-	padding-bottom: 1em;
 	padding: 0 1em 1em 1em;
 }
 
@@ -488,10 +485,8 @@ main{
 
 [component^=panel-link-long] {
 	flex-basis: 0;
-	padding: 0;
 	--scale: 1.03;
-	padding-bottom: 0.5em;
-	max-width: 75em;
+	padding: 0 0 0.5em;
 	display: grid;
 	position: relative;
 	width: 70%;
@@ -506,7 +501,6 @@ main{
 }
 
 [component^=panel-link-long] p {
-	padding-bottom: 1em;
 	padding: 0 1em 1em 1em;
 }
 
@@ -515,18 +509,18 @@ main{
 }
 
 [component^=panel-link-f]{
-	min-width: 0em;
+	min-width: 0;
 	overflow: hidden;
 }
 
 [component^=panel-link-f] h2 {
 	font-size: 1em;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 }
 
 [component^=panel-link-f] p {
 	font-size: 2.5em;
-	font-family: var(--font-url);
+	font-family: var(--font-url), sans-serif;
 }
 
 [component^=panel-link-f] .negmargin {
@@ -547,11 +541,11 @@ main{
 	}
 	[component^=panel-link-f] p {
 		font-size: 3em;
-		font-family: var(--font-url);
+		font-family: var(--font-url), sans-serif;
 	}
 	[component^=panel-link-f] h2 {
 		font-size: 0.9em;
-		font-family: poppins-medium;
+		font-family: poppins-medium, sans-serif;
 	}
 	[component^=panel-link-f] .big {
 		font-size: 2.3em;
@@ -581,7 +575,7 @@ main{
 }
 
 .about-me h2 {
-	margin: 0em;
+	margin: 0;
 	padding-top: 0.3em;
 	text-align: left;
 	grid-area: title;
@@ -598,7 +592,7 @@ main{
 	text-align: left;
 	grid-area: text;
 	color: var(--colour-text-light);
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	font-size: 1em;
 }
 
@@ -622,7 +616,6 @@ main{
 	background-color: var(--colour-bg-object);
 	border-top-left-radius: 0.3em;
 	border-top-right-radius: 0.3em;
-	margin: 0%;
 	text-align: center;
 	color: var(	--colour-text-light);
 	font-weight: normal;
@@ -703,7 +696,7 @@ iframe[component^=video-embed] {
 	font-size: 1.2em;
 	text-align: center;
 	margin: 0;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	color: var(--colour-text-light);
 	opacity: 60%;
 }
@@ -744,12 +737,10 @@ margin-left: 2em;
 	font-weight: 100;
 	font-size: 1.2em;
 	text-align: center;
-	margin: 0;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	color: var(--colour-text-light);
 	opacity: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin: 0 20%;
 }
 [component^=history] img{
 	width: 100%;
@@ -778,7 +769,6 @@ margin-left: 2em;
 	[component^=history] div:has( > img[src$=".svg"])::after{
 		content: "svg";
 		position: absolute;
-		transform: translateY(-50%);
 		transform: translateX(-501em);
 		top: 50%;
 	}
@@ -807,7 +797,6 @@ margin-left: 2em;
 	[component^=image-list] div:has( > img[src$=".svg"])::after{
 		content: "svg";
 		position: absolute;
-		transform: translateY(-50%);
 		transform: translateX(-501em);
 		top: 50%;
 	}
@@ -839,7 +828,6 @@ main:has(>[component^=side-scroll]){
 }
 [component^=side-scroll] {
 	display: flex;
-	width: min-content;
 	width: var(--width);
 	overflow: hidden;
 	height: 100%;
@@ -873,17 +861,15 @@ body.no-scroll{
 [component^=small-text] p{
 	font-size: 0.9em;
 	text-align: center;
-	margin: 0;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	color: var(--colour-text-light);
 	opacity: 60%;
-	margin-top: -2em;
-	margin-bottom: -4em;
+	margin: -2em 0 -4em;
 }
 .bottom-img{
 	height: 300px;
 	background-image: url("/images/bottombanner.png");
-	margin-bottom: 0em;
+	margin-bottom: 0;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -891,11 +877,11 @@ body.no-scroll{
 
 
 
-/* TODO: remove this dirty has selecctor fallback when firefox adds support (which they claimed was the first half of 2023 however it is now the second half and still no :has) */
+/* TODO: remove this dirty has selector fallback when firefox adds support (which they claimed was the first half of 2023 however it is now the second half and still no :has) */
 body{ height: 100vh; }
 @supports selector(body:has(>.snap-scroll)) {
 	body{ height: auto; }
-	/* this selector is the only one that is nessisary once FIREFOX adds support for :has */
+	/* this selector is the only one that is necessary once FIREFOX adds support for :has */
 	body:has(>.snap-scroll) {
 		height: 100vh;
 	}
@@ -978,6 +964,10 @@ footer ul li#fiverrLinkFooter:hover,
 footer ul li#fiverrLinkFooter a:focus-visible{
 	color: #1dbf73;
 }
+footer ul li#githubLinkFooter:hover,
+footer ul li#githubLinkFooter a:focus-visible{
+	color: #000000;
+}
 footer ul{
 	justify-content: center;
 	gap: 1em;
@@ -1053,7 +1043,7 @@ footer ul a{
 /* Commissions */
   #page > nav {
 	grid-area: nav;	
-	margin: 0em;
+	margin: 0;
 	font-size: large;
 	font-family: poppins-medium, system-ui;
   }
@@ -1073,11 +1063,8 @@ footer ul a{
 	grid-template-columns: 30% 1fr;
 	background: linear-gradient(to right, #2c4d7100, #2c4d712a, #2c4d714d, #2c4d71c9, #2c4d71, #2c4d71, #2c4d71af);
 	color: var(--colour-text-light);
-	padding-bottom: 2em;
-	padding-left: 2em;
-	padding-right: 1em;
-	padding-top: 2em;
- 	transition: backdrop-filter 1s ease;
+	  padding: 2em 1em 2em 2em;
+	  transition: backdrop-filter 1s ease;
   }
 
   	[component^=page1]:hover{
@@ -1092,7 +1079,7 @@ footer ul a{
   [component^=page1] p {
 	font-weight: 100;
 	margin: 0;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
   }
   [component^=page1] img {
 	width: 100%;
@@ -1133,25 +1120,25 @@ footer ul a{
 	font-size: 0.9em;
 	transition: opacity 0.2s ease-in;
 	max-width: 30em;
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
   }
 
   [component^=page2]:hover p {
 	opacity: 0.8;
 }
 
-  [component^=page2] img {
+[component^=page2] img {
 	width: 100%;
-  }
+}
 
-  [component^=packages-container] {
-	padding: 1em 1em 0em 1em;
+[component^=packages-container] {
+	padding: 1em 1em 0 1em;
 	background-color: rgba(174, 195, 231, 0.753);
 
-  }
+}
 
-  [component^=text-block-com] {
-	font-family: poppins-medium;
+[component^=text-block-com] {
+	font-family: poppins-medium, sans-serif;
 }
 [component^=text-block-com] h2 {
 	font-size: 4em;
@@ -1162,15 +1149,13 @@ footer ul a{
 
 [component^=panel-link-com] {
 	--pressed: 0em;
-	flex-basis: 49.25%;
 	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time), scale var(--short-animation-time), opacity var(--short-animation-time);
 	cursor: pointer;
 	translate: 0 var(--pressed);
 	background-color: var(--colour-bg-object);
 	border-radius: 0.2em;
-	padding: 0.5em;
-	padding-bottom: 1.3em;
-	border: none;
+	padding: 0.5em 0.5em 1.3em;
+	flex-basis: 49.25%;
 }
 [component^=panel-link-com].pressable::after{
 	content: "";
@@ -1192,24 +1177,71 @@ footer ul a{
 }
 
 [component^=panel-link-com] h2 {
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	color: var(--colour-text-light);
 }
 [component^=panel-link-com] p {
-	font-family: poppins-medium;
+	font-family: poppins-medium, sans-serif;
 	color: var(--colour-text-light);
 	opacity: 80%;
 	font-size: 0.75em;
 }
 
-[component^="portfolio-iframe"] {
-	padding: 0;
+[component^="logo-portfolio-scroller"] {
+	display: flex;
+	overflow-x: scroll;
+	height: 17vw;
+	margin-bottom: 1em;
+	padding: 1em;
 	margin-top: -3em;
+	background: radial-gradient(#c7d0da, #c7d0da);
 }
 
-[component^="portfolio-iframe"] > iframe{
-	border: none;
-	width: 100%;
-	height: 20em;
+[component^="logo-portfolio-scroller"] > img {
+	height: 100%;
+	padding: 0 2em 0 0;
+}
+
+
+.panel-stack {
+	display: flex;
+	flex-direction: row;
+	padding: 0.5em;
+	justify-content: space-around;
+}
+@media (max-width: 800px) {
+	[component="page1"] {
+		display: flex;
+		flex-direction: column;
+		background: linear-gradient(to right, #2c4d7100, #2c4d71);
+	}
+
+	[component="page2"] {
+		display: flex;
+		flex-direction: column-reverse;
+		padding: 1em;
+	}
+	[component^=text-block-com] h2 {
+		font-size: 3em;
+	}
+	[component^=panel-link-com] {
+		margin-bottom: 1em;
+		width: 100%;
+	}
+	.panel-stack {
+		flex-direction: column;
+		padding: 1em;
+		margin-bottom: -5em;
+	}
+	[component^=text-block-com] {
+		margin-top: 1em;
+		font-size: 1em;
+	}
+	[component^=portfolio-iframe] {
+		margin-top: -1.5em !important;
+	}
+	[component^="logo-portfolio-scroller"] {
+		height: 25vw;
+	}
 }
 

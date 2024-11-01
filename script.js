@@ -45,14 +45,14 @@ if (document.body.getAttribute("no-header")==null){
 	});
 
 	menuLabel.addEventListener("keydown", e => {
-		if (e.key == " " || e.key == "Enter" || (menuCheckbox.checked && e.key == "Escape")) {
+		if (e.key === " " || e.key === "Enter" || (menuCheckbox.checked && e.key === "Escape")) {
 			menuCheckbox.checked = !menuCheckbox.checked;
 			menuCheckbox.dispatchEvent(new Event("change"));
 			e.stopPropagation();
 			e.stopImmediatePropagation();
 			e.preventDefault();
 		}
-		if (e.key == "ArrowDown" && menuCheckbox.checked) {
+		if (e.key === "ArrowDown" && menuCheckbox.checked) {
 			document.querySelector("#menuContent > a:first-child").focus()
 			e.stopPropagation();
 			e.stopImmediatePropagation();
@@ -62,13 +62,13 @@ if (document.body.getAttribute("no-header")==null){
 
 	[...menuContent.children].forEach(el => {
 		el.addEventListener("keydown", e => {
-			if (e.key == "ArrowDown" && menuCheckbox.checked && e.target.nextElementSibling != null) {
+			if (e.key === "ArrowDown" && menuCheckbox.checked && e.target.nextElementSibling != null) {
 				e.target.nextElementSibling.focus();
 				e.stopPropagation();
 				e.stopImmediatePropagation();
 				e.preventDefault();
 			}
-			if (e.key == "ArrowUp" && menuCheckbox.checked) {
+			if (e.key === "ArrowUp" && menuCheckbox.checked) {
 				if (e.target.previousElementSibling == null) {
 					menuLabel.focus();
 				} else {
@@ -78,7 +78,7 @@ if (document.body.getAttribute("no-header")==null){
 				e.stopImmediatePropagation();
 				e.preventDefault();
 			}
-			if (e.key == "Escape") {
+			if (e.key === "Escape") {
 				menuCheckbox.checked = !menuCheckbox.checked;
 				menuCheckbox.dispatchEvent(new Event("change"));
 				e.stopPropagation();
@@ -88,13 +88,3 @@ if (document.body.getAttribute("no-header")==null){
 		})
 	});
 }
-
-// const portfolioIframe = document.querySelector("#portfolio-iframe").firstElementChild;
-
-// portfolioIframe.addEventListener("load", () => {
-// 	const iframeDocument = this.contentDocument || this.contentWindow.document;
-
-// 	iframeDocument.addEventListener("wheel", (event) => {
-// 		event.preventDefault();
-// 	});
-// });

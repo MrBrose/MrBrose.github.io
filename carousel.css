@@ -7,7 +7,7 @@
 	margin: 0 auto;
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
 	--gap: 4em;
-	--button-width: calc(2.5em + 17px);/*this calc is the width of the button including the shadow*/
+	--button-width: calc(2.5em + 17px); /*this calc is the width of the button including the shadow*/
 }
 [component^="carousel"] > button{
 	position: absolute;
