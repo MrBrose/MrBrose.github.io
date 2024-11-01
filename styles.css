@@ -1085,6 +1085,10 @@ footer ul a{
 	width: 100%;
   }
 
+  [component^=page1] svg {
+	margin-bottom: -6em;
+  }
+
   [component^=page2] {
 	display: grid;
 	grid-template-areas:
