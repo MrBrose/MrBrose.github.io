@@ -1191,7 +1191,6 @@ footer ul a{
 	display: flex;
 	overflow-x: scroll;
 	height: 17vw;
-	margin-bottom: 1em;
 	padding: 1em;
 	margin-top: -3em;
 	background: radial-gradient(#c7d0da, #c7d0da);
@@ -1241,7 +1240,7 @@ footer ul a{
 		margin-top: -1.5em !important;
 	}
 	[component^="logo-portfolio-scroller"] {
-		height: 25vw;
+		height: 27vw;
 	}
 }
 
