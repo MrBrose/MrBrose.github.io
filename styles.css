@@ -1219,12 +1219,13 @@ footer ul a{
 }
 
 #recommended-banner {
-	background: goldenrod;
+	background: rgba(255, 185, 0);
 	height: 25px;
 	font-size: 0.8em;
 	text-align: center;
 	font-family: poppins-medium, sans-serif;
 	color: var(--colour-bg-object);
+	border-radius: 0.2em 0.2em 0.5em 0.5em;
 }
 
 
