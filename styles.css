@@ -1147,6 +1147,7 @@ footer ul a{
 
 [component^=text-block-com] {
 	font-family: poppins-medium, sans-serif;
+	text-align: center;
 }
 [component^=text-block-com] h2 {
 	font-size: 4em;
