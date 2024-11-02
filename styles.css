@@ -636,9 +636,9 @@ iframe[component^=video-embed] {
 
 [component^=text-block] {
 	width: 100%;
-	max-width: 60em;
+	max-width: 65em;
 	margin: 0 auto;
-	text-align: center;
+	text-align: left;
 	color: var(--colour-text-light);
 }
 [component^=text-block] h2 {
@@ -1073,13 +1073,17 @@ footer ul a{
 
   [component^=page1] h2 {
 	font-weight: 100;
-	font-size: 1.8em;
+	font-size: 2.5em;
+	line-height: 1.2em;
 	margin: 0;
+	padding-bottom: 0.2em;
+	padding-top: 0.2em;
   }
   [component^=page1] p {
 	font-weight: 100;
 	margin: 0;
 	font-family: poppins-medium, sans-serif;
+	font-size: 1.1em;
   }
   [component^=page1] img {
 	width: 100%;
@@ -1098,7 +1102,7 @@ footer ul a{
 	grid-template-columns:  1fr 40%;
 	color: var(--colour-bg-dark);
 	align-items: center; 
-	background-color: rgba(222, 234, 255, 0.753);
+	background-color: rgba(0, 0, 0, 0.05);
 	margin-bottom: 1em;
 	border-radius: 0.8em;
 	transition: grid-template-columns var(--animation-time) ease, backdrop-filter var(--animation-time) ease;
@@ -1137,7 +1141,7 @@ footer ul a{
 
 [component^=packages-container] {
 	padding: 1em 1em 0 1em;
-	background-color: rgba(174, 195, 231, 0.753);
+	background-color: rgba(255, 255, 255, 1);
 
 }
 
