@@ -74,6 +74,6 @@ Select text and extrude it; angle 34
 Exporting:
 File -> Export -> Export As
 Resolution: High (300 ppi)
-Anti-aliasing: Art Optimized (Supersampling)
+Anti-aliasing: Art Optimized (Super-sampling)
 Check the "Interlaced" box
 Background Color: Transparent

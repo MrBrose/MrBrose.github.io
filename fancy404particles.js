@@ -12,7 +12,7 @@ function isPointInTriangle(p, t){
 		case "bottomLeft":return (p.Y-t.topLeft.Y) > (p.X-t.topLeft.X);
 		case "bottomRight":return (p.X-t.topLeft.X)+(p.Y-t.topLeft.Y) > t.size;
 	}
-	return true; //this means it is on the boundry this case dosent realy matter
+	return true; //this means it is on the boundary this case doesn't really matter
 }
 function isPointInRect(p, r){ return (
 	p.X > r.topLeft.X &&
