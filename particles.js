@@ -42,19 +42,19 @@ class Particles {
 
 	stop(){
 		this.running = false;
-		window.removeEventListener("resize",this.resizeListner);
+		window.removeEventListener("resize",this.resizeListener);
 
-		document.removeEventListener("mousemove", this.mousemoveListner);
-		document.removeEventListener("touchmove", this.touchmoveListner);
+		document.removeEventListener("mousemove", this.mousemoveListener);
+		document.removeEventListener("touchmove", this.touchmoveListener);
 
-		document.removeEventListener("mousedown", this.mousedownListner);
+		document.removeEventListener("mousedown", this.mousedownListener);
 	}
 
 	start(){ OnLoad(()=>{
 		this.running = true;
 
-		this.resizeListner = this.resizeCanvas.bind(this);
-		window.addEventListener("resize",this.resizeListner);
+		this.resizeListener = this.resizeCanvas.bind(this);
+		window.addEventListener("resize",this.resizeListener);
 
 		this.resizeCanvas();
 
@@ -62,13 +62,13 @@ class Particles {
 		
 		for (let i = 0; i < this.INITIAL_PARTICLES_PER_PIXEL*this.dustCanvas.height; i++){this.createInitialParticle()}
 	
-		this.mousemoveListner = e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY);
-		document.addEventListener("mousemove", this.mousemoveListner);
-		this.touchmoveListner = e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
-		document.addEventListener("touchmove", this.touchmoveListner);
+		this.mousemoveListener = e=>this.makeParticlesScaredOfPoint(e.pageX,e.pageY);
+		document.addEventListener("mousemove", this.mousemoveListener);
+		this.touchmoveListener = e=>this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+		document.addEventListener("touchmove", this.touchmoveListener);
 	
-		this.mousedownListner = e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true});
-		document.addEventListener("mousedown", this.mousedownListner);
+		this.mousedownListener = e=>this.createParticles(this.CLICK_AMOUNT,{X:e.pageX,Y:e.pageY, mouseMade:true, both: true});
+		document.addEventListener("mousedown", this.mousedownListener);
 	}); }
 	
 	createInitialParticle(){

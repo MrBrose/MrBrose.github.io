@@ -104,14 +104,14 @@ document.querySelectorAll("[component^=\"carousel\"]").forEach(el => {
 
 	// disable fallback
 	scroll.style.overflow = "hidden"; //this is done in js so it still works with no js
-	scroll.style.scrollSnapType = "none"; //this is because on some screen sizes and OS's it would snap back to the incorect page
+	scroll.style.scrollSnapType = "none"; //this is because on some screen sizes and OS's it would snap back to the incorrect page
 
 	// setup state
 	inertify_elements();
 	checkScrollEnd();
 	onScroll(get_current_el_index())
 
-	// event listners
+	// event listeners
 	scroll.addEventListener("scroll",checkScrollEnd);
 
 	scroll.addEventListener("scrollend",scrollStop)
