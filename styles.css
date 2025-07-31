@@ -25,7 +25,7 @@
 
 	--colour-bg-object: #142639;
 	--colour-bg-light: #1e222b;
-	--colour-bg-dark:#0f1d2c;
+	--colour-bg-dark:#0f1d2c; 
 
 	--colour-text-light: #c7d0da;
 	--colour-text-dark: #c7d0daa2;
@@ -1204,10 +1204,14 @@ footer ul a{
 [component^="logo-portfolio-scroller"] {
 	display: flex;
 	overflow-x: scroll;
-	height: 17vw;
+	height: 29vw;
 	padding: 1em;
 	margin-top: -3em;
 	background: radial-gradient(#c7d0da, #c7d0da);
+   background-color: gray;
+   box-shadow: 0 4em 0 0 rgb(30, 34, 43) inset;
+	
+
 }
 
 [component^="logo-portfolio-scroller"] > img {
