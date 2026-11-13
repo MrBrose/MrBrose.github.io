@@ -3,6 +3,7 @@ import App from "./App.vue"
 import { followLinks, router } from "./router.js"
 import "./styles/styles.css"
 import "./styles/carousel.css"
+import "./styles/transition.css"
 
 followLinks(document)
 createApp(App).use(router).mount("#app")

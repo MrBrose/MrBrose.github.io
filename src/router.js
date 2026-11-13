@@ -1,7 +1,9 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { nextTick } from "vue"
+import { START_LOCATION, createRouter, createWebHistory } from "vue-router"
 import { PAGES } from "./pages.js"
 import { pageRoutes, routed } from "./routes.js"
 
+const CAPTURE_WAIT = 200
 const PAGE_FILES = import.meta.glob("./pages/*.vue")
 
 function component(name) {
@@ -14,11 +16,43 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: pageRoutes(Object.fromEntries(PAGES.map(page => [page.name, component(page.name)]))),
   scrollBehavior(to, from, saved) {
-    if (saved) return saved
+    if (saved) return { ...saved, behavior: "instant" }
     if (to.hash) return { el: to.hash }
-    return { top: 0 }
+    if (to.path === from.path) return false
+    return { top: 0, behavior: "instant" }
   }
 })
+
+const fades = new WeakMap()
+
+function crossfade(to, from) {
+  if (from === START_LOCATION || to.path === from.path) return
+  if (!document.startViewTransition || matchMedia("(prefers-reduced-motion: reduce)").matches) return
+  return new Promise(resolve => {
+    const shown = new Promise(done => fades.set(to, done))
+    const transition = document.startViewTransition(() => {
+      clearTimeout(waiting)
+      resolve()
+      return shown
+    })
+    // the old page is only captured on the next frame, which never comes while the window isn't being drawn
+    const waiting = setTimeout(() => transition.skipTransition(), CAPTURE_WAIT)
+    // ready rejects whenever a transition is skipped, eg by the next navigation starting
+    transition.ready.catch(() => {})
+  })
+}
+
+function crossfaded(to, from, failure) {
+  const done = fades.get(to)
+  if (!done) return
+  fades.delete(to)
+  // Chrome abandons a transition when the page gets too short for its scroll position, which it can once the next page renders
+  if (!failure && to.path !== from.path) scrollTo({ top: 0, behavior: "instant" })
+  nextTick().then(() => setTimeout(done))
+}
+
+router.beforeResolve(crossfade)
+router.afterEach(crossfaded)
 
 function setHead(selector, attribute, value) {
   const element = document.head.querySelector(selector)
