@@ -1,3 +1,7 @@
+<script setup>
+  import PORTFOLIO from "../data/portfolio.json"
+</script>
+
 <template>
   <div id="page" component="page1">
     <nav>
@@ -7,7 +11,7 @@
       </p>
     </nav>
     <main>
-      <img src="/images/portfolio/demo.png" alt="Minecraft Franchise">
+      <img src="/images/commissions/demo.png" alt="Minecraft Franchise">
     </main>
   </div>
   <div id="packages-container" component="packages-container">
@@ -27,7 +31,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/Basic logo.webp" alt="Minecraft Basic logo example">
+        <img src="/images/commissions/basic-logo.webp" alt="Minecraft Basic logo example">
       </main>
     </div>
     <div id="page" component="page2">
@@ -41,7 +45,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/Standard logo.webp" alt="Minecraft Standard logo example">
+        <img src="/images/commissions/standard-logo.webp" alt="Minecraft Standard logo example">
       </main>
     </div>
     <div id="page" component="page2">
@@ -55,7 +59,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/Wans Ancient Beasts.webp" alt="Minecraft Premium logo example">
+        <img src="/images/commissions/wans-ancient-beasts.webp" alt="Minecraft Premium logo example">
       </main>
     </div>
   </div>
@@ -75,41 +79,6 @@
     <p>Example Logos portfolio:</p>
   </main>
   <div id="logo-portfolio-scroller" component="logo-portfolio-scroller" @wheel.prevent="e => e.currentTarget.scrollBy({ left: e.deltaY })">
-    <img src="/images/commissions/NewPortfolio/DayOneZ1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/zombie.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Advent of magic.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/KAMIDOGU.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/DiesenAugust2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Extensive mob heads1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Can AI beat minecraft.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/AVALORIA.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/WildWest2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Neo Survival1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/3000.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/buildattack1.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Wilderness Bound.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/VillageBounties2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/UnstableWorld2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Nasa1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/KABLAM.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/WhimsyMC-2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/CartWorks.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Dungeons2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/fireflysmp1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Maxster.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/MIDGARD.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/More Simple Structures.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/nuvguard2.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Create Horizons.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/PSEUDO.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/HoneyRealms1.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/server4.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/FloideN.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Townify3.webp" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/LlifeSteal.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Splashdown.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/SKAPE.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/Meadow SMP no dirt.png" alt="Portfolio Image">
-    <img src="/images/commissions/NewPortfolio/LuxuryLogos.webp" alt="Portfolio Image">
+    <img v-for="file in PORTFOLIO.commissions" :key="file" :src="`/portfolio/${file}`" alt="Portfolio Image">
   </div>
 </template>
