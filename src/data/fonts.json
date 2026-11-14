@@ -1,0 +1,232 @@
+{
+  "official": {
+    "name": "Official Fonts",
+    "page": "official",
+    "fonts": [
+      {
+        "name": "Minecraft Ten",
+        "file": "minecraft-ten.otf"
+      },
+      {
+        "name": "Minecraft Five Bold",
+        "file": "minecraft-five-bold.otf"
+      },
+      {
+        "name": "Minecraft Five",
+        "file": "minecraft-five.ttf"
+      }
+    ]
+  },
+  "dmart": {
+    "name": "DMart's fonts",
+    "page": "DMart",
+    "fonts": [
+      {
+        "name": "Minecraft Logotype",
+        "file": "minecraft-logotype.ttf"
+      },
+      {
+        "name": "Minecraft Classic Bold",
+        "file": "minecraft-classic-bold.ttf"
+      },
+      {
+        "name": "Minecraft Five Bold",
+        "file": "minecraft-five-lowercase-bold.otf"
+      },
+      {
+        "name": "Minecraft Japanese",
+        "file": "mc-ten-japanese.ttf",
+        "sample": "タイトル"
+      },
+      {
+        "name": "Minecraft education",
+        "file": "mc-ten-education.ttf"
+      },
+      {
+        "name": "Minecrafter Dungeons",
+        "file": "minecrafter-dungeons.ttf"
+      },
+      {
+        "name": "Minecrafter Legends",
+        "file": "minecrafter-legends.ttf",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Minecraft eighteen",
+        "file": "minecraft-eighteen.ttf",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Slimetime Arcade",
+        "file": "slimetime-arcade.ttf",
+        "sample": "abcdefghijk lmnopqrstu",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Minecraft Disblock",
+        "file": "disblock.ttf",
+        "sample": "ABC"
+      },
+      {
+        "name": "Minecraft Five Lowercase",
+        "file": "mc-five-lowercase.ttf"
+      },
+      {
+        "name": "Minecraft Seven Classic",
+        "file": "minecraft-seven-classic.ttf"
+      },
+      {
+        "name": "Minecraft Ten 360",
+        "file": "minecraft-ten-360.ttf"
+      }
+    ]
+  },
+  "patred": {
+    "name": "patred's Fonts",
+    "page": "patred",
+    "fonts": [
+      {
+        "name": "Minecraft Ten Lowercase",
+        "file": "minecraft-ten-lowercase.ttf"
+      },
+      {
+        "name": "Minecraft Ten Lowercase alt",
+        "file": "mc-ten-lowercase-alt.ttf"
+      },
+      {
+        "name": "Minecraft Ten Serif",
+        "file": "mc-ten-serif.ttf"
+      },
+      {
+        "name": "Minecraft Ten Round",
+        "file": "mc-ten-round.ttf"
+      },
+      {
+        "name": "Minecraft Ten Round Serif",
+        "file": "mc-ten-round-serif.ttf"
+      },
+      {
+        "name": "Minecraft Ten Drip",
+        "file": "mc-ten-drip.ttf"
+      },
+      {
+        "name": "Minecraft Ten Round Drip",
+        "file": "mc-ten-round-drip.ttf"
+      },
+      {
+        "name": "Minecraft Ten Frost",
+        "file": "mc-ten-frost.ttf"
+      },
+      {
+        "name": "Minecraft Ten alt",
+        "file": "mc-ten-alt-lowercase.ttf",
+        "sample": "abcdef"
+      },
+      {
+        "name": "Minecraft Ten Elongated",
+        "file": "mc-ten-elongated.ttf"
+      },
+      {
+        "name": "Minecraft Ten Elongated alt",
+        "file": "mc-ten-elongated-alt.ttf"
+      },
+      {
+        "name": "Minecraft TenShifted",
+        "file": "mc-ten-shifted.ttf"
+      },
+      {
+        "name": "Minecraft Ten Hollowed",
+        "file": "mc-ten-hollowed.ttf"
+      },
+      {
+        "name": "Minecraft Ten Zig Zag",
+        "file": "mc-ten-zig-zag.ttf"
+      },
+      {
+        "name": "Minecraft Ten Toony",
+        "file": "mc-ten-toony.ttf",
+        "sample": "abc",
+        "size": "negmargin"
+      },
+      {
+        "name": "Minecraft Ten Extended",
+        "file": "mc-ten-extend.ttf",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Minecraft Ten Outline",
+        "file": "mc-ten-outline.ttf"
+      },
+      {
+        "name": "Minecraft Ten Icons",
+        "file": "mc-ten-icons.ttf",
+        "sample": "fabcd",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Minecraft Dungeons v1",
+        "file": "dungeons.ttf"
+      },
+      {
+        "name": "Dungeons v1 alt",
+        "file": "dungeons-alt-lowercase.ttf",
+        "sample": "abcdef",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Dungeons v2",
+        "file": "dungeons-v2.ttf",
+        "sample": "ABCDEF",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Dungeons v2 alt",
+        "file": "dungeons-v2-altlw.ttf",
+        "sample": "abcdef",
+        "size": "mobilesmaller"
+      },
+      {
+        "name": "Legendary",
+        "file": "legendary.ttf"
+      },
+      {
+        "name": "Daydream Extended",
+        "file": "daydream-extended.ttf"
+      }
+    ]
+  },
+  "floiden": {
+    "name": "FloideN's Fonts",
+    "page": "floiden",
+    "fonts": [
+      {
+        "name": "Minecraft Ten Fire",
+        "file": "mc-ten-fire.ttf"
+      },
+      {
+        "name": "Minecraft Ten Drip",
+        "file": "modified-mc-ten-drip.ttf"
+      },
+      {
+        "name": "minecraft Thick Ten",
+        "file": "minecraft-thick-ten.ttf",
+        "size": "big"
+      },
+      {
+        "name": "Minecraft Bold Ten",
+        "file": "minecraft-bold-ten.ttf",
+        "size": "big"
+      },
+      {
+        "name": "Minecraft alt",
+        "file": "mc-ten-alt.ttf",
+        "size": "big"
+      },
+      {
+        "name": "Minecraft Eleven",
+        "file": "mc-eleven.ttf",
+        "size": "mobilesmaller"
+      }
+    ]
+  }
+}

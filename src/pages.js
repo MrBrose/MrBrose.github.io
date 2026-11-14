@@ -1,3 +1,5 @@
+import FONTS from "./data/fonts.json" with { type: "json" }
+
 export const SITE = "https://mctitles.com"
 
 const LEARN = "Learn how to make your very own Minecraft Logos!"
@@ -11,18 +13,16 @@ function page(name, file, path, title, details = {}) {
   return { name, file, path, title, ogTitle: title, ogDescription: LEARN, description: ABOUT, image: DISCORD_IMAGE, icon: FAVICON, bodyClass: "linear-grad-light", header: "full", hide: [], footer: SOCIALS, dust: "dust", ...details }
 }
 
+const FONT_PAGES = Object.entries(FONTS).map(([id, author]) => page(`fonts-${id}`, `download-fonts/${author.page}.html`, `/download-fonts/${author.page}`, "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", bodyClass: "linear-grad", component: "font-author", author: id }))
+
 export const PAGES = [
-  page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, bodyClass: "linear-grad", footer: SOCIALS.concat("github"), bottomImage: true }),
+  page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, bodyClass: "linear-grad", footer: SOCIALS.concat("github") }),
   page("calculator", "calculator.html", "/calculator", "Minecraft Titles | Grid Calculator", { ogTitle: "Minecraft Titles |TheAnnoying's Grid Calculator", ogDescription: `${LEARN} Use TheAnnoying's Grid Calculator.`, bodyClass: "linear-grad", header: "compact", hide: [GRID_CALCULATOR], footer: null }),
   page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: "checkbox", footer: ["twitter", "discord", "fiverr"], dust: null }),
   page("fun", "fun.html", "/fun", "MCTitles", { description: null, bodyClass: "linear-black", header: "checkbox", footer: null, dust: "glow" }),
   page("particles", "particles.html", "/particles", "Minecraft Titles | Home", { description: null, bodyClass: "linear-grad", hide: ["/"], dust: "custom" }),
   page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: null, footer: null, dust: null }),
   page("fonts", "download-fonts/index.html", "/download-fonts/", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", ogDescription: ABOUT, bodyClass: "linear-grad" }),
-  page("fonts-dmart", "download-fonts/DMart.html", "/download-fonts/DMart", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", bodyClass: "linear-grad" }),
-  page("fonts-floiden", "download-fonts/floiden.html", "/download-fonts/floiden", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", bodyClass: "linear-grad" }),
-  page("fonts-official", "download-fonts/official.html", "/download-fonts/official", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", bodyClass: "linear-grad" }),
-  page("fonts-patred", "download-fonts/patred.html", "/download-fonts/patred", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website" }),
   page("making", "making-a-logo/index.html", "/making-a-logo/", "Minecraft Titles | Making a Logo", { bodyClass: "linear-grad" }),
   page("making-blockbench", "making-a-logo/blockbench.html", "/making-a-logo/blockbench", "Minecraft Titles | Making a Logo | Blockbench"),
   page("making-illustrator", "making-a-logo/illustrator.html", "/making-a-logo/illustrator", "Minecraft Titles | Making a Logo | Illustrator"),
@@ -35,9 +35,8 @@ export const PAGES = [
   page("official-old", "official-logos/old-logos.html", "/official-logos/old-logos", "Minecraft Titles | Official Old Logos"),
   page("official-other", "official-logos/other-logos.html", "/official-logos/other-logos", "Minecraft Titles | Other Official Logos"),
   page("official-pack", "official-logos/pack-logos.html", "/official-logos/pack-logos", "Minecraft Titles | Official Pack Logos"),
-  page("official-update", "official-logos/update-logos.html", "/official-logos/update-logos", "Minecraft Titles | Official Update Logos"),
-  page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"], dust: "fancy" })
-]
+  page("official-update", "official-logos/update-logos.html", "/official-logos/update-logos", "Minecraft Titles | Official Update Logos")
+].concat(FONT_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"], dust: "fancy" }))
 
 export const MENU = [
   { label: "Home", href: "/" },

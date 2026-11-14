@@ -14,7 +14,7 @@ function component(name) {
 
 export const router = createRouter({
   history: createWebHistory(),
-  routes: pageRoutes(Object.fromEntries(PAGES.map(page => [page.name, component(page.name)]))),
+  routes: pageRoutes(Object.fromEntries(PAGES.map(page => [page.name, component(page.component ?? page.name)]))),
   scrollBehavior(to, from, saved) {
     if (saved) return { ...saved, behavior: "instant" }
     if (to.hash) return { el: to.hash }
