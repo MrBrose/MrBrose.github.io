@@ -1,4 +1,5 @@
 import FONTS from "./data/fonts.json" with { type: "json" }
+import LOGOS from "./data/logos.json" with { type: "json" }
 
 export const SITE = "https://mctitles.com"
 
@@ -14,6 +15,7 @@ function page(name, file, path, title, details = {}) {
 }
 
 const FONT_PAGES = Object.entries(FONTS).map(([id, author]) => page(`fonts-${id}`, `download-fonts/${author.page}.html`, `/download-fonts/${author.page}`, "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", bodyClass: "linear-grad", component: "font-author", author: id }))
+const LOGO_PAGES = Object.entries(LOGOS).map(([id, category]) => page(`official-${id}`, `official-logos/${category.page}.html`, `/official-logos/${category.page}`, category.title, { component: "logo-category", category: id }))
 
 export const PAGES = [
   page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, bodyClass: "linear-grad", footer: SOCIALS.concat("github") }),
@@ -29,14 +31,8 @@ export const PAGES = [
   page("making-photoshop", "making-a-logo/photoshop.html", "/making-a-logo/photoshop", "Minecraft Titles | Making a Logo | Photoshop"),
   page("making-stepbystep", "making-a-logo/stepbystep.html", "/making-a-logo/stepbystep", "Minecraft Titles | Making a Logo | Illustrator"),
   page("official", "official-logos/index.html", "/official-logos/", "Minecraft Titles | Official Logos", { bodyClass: "linear-grad" }),
-  page("official-edition", "official-logos/edition-logos.html", "/official-logos/edition-logos", "Minecraft Titles | Official Edition Logos"),
-  page("official-game", "official-logos/game-logos.html", "/official-logos/game-logos", "Minecraft Titles | Official Game Logos"),
-  page("official-history", "official-logos/history.html", "/official-logos/history", "Minecraft Titles | History of the Minecraft logo", { ogTitle: "Minecraft Titles | Official Old Logos" }),
-  page("official-old", "official-logos/old-logos.html", "/official-logos/old-logos", "Minecraft Titles | Official Old Logos"),
-  page("official-other", "official-logos/other-logos.html", "/official-logos/other-logos", "Minecraft Titles | Other Official Logos"),
-  page("official-pack", "official-logos/pack-logos.html", "/official-logos/pack-logos", "Minecraft Titles | Official Pack Logos"),
-  page("official-update", "official-logos/update-logos.html", "/official-logos/update-logos", "Minecraft Titles | Official Update Logos")
-].concat(FONT_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"], dust: "fancy" }))
+  page("official-history", "official-logos/history.html", "/official-logos/history", "Minecraft Titles | History of the Minecraft logo", { ogTitle: "Minecraft Titles | Official Old Logos" })
+].concat(FONT_PAGES, LOGO_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"], dust: "fancy" }))
 
 export const MENU = [
   { label: "Home", href: "/" },

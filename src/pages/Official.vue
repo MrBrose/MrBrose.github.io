@@ -1,10 +1,12 @@
+<script setup>
+  import LOGOS from "../data/logos.json"
+
+  const listed = Object.values(LOGOS).filter(category => category.listed !== false)
+</script>
+
 <template>
   <main vert>
-    <a component="panel-link-wide" href="./game-logos"><h2>Game Logos</h2></a>
-    <a component="panel-link-wide" href="./update-logos"><h2>Update Logos</h2></a>
-    <a component="panel-link-wide" href="./old-logos"><h2>Old Logos</h2></a>
-    <a component="panel-link-wide" href="./edition-logos"><h2>Edition Logos</h2></a>
-    <a component="panel-link-wide" href="./other-logos"><h2>Other Logos</h2></a>
-    <a component="panel-link-wide" href="./history"><h2>The history of the Minecraft Logo</h2></a>
+    <a v-for="category in listed" :key="category.page" component="panel-link-wide" :href="`/official-logos/${category.page}`"><h2>{{ category.name }}</h2></a>
+    <a component="panel-link-wide" href="/official-logos/history"><h2>The history of the Minecraft Logo</h2></a>
   </main>
 </template>
