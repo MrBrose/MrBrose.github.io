@@ -26,5 +26,5 @@ const shellPages = {
 
 export default defineConfig({
   plugins: [vue({ template: { transformAssetUrls: false, compilerOptions: { comments: true, whitespace: "preserve" } } }), shellPages],
-  server: { host: "127.0.0.1", port: 5292, strictPort: true }
+  server: { host: "127.0.0.1", port: 5292, strictPort: true, watch: { ignored: ["**/dist/**"] } }
 })
