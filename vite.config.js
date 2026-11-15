@@ -2,6 +2,7 @@ import vue from "@vitejs/plugin-vue"
 import { defineConfig } from "vite"
 import { PAGES } from "./src/pages.js"
 import { pageAt, shellHtml } from "./src/shell.js"
+import { logoPreviews } from "./vite/logo-previews.js"
 
 const shellPages = {
   name: "shell-pages",
@@ -25,6 +26,6 @@ const shellPages = {
 }
 
 export default defineConfig({
-  plugins: [vue({ template: { transformAssetUrls: false, compilerOptions: { comments: true, whitespace: "preserve" } } }), shellPages],
+  plugins: [vue({ template: { transformAssetUrls: false, compilerOptions: { comments: true, whitespace: "preserve" } } }), shellPages, logoPreviews()],
   server: { host: "127.0.0.1", port: 5292, strictPort: true, watch: { ignored: ["**/dist/**"] } }
 })

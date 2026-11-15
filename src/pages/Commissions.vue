@@ -1,4 +1,5 @@
 <script setup>
+  import { vPopupable } from "popupable-vue"
   import PORTFOLIO from "../data/portfolio.json"
 </script>
 
@@ -31,7 +32,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/basic-logo.webp" alt="Minecraft Basic logo example">
+        <img src="/images/commissions/basic-logo.webp" alt="Minecraft Basic logo example" v-popupable>
       </main>
     </div>
     <div id="page" component="page2">
@@ -45,7 +46,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/standard-logo.webp" alt="Minecraft Standard logo example">
+        <img src="/images/commissions/standard-logo.webp" alt="Minecraft Standard logo example" v-popupable>
       </main>
     </div>
     <div id="page" component="page2">
@@ -59,7 +60,7 @@
         </p>
       </nav>
       <main>
-        <img src="/images/commissions/wans-ancient-beasts.webp" alt="Minecraft Premium logo example">
+        <img src="/images/commissions/wans-ancient-beasts.webp" alt="Minecraft Premium logo example" v-popupable>
       </main>
     </div>
   </div>
@@ -79,6 +80,6 @@
     <p>Example Logos portfolio:</p>
   </main>
   <div id="logo-portfolio-scroller" component="logo-portfolio-scroller" @wheel.prevent="e => e.currentTarget.scrollBy({ left: e.deltaY })">
-    <img v-for="file in PORTFOLIO.commissions" :key="file" :src="`/portfolio/${file}`" alt="Portfolio Image">
+    <img v-for="file in PORTFOLIO.commissions" :key="file" v-popupable :src="`/portfolio/${file}`" alt="Portfolio Image">
   </div>
 </template>

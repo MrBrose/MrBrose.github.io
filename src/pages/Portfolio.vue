@@ -1,5 +1,6 @@
 <script setup>
   import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
+  import { vPopupable } from "popupable-vue"
   import PORTFOLIO from "../data/portfolio.json"
 
   const ROW_HEIGHT = 250
@@ -59,7 +60,7 @@
 <template>
   <main ref="main" @wheel="e => main.scrollLeft += e.deltaY * 1.5">
     <div ref="scroller" component="side-scroll">
-      <img v-for="(file, i) in PORTFOLIO.portfolio" :key="i" :src="`/portfolio/${file}`" alt="Portfolio Image">
+      <img v-for="(file, i) in PORTFOLIO.portfolio" :key="i" v-popupable :src="`/portfolio/${file}`" alt="Portfolio Image">
     </div>
   </main>
 </template>
