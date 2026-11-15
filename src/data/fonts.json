@@ -120,7 +120,8 @@
       {
         "name": "Minecraft Ten alt",
         "file": "mc-ten-alt-lowercase.ttf",
-        "sample": "abcdef"
+        "sample": "abcdef",
+        "size": "mobilesmaller"
       },
       {
         "name": "Minecraft Ten Elongated",

@@ -27,7 +27,7 @@
     text-align: center;
     text-decoration: none;
     color: var(--colour-text-light);
-    background: var(--colour-banner);
+    background: var(--colour-button);
     border: 0;
     border-radius: .4em;
     padding: .55em .5em;
@@ -37,7 +37,7 @@
   }
   .logo-downloads > *:hover,
   .logo-downloads > *:focus-visible {
-    background: var(--colour-dropdown-hover);
+    background: var(--colour-button-hover);
   }
   .logo-downloads > *:focus-visible {
     outline: 2px solid var(--colour-white);

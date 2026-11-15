@@ -2,7 +2,7 @@
 	max-width: 75em;
 	position: relative;
 	border-radius:1em;
-	background-color: var(--colour-bg-object);
+	background-color: var(--colour-bg-panel);
 	margin: 0 auto;
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
 	--button-width: calc(2.5em + 17px); /*this calc is the width of the button including the shadow*/
@@ -130,9 +130,17 @@
 	[component^="carousel"] .splide__arrow--next{
 		padding-right: .25em;
 	}
+	[component^="carousel"] {
+		margin-inline: -1em;
+	}
 	[component^="carousel"] > ul.icons {
-		padding: 0;
-		left: 50%;
-		translate: -50%;
+		padding: 0 2em;
+		left: 0;
+		right: 0;
+		justify-content: center;
+	}
+	[component^="carousel"] > ul.icons li {
+		flex: 0 1 2em;
+		min-width: 0;
 	}
 }
