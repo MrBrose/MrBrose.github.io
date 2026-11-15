@@ -23,13 +23,13 @@
 	cursor: pointer;
 	transition: scale var(--short-animation-time), translate var(--short-animation-time);
 }
-[component^="carousel"] .splide__arrow:is(:hover,:focus-visible){
+[component^="carousel"] .splide__arrow:not([disabled]):is(:hover,:focus-visible){
 	outline: transparent;
 	--scale: 18%;
 	scale: calc(100% + var(--scale));
 	translate: 0 calc(var(--scale) / 2);
 }
-[component^="carousel"] .splide__arrow:active{
+[component^="carousel"] .splide__arrow:not([disabled]):active{
 	--scale: -9%;
 }
 [component^="carousel"] .splide__arrow::before{
@@ -40,6 +40,10 @@
 	border: 0.4em solid var(--colour-text-light);
 	border-bottom: 0;
 	border-right: 0;
+	transition: border-color var(--short-animation-time);
+}
+[component^="carousel"] .splide__arrow[disabled]::before{
+	border-color: transparent;
 }
 [component^="carousel"] .splide__arrow:focus-visible::before{
 	box-shadow: 0 0 0 2px white, inset 0 0 0 2px white;

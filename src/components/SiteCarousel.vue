@@ -11,7 +11,7 @@
     const slides = Array.from(list.value.children)
     slides.forEach(slide => slide.classList.add("splide__slide"))
     const heads = slides.map(slide => slide.getAttribute("img-src"))
-    splide = new Splide(root.value, { type: "loop", gap: "4em", classes: { pagination: "splide__pagination icons" } })
+    splide = new Splide(root.value, { gap: "4em", classes: { pagination: "splide__pagination icons" } })
     splide.on("pagination:mounted", ({ items }) => items.forEach((item, i) => {
       const head = document.createElement("img")
       head.src = heads[i]
