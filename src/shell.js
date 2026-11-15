@@ -25,5 +25,5 @@ export function shellHtml(html, page) {
   ])
   return html
     .replace("<head>", `<head>\n    ${head.join("\n    ")}`)
-    .replace("<body>", `<body class="${page.bodyClass}"${page.noHeader ? " no-header" : ""}>`)
+    .replace("<body>", `<body${page.bodyClass ? ` class="${page.bodyClass}"` : ""}${page.noHeader ? " no-header" : ""}>`)
 }
