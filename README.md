@@ -9,11 +9,13 @@ The site is a Vue app built with Vite. Install the dependencies with `npm instal
 
 Pages are listed in `src/pages.js`, which sets each page's title and OpenGraph tags, and their content is in `src/pages`. Pushing to `main` builds and deploys the site through GitHub Actions.
 
-The fonts, official logos and portfolio are listed in `src/data`, and the font and logo pages are built from those lists:
+Lists of content are in `src/data`, and the pages that show them are built from them:
 
 - `fonts.json` lists each author's fonts, with the files in `public/fonts/<author>`
 - `logos.json` lists each logo category, with the files in `public/logos/<category>`
 - `portfolio.json` lists the portfolio images, in `public/portfolio`
+- `community.json` lists the community members on the home page, with their images in `public/images` and their heads in `public/images/heads`
+- `methods.json` lists the logo making methods shown on the home page and on Making a Logo
 
 Other images go in `public/images`.
 
