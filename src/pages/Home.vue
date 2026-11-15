@@ -1,6 +1,9 @@
 <script setup>
+  import COMMUNITY from "../data/community.json"
   import MethodPanels from "../components/MethodPanels.vue"
   import SiteCarousel from "../components/SiteCarousel.vue"
+
+  const FADE = "linear-gradient(90deg, var(--colour-bg-object) 40%, transparent 75%), "
 </script>
 
 <template>
@@ -22,59 +25,12 @@
     <div class="about-us">
       <h2>Meet the Community</h2>
       <SiteCarousel>
-        <li img-src="/images/heads/MrBrose.png">
+        <li v-for="member in COMMUNITY" :key="member.name" :img-src="`/images/heads/${member.head}`">
           <div class="about-me">
-            <h2>MrBrose</h2>
-            <p>Hi there! I'm MrBrose and I am a graphic designer who creates Minecraft related things. You might know me for my Minecraft Style Logos, which you can see in my <a href="/portfolio" target="_blank">portfolio</a>, and you can purchase one too, just click here for <a href="/commissions" target="_blank">commissions.</a> <br> I also help other people learn how to make their very own Minecraft Style logos themselves! Using resources from this website you too can become a Minecraft Logo expert.</p>
-            <div class="fake-img" style="--src:url('/images/MrBrose.webp');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/Annoying.png">
-          <div class="about-me">
-            <h2>TheAnnoying</h2>
-            <p>Hey, I'm TheAnnoying! I always wanted to create Minecraft titles, but never knew there was a community for it. After I came across the Minecraft Titles Discord server, I realized there are others like me, who find these titles really awesome. I started using Mine-imator and Photoshop for my logos, but then moved to Adobe Illustrator. I'm very happy with how my logos look, and I'm glad there are many guides on the server to help out!</p>
-            <div class="fake-img" style="--src:url('/images/TheAnnoying.webp');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/Ewan.png">
-          <div class="about-me">
-            <h2>Ewan Howell</h2>
-            <p>Hi my name is Ewan Howell. I am a resource pack and Blockbench plugin developer. I created the Minecraft Title Generator Blockbench plugin so I could quickly and easily generate high quality title logos for any of my projects, and released it so that others could do the same! You can view my other projects on my website <a href="https://ewanhowell.com/" target="_blank">ewanhowell.com</a></p>
-            <div class="background-img" style="background-image: linear-gradient(90deg, var(--colour-bg-object) 40%, transparent 75%), url('/images/Ewan.webp');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/RJ.png">
-          <div class="about-me">
-            <h2>RJ_Infinity</h2>
-            <p>Hello. I am the guy who created almost all the website that you see in front of you. including much time spent creating the excellent particles in the background (if you want to see how cool they can be look at the 404 page). I also make other programs and the odd other thing. you can find most of my work at <a href="http://github.com/RJ-Infinity/" target="_blank">github.com/RJ-Infinity/</a><a href="/particles">.</a></p>
-            <div class="fake-img" style="--src:url('/images/RJ.webp');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/patred.png">
-          <div class="about-me">
-            <h2>Patred</h2>
-            <p>Hello! I am the person who created a lot of the fonts that most people use for their Minecraft logos and designs, including MC Ten Drip, Serif, Dungeons, and others. These fonts were all created in FontStruct, you can check out my profile <a href="https://fontstruct.com/fontstructors/2161953/patred" target="_blank">here</a> and get them or download them <a href="/download-fonts/patred" target="_blank">here</a> at MCTitles to make your logo typography cooler. No need for credit.</p>
-            <div class="fake-img" style="--src:url('/images/patred.png');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/TitusHM.png">
-          <div class="about-me">
-            <h2>TitusHM</h2>
-            <p>I do the website development sometimes along with the cloudflare side of things. You can see more of what I do on my <a href="https://github.com/titushm" target="_blank">github</a></p>
-          </div>
-        </li>
-        <li img-src="/images/heads/Floiden.png">
-          <div class="about-me">
-            <h2>FloideN</h2>
-            <p>Hey, my name is FloideN, I am a graphic designer, I love to create something unique, beautiful and professional. I am always looking for something new and when I start doing something I try to make it perfect! And I also love to create Minecraft related content, logos, key art, unique fonts inspired by official fonts (you can find them in the "fonts" tab) and much more!							</p>
-            <div class="fake-img" style="--src:url('/images/FloideN.webp');"></div>
-          </div>
-        </li>
-        <li img-src="/images/heads/discord.png">
-          <div class="about-me">
-            <h2>Join the community!</h2>
-            <p>Join the Minecraft Titles Discord to become part of the community, you can receive help, show off your creations, learn even more tricks and tips or just hang out!<br>You can join using the link here: <a href="https://mctitles.com/discord" target="_blank">mctitles.com/discord</a></p>
-            <div class="background-img" style="background-image: url('/images/discord.webp');"></div>
+            <h2>{{ member.name }}</h2>
+            <p v-html="member.bio"></p>
+            <div v-if="member.portrait" class="fake-img" :style="`--src:url('/images/${member.portrait}');`"></div>
+            <div v-else-if="member.background" class="background-img" :style="`background-image: ${member.fade ? FADE : ''}url('/images/${member.background}');`"></div>
           </div>
         </li>
       </SiteCarousel>
