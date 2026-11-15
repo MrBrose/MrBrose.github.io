@@ -63,7 +63,7 @@
       },
       {
         "name": "マインクラフト",
-        "file": "マインクラフト.svg"
+        "file": "minecraft-japanese.svg"
       },
       {
         "name": "Minecraft China",
@@ -539,11 +539,11 @@
       },
       {
         "name": "Minecraft French Creeper Crunch",
-        "file": "minecraft-creeper-crunch-(french).webp"
+        "file": "minecraft-creeper-crunch-french.webp"
       },
       {
         "name": "Minecraft Creeper Crunch French and English",
-        "file": "minecraft-creeper-crunch-(french-and-english).webp"
+        "file": "minecraft-creeper-crunch-french-and-english.webp"
       }
     ]
   },
