@@ -1,15 +1,13 @@
 [component^="carousel"] {
 	max-width: 75em;
-	display: grid;
 	position: relative;
 	border-radius:1em;
 	background-color: var(--colour-bg-object);
 	margin: 0 auto;
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
-	--gap: 4em;
 	--button-width: calc(2.5em + 17px); /*this calc is the width of the button including the shadow*/
 }
-[component^="carousel"] > button{
+[component^="carousel"] .splide__arrow{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -22,21 +20,19 @@
 	background-color: transparent;
 	border: 0;
 	padding: 0;
-}
-[component^="carousel"] > button:not([disabled]){
 	cursor: pointer;
 	transition: scale var(--short-animation-time), translate var(--short-animation-time);
 }
-[component^="carousel"] > button:not([disabled]):is(:hover,:focus-visible){
+[component^="carousel"] .splide__arrow:is(:hover,:focus-visible){
 	outline: transparent;
 	--scale: 18%;
 	scale: calc(100% + var(--scale));
 	translate: 0 calc(var(--scale) / 2);
 }
-[component^="carousel"] > button:not([disabled]):active{
+[component^="carousel"] .splide__arrow:active{
 	--scale: -9%;
 }
-[component^="carousel"] > button::before{
+[component^="carousel"] .splide__arrow::before{
 	content: "";
 	height: 50%;
 	aspect-ratio: 1;
@@ -44,87 +40,67 @@
 	border: 0.4em solid var(--colour-text-light);
 	border-bottom: 0;
 	border-right: 0;
-	transition: border-color var(--short-animation-time);
 }
-[component^="carousel"] > button[disabled]::before{
-	border-color: rgba(0, 0, 0, 0);
-}
-[component^="carousel"] > button:focus-visible::before{
+[component^="carousel"] .splide__arrow:focus-visible::before{
 	box-shadow: 0 0 0 2px white, inset 0 0 0 2px white;
 }
-[component^="carousel"] > button:first-of-type{
+[component^="carousel"] .splide__arrow--prev{
 	left: 0;
 	justify-content: flex-start;
 	padding-left: .5em;
 }
-[component^="carousel"] > button:first-of-type::before{
+[component^="carousel"] .splide__arrow--prev::before{
 	rotate: -0.125turn;
 }
-[component^="carousel"] > button:last-of-type{
+[component^="carousel"] .splide__arrow--next{
 	right: 0;
 	justify-content: flex-end;
 	padding-right: .5em;
 }
-[component^="carousel"] > button:last-of-type::before{
+[component^="carousel"] .splide__arrow--next::before{
 	rotate: 0.38turn;
 }
-[component^="carousel"] > ul:not(.icons){
-	overflow-y: hidden;
-	overflow-x: auto;
-	padding: 0 var(--button-width);
+[component^="carousel"] .splide__track{
 	margin: 2px;
-	list-style: none;
-	display: grid;
-	grid-auto-flow: column;
-	gap: var(--gap);
-	grid-auto-columns: 100%;
-	overscroll-behavior-inline: contain;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	height: calc(100% - 4px);
-	font-size: inherit;
 }
-[component^="carousel"] > ul:not(.icons):focus-visible{
-	outline: 1px solid black;
-}
-[component^="carousel"] > ul:not(.icons) > li{
-	font-size: inherit;
-	scroll-snap-align: center;
-	height: 100%;
+[component^="carousel"] .splide__track:focus-visible{
+	outline: 1px solid white;
 }
 [component^="carousel"] > ul.icons {
-	list-style: none;
-	padding: 0;
-	display: flex;
 	position: absolute;
-	gap: .5em;
-	margin: 0;
-	padding-left: var(--button-width);
 	bottom: 1em;
+	left: 0;
+	z-index: 1;
+	gap: .5em;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	padding: 0 0 0 var(--button-width);
 }
 [component^="carousel"] > ul.icons li {
 	display: block;
 	aspect-ratio: 1;
 	width: 2em;
-	transition: var(--short-animation-time) scale;
+	transition: translate var(--short-animation-time);
+}
+[component^="carousel"] > ul.icons li:has(.is-active) {
+	translate: 0 -.3em;
 }
 [component^="carousel"] > ul.icons button{
+	display: block;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	outline: none;
 	border: none;
 	background-color: transparent;
-}
-
-[component^="carousel"] > ul.icons li:not(.selected) button{
 	cursor: pointer;
 }
-
-[component^="carousel"] > ul.icons li:not(.selected) button:hover{
+[component^="carousel"] > ul.icons button.is-active{
+	cursor: default;
+}
+[component^="carousel"] > ul.icons button:not(.is-active):hover{
 	outline: 2px solid var(--colour-text-light);
 }
-
-
 [component^="carousel"] > ul.icons button:focus-visible{
 	outline: 2px solid white;
 }
@@ -133,24 +109,21 @@
 	width: 100%;
 	display: block;
 }
-[component^="carousel"] > ul.icons li.selected {
-	translate: 0 -.3em;
-}
 @media only screen and (max-width: 500px) {
 	[component^="carousel"] {
 		border-radius: 0 0 0 0;
 		--button-width: 1em;
 	}
-	[component^="carousel"] > button{
+	[component^="carousel"] .splide__arrow{
 		height: 2em;
 		bottom: 0;
 		top: auto;
 		transform: none;
 	}
-	[component^="carousel"] > button:first-of-type{
+	[component^="carousel"] .splide__arrow--prev{
 		padding-left: .25em;
 	}
-	[component^="carousel"] > button:last-of-type{
+	[component^="carousel"] .splide__arrow--next{
 		padding-right: .25em;
 	}
 	[component^="carousel"] > ul.icons {

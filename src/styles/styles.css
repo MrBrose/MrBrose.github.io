@@ -959,10 +959,6 @@ footer ul a{
 	background-position: right;
 }
 
-#carousel-list + .icons {
-	z-index: 1;
-}
-
 .about-us [component="carousel"] button {
 	z-index: 2;
 	margin-top: 0;

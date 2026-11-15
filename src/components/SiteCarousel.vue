@@ -1,80 +1,39 @@
 <script setup>
-  import { onBeforeUnmount, onMounted, ref, useTemplateRef } from "vue"
+  import Splide from "@splidejs/splide"
+  import "@splidejs/splide/css/core"
+  import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
 
-  const scroll = useTemplateRef("scroll")
-  const heads = ref([])
-  const selected = ref(0)
-  const atStart = ref(true)
-  const atEnd = ref(true)
-  let clicking = false
-
-  function scrollLeftMax() {
-    return scroll.value.scrollWidth - scroll.value.clientWidth
-  }
-
-  function checkScrollEnd() {
-    atStart.value = scroll.value.scrollLeft === 0
-    atEnd.value = scroll.value.scrollLeft === scroll.value.scrollWidth - scroll.value.offsetWidth
-  }
-
-  function itemWidth() {
-    return scrollLeftMax() / (scroll.value.children.length - 1)
-  }
-
-  function currentIndex() {
-    return Math.round(scroll.value.scrollLeft / itemWidth())
-  }
-
-  function inertifyElements() {
-    const current = currentIndex()
-    Array.from(scroll.value.children).forEach((el, i) => el.inert = i !== current)
-  }
-
-  function scrollTo(index) {
-    scroll.value.scrollLeft = itemWidth() * index
-    selected.value = index
-  }
-
-  function scrollStop() {
-    inertifyElements()
-    clicking = false
-    selected.value = currentIndex()
-  }
-
-  function step(by) {
-    if (clicking) return
-    clicking = true
-    scrollTo(currentIndex() + by)
-  }
-
-  function realign() {
-    scrollTo(currentIndex())
-  }
+  const root = useTemplateRef("root")
+  const list = useTemplateRef("list")
+  let splide
 
   onMounted(() => {
-    heads.value = Array.from(scroll.value.children).map(el => el.getAttribute("img-src"))
-    scroll.value.style.overflow = "hidden"
-    scroll.value.style.scrollSnapType = "none"
-    inertifyElements()
-    checkScrollEnd()
-    selected.value = currentIndex()
-    addEventListener("resize", realign)
+    const slides = Array.from(list.value.children)
+    slides.forEach(slide => slide.classList.add("splide__slide"))
+    const heads = slides.map(slide => slide.getAttribute("img-src"))
+    splide = new Splide(root.value, { type: "loop", gap: "4em", classes: { pagination: "splide__pagination icons" } })
+    splide.on("pagination:mounted", ({ items }) => items.forEach((item, i) => {
+      const head = document.createElement("img")
+      head.src = heads[i]
+      head.alt = ""
+      item.button.append(head)
+    }))
+    splide.mount()
   })
 
-  onBeforeUnmount(() => removeEventListener("resize", realign))
+  onBeforeUnmount(() => splide.destroy())
 </script>
 
 <template>
-  <div component="carousel">
-    <button :disabled="atStart" @click="step(-1)"><span class="non-visual">Previous Item</span></button>
-    <ul ref="scroll" id="carousel-list" @scroll="checkScrollEnd" @scrollend="scrollStop">
-      <slot></slot>
-    </ul>
-    <ul class="icons">
-      <li v-for="(head, i) in heads" :key="head" :class="{ selected: i === selected }">
-        <button @click="scrollTo(i)"><img :src="head"></button>
-      </li>
-    </ul>
-    <button :disabled="atEnd" @click="step(1)"><span class="non-visual">Next Item</span></button>
+  <div ref="root" component="carousel" class="splide">
+    <div class="splide__arrows">
+      <button class="splide__arrow splide__arrow--prev"></button>
+      <button class="splide__arrow splide__arrow--next"></button>
+    </div>
+    <div class="splide__track">
+      <ul ref="list" id="carousel-list" class="splide__list">
+        <slot></slot>
+      </ul>
+    </div>
   </div>
 </template>
