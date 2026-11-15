@@ -14,7 +14,7 @@
         "file": "minecraft.svg"
       },
       {
-        "name": "bedrock & java",
+        "name": "Java & Bedrock",
         "file": "bedrock-and-java.png"
       },
       {
@@ -54,11 +54,11 @@
         "file": "minecraft-realms.svg"
       },
       {
-        "name": "Minecraft Realms",
+        "name": "Minecraft Realms Plus",
         "file": "minecraft-realms-plus.png"
       },
       {
-        "name": "Marketplace",
+        "name": "Minecraft Marketplace",
         "file": "marketplace.webp"
       },
       {
@@ -74,11 +74,11 @@
         "file": "mc-blast.webp"
       },
       {
-        "name": "minecraft earth",
+        "name": "Minecraft Earth",
         "file": "minecraft-earth.webp"
       },
       {
-        "name": "story mode",
+        "name": "Minecraft Story Mode",
         "file": "storymode.svg"
       }
     ]
@@ -90,7 +90,7 @@
     "heading": "All Minecraft update logos",
     "logos": [
       {
-        "name": "Tricky Trails",
+        "name": "Tricky Trials",
         "file": "tricky-trials.webp"
       },
       {
@@ -98,23 +98,23 @@
         "file": "potato.webp"
       },
       {
-        "name": "Trails & Tails",
+        "name": "Trails & Tales",
         "file": "trails-and-tales.webp"
       },
       {
-        "name": "Wild Update",
+        "name": "The Wild Update",
         "file": "wild-update.webp"
       },
       {
-        "name": "caves & cliffs part 1",
+        "name": "Caves & Cliffs Part 1",
         "file": "caves-and-cliffs2.webp"
       },
       {
-        "name": "caves & cliffs part 2",
+        "name": "Caves & Cliffs Part 2",
         "file": "caves-and-cliffs1.webp"
       },
       {
-        "name": "Nether Update version updated",
+        "name": "Nether Update (updated)",
         "file": "nether-update-new.webp"
       },
       {
@@ -126,7 +126,7 @@
         "file": "nether-update.webp"
       },
       {
-        "name": "Village & Pillage updated",
+        "name": "Village & Pillage (updated)",
         "file": "village-and-pillage-new.webp"
       },
       {
@@ -142,7 +142,7 @@
         "file": "update-aquatic.webp"
       },
       {
-        "name": "Exploration Update updated",
+        "name": "Exploration Update (updated)",
         "file": "exploration-update-new.webp"
       },
       {
@@ -162,7 +162,7 @@
         "file": "pretty-scary-update.webp"
       },
       {
-        "name": "adventure Update",
+        "name": "Adventure Update",
         "file": "adventure-update.webp"
       }
     ]
@@ -202,19 +202,19 @@
         "file": "minecraft-dungeons.svg"
       },
       {
-        "name": "Education Edition",
+        "name": "Minecraft Education Edition",
         "file": "education-edition.svg"
       },
       {
-        "name": "Realms",
+        "name": "Minecraft Realms",
         "file": "realms-1st-iteration.svg"
       },
       {
-        "name": "realms +",
+        "name": "Minecraft Realms Plus",
         "file": "minecraft-realms-plus-logo-2019.svg"
       },
       {
-        "name": "Minecraft Preview",
+        "name": "Minecraft Beta",
         "file": "minecraft-beta-logo-1.webp"
       },
       {
@@ -226,15 +226,15 @@
         "file": "minecraft-preview.webp"
       },
       {
-        "name": "Minecon earth",
+        "name": "Minecon California 2016",
         "file": "minecon-2016-logo.webp"
       },
       {
-        "name": "Minecon earth",
+        "name": "Minecon Earth",
         "file": "minecon-earth.svg"
       },
       {
-        "name": "Minecon earth party",
+        "name": "Minecon Earth Party",
         "file": "minecon-earth-part.svg"
       },
       {
@@ -266,7 +266,7 @@
     "heading": "Minecraft Edition logos",
     "logos": [
       {
-        "name": "bedrock & java",
+        "name": "Java & Bedrock",
         "file": "bedrock-and-java.png"
       },
       {
@@ -290,15 +290,15 @@
         "file": "bedrock.webp"
       },
       {
-        "name": "windows 10",
+        "name": "Windows 10 Edition",
         "file": "windows-10-edition.webp"
       },
       {
-        "name": "windows 10 beta",
+        "name": "Windows 10 Edition Beta",
         "file": "windows-10-edition-beta.webp"
       },
       {
-        "name": "Pocket edition",
+        "name": "Pocket Edition",
         "file": "minecraft-pocket-logo.webp"
       },
       {
@@ -306,15 +306,15 @@
         "file": "pocket-edition-pre-0.7.1.svg"
       },
       {
-        "name": "Minecraft console edition",
+        "name": "Minecraft Console Edition",
         "file": "legacy-console-edition.webp"
       },
       {
-        "name": "second Minecraft Xbox 360 Edition",
+        "name": "Minecraft Xbox 360 Edition (second logo)",
         "file": "minecraft-xbox-360-edition-1.webp"
       },
       {
-        "name": "first Minecraft Xbox 360 edition",
+        "name": "Minecraft Xbox 360 Edition (first logo)",
         "file": "minecraft-xbox-360-edition.webp"
       },
       {
@@ -322,47 +322,47 @@
         "file": "xmas-logo.webp"
       },
       {
-        "name": "Minecraft Xbox One edition",
+        "name": "Minecraft Xbox One Edition",
         "file": "minecraft-xbox-one-edition.webp"
       },
       {
-        "name": "Minecraft PlayStation VITA edition",
+        "name": "Minecraft PlayStation Vita Edition",
         "file": "minecraft-psvita-edition.webp"
       },
       {
-        "name": "Minecraft PS4 edition",
+        "name": "Minecraft PlayStation 4 Edition",
         "file": "minecarft-ps4-edition.webp"
       },
       {
-        "name": "Minecraft PS3 edition",
+        "name": "Minecraft PlayStation 3 Edition",
         "file": "minecraft-ps3-edition.webp"
       },
       {
-        "name": "Minecraft Nintendo switch edition",
+        "name": "Minecraft Nintendo Switch Edition",
         "file": "minecraft-switch-logo.webp"
       },
       {
-        "name": "Minecraft 3DS edition",
+        "name": "Minecraft New Nintendo 3DS Edition",
         "file": "new-nintendo-3ds-edition.webp"
       },
       {
-        "name": "Minecraft Wii U edition",
+        "name": "Minecraft Wii U Edition",
         "file": "minecraft-wii-u-edition.webp"
       },
       {
-        "name": "Minecraft VR edition",
+        "name": "Minecraft Gear VR Edition",
         "file": "minecraft-gear-vr-edition.webp"
       },
       {
-        "name": "Minecraft Fire TV edition",
+        "name": "Minecraft Fire TV Edition",
         "file": "minecraft-fire-tv-edition.webp"
       },
       {
-        "name": "Minecraft Apple TV edition",
+        "name": "Minecraft Apple TV Edition",
         "file": "minecraft-apple-tv-edition.webp"
       },
       {
-        "name": "Minecraft PI edition",
+        "name": "Minecraft Pi Edition",
         "file": "minecraft-pi-edition.webp"
       },
       {
@@ -370,7 +370,7 @@
         "file": "minecraft-china-2016.webp"
       },
       {
-        "name": "Minecraft PC Gamer demo edition",
+        "name": "Minecraft PC Gamer Demo",
         "file": "pc-gamer-demo-logo.png"
       },
       {
@@ -414,7 +414,7 @@
         "file": "minecraft-dungeons-arcade-logo.webp"
       },
       {
-        "name": "Minecraft Dungeons Arcade Series 2",
+        "name": "Minecraft Dungeons Arcade Hidden Depths",
         "file": "minecraft-dungeons-arcade-series-2-logo.webp"
       }
     ]
@@ -426,27 +426,27 @@
     "heading": "Other Minecraft logos",
     "logos": [
       {
-        "name": "10 years",
+        "name": "Celebrating 10 Years",
         "file": "10years.webp"
       },
       {
-        "name": "minecraft earth",
+        "name": "Minecraft Earth",
         "file": "minecraft-earth.webp"
       },
       {
-        "name": "story mode",
+        "name": "Minecraft Story Mode",
         "file": "storymode.svg"
       },
       {
-        "name": "story mode season 2",
+        "name": "Minecraft Story Mode Season Two",
         "file": "mcsmlogo2.webp"
       },
       {
-        "name": "Minecraft feedback",
+        "name": "Minecraft Feedback",
         "file": "feedback.webp"
       },
       {
-        "name": "Minecraft Help",
+        "name": "Minecraft Help Center",
         "file": "minecraft-help-center-2019.webp"
       },
       {
@@ -454,7 +454,7 @@
         "file": "minecraft-marketplace-2021.webp"
       },
       {
-        "name": "Minecoin",
+        "name": "Minecraft Minecoins",
         "file": "minecoin.webp"
       },
       {
@@ -466,19 +466,19 @@
         "file": "community-celebration.webp"
       },
       {
-        "name": "Minecraft Builders&Biomes",
+        "name": "Minecraft Builders & Biomes",
         "file": "builders-and-biomes.webp"
       },
       {
-        "name": "Super Duper Graphics",
+        "name": "Super Duper Graphics Pack",
         "file": "super-dupa-graphics.webp"
       },
       {
-        "name": "mini series",
+        "name": "Minecraft Mini Series",
         "file": "mini-series.webp"
       },
       {
-        "name": "Minecraft Community Event",
+        "name": "Official Minecraft Community Event",
         "file": "community-event.webp"
       },
       {
@@ -490,31 +490,31 @@
         "file": "bug-report.png"
       },
       {
-        "name": "BattleMode",
+        "name": "Minecraft Battle Mini Game",
         "file": "battlemodelogo.webp"
       },
       {
-        "name": "Glide",
+        "name": "Minecraft Glide Mini Game",
         "file": "glide.webp"
       },
       {
-        "name": "Tumble",
+        "name": "Minecraft Tumble Mini Game",
         "file": "tumble-minigame-logo.webp"
       },
       {
-        "name": "Shop of Minecraft",
+        "name": "The Official Shop of Minecraft",
         "file": "shop.webp"
       },
       {
-        "name": "Creeper Crunch",
+        "name": "Minecraft Creeper Crunch 2021",
         "file": "minecraft-creeper-crunch-2021.webp"
       },
       {
-        "name": "Minecraft Spring sale",
+        "name": "Minecraft Spring Sale",
         "file": "spring-sale.webp"
       },
       {
-        "name": "Minecraft Summer sale",
+        "name": "Minecraft Summer Sale",
         "file": "summer-sale.webp"
       },
       {
@@ -522,7 +522,7 @@
         "file": "season-of-giving.webp"
       },
       {
-        "name": "Minecraft Woodsword chronicles",
+        "name": "Minecraft Woodsword Chronicles",
         "file": "mcwoodsword-logo.png"
       },
       {
@@ -530,19 +530,19 @@
         "file": "minecraft-wiki.svg"
       },
       {
-        "name": "Minecraft Exhibition",
+        "name": "Minecraft The Exhibition",
         "file": "exhibition.webp"
       },
       {
-        "name": "Minecraft Creeper Crunch",
+        "name": "Minecraft Creeper Crunch 2020",
         "file": "minecraft-creeper-crunch-2020.webp"
       },
       {
-        "name": "Minecraft French Creeper Crunch",
+        "name": "Minecraft Croque Creeper",
         "file": "minecraft-creeper-crunch-french.webp"
       },
       {
-        "name": "Minecraft Creeper Crunch French and English",
+        "name": "Minecraft Creeper Crunch & Croque Creeper",
         "file": "minecraft-creeper-crunch-french-and-english.webp"
       }
     ]
@@ -556,91 +556,91 @@
     "listed": false,
     "logos": [
       {
-        "name": "",
+        "name": "Inspiration Island",
         "file": "inspiration-island.png"
       },
       {
-        "name": "",
+        "name": "Halloween",
         "file": "halloween.webp"
       },
       {
-        "name": "",
+        "name": "Norse Mythology",
         "file": "norse.webp"
       },
       {
-        "name": "",
+        "name": "Chinese Mythology",
         "file": "chinese.webp"
       },
       {
-        "name": "",
+        "name": "Mass Effect",
         "file": "masseffect.webp"
       },
       {
-        "name": "",
+        "name": "Adventure Time",
         "file": "adventuretime.webp"
       },
       {
-        "name": "",
+        "name": "Biome Settlers Pack 1",
         "file": "biome1.png"
       },
       {
-        "name": "",
+        "name": "Biome Settlers Pack 2",
         "file": "biome2.png"
       },
       {
-        "name": "",
+        "name": "Strangers: Biome Settlers 3",
         "file": "biome3.png"
       },
       {
-        "name": "",
+        "name": "Campfire Tales",
         "file": "campfire-tales.png"
       },
       {
-        "name": "",
+        "name": "City Folk",
         "file": "city-folk.png"
       },
       {
-        "name": "",
+        "name": "Town Folk",
         "file": "town-folk.png"
       },
       {
-        "name": "",
+        "name": "Holiday Skin Pack 2015",
         "file": "holiday2015.png"
       },
       {
-        "name": "",
+        "name": "Festive Mash-Up 2016",
         "file": "festive.png"
       },
       {
-        "name": "",
+        "name": "Journey to the West",
         "file": "journey-to-the-west.png"
       },
       {
-        "name": "",
+        "name": "Stranger Things",
         "file": "stranger-things.png"
       },
       {
-        "name": "",
+        "name": "Villains",
         "file": "villains.png"
       },
       {
-        "name": "",
+        "name": "Redstone Specialists",
         "file": "redstone.png"
       },
       {
-        "name": "",
+        "name": "Power Rangers",
         "file": "power-rangers.png"
       },
       {
-        "name": "",
+        "name": "Super Mario Edition",
         "file": "mario.webp"
       },
       {
-        "name": "",
+        "name": "Skyrim Edition",
         "file": "skyrim.jpg"
       },
       {
-        "name": "",
+        "name": "Greek Mythology Edition",
         "file": "greek.png"
       }
     ]
