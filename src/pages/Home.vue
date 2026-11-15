@@ -1,4 +1,5 @@
 <script setup>
+  import MethodPanels from "../components/MethodPanels.vue"
   import SiteCarousel from "../components/SiteCarousel.vue"
 </script>
 
@@ -81,21 +82,7 @@
         MAKING YOUR OWN LOGO
       </div>
     </div>
-    <a component="panel-link-long" href="making-a-logo/illustrator">
-      <img src="/images/adobe-illustrator.svg" alt="illustrator logo">
-      <h2>illustrator</h2>
-      <p>The more powerful but also an expensive method, the official logos were made in a similar way to this.<br><em>(This method is more complex than the blockbench method)</em></p>
-    </a>
-    <a component="panel-link-long" href="making-a-logo/blockbench">
-      <img src="/images/blockbench_logo_white.svg" alt="blockbench logo">
-      <h2>BlockBench</h2>
-      <p>Not as powerful as the Illustrator method, however it is free and really quick and easy to use <br><em>(I highly recommend using this method rather than mine-imator)</em></p>
-    </a>
-    <a component="panel-link-long" href="making-a-logo/photoshop">
-      <img src="/images/ps.svg" alt="photoshop logo">
-      <h2>Photoshop</h2>
-      <p>Not as powerful as the Illustrator method, however it is still powerful<br><em>(I recommend using the Illustrator method rather than this method if possible)</em></p>
-    </a>
+    <MethodPanels />
   </main>
   <main component="small-text">
     <p>Do you want to support the website and get a Minecraft logo out of it?<br><a href="https://www.fiverr.com/mrbrose_/create-you-a-custom-minecraft-title" target="_blank">Just click here</a> to purchase a Minecraft Logo and help keep this website running.</p>
