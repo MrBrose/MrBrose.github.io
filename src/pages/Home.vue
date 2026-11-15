@@ -2,8 +2,6 @@
   import COMMUNITY from "../data/community.json"
   import MethodPanels from "../components/MethodPanels.vue"
   import SiteCarousel from "../components/SiteCarousel.vue"
-
-  const FADE = "linear-gradient(90deg, var(--colour-bg-object) 40%, transparent 75%), "
 </script>
 
 <template>
@@ -30,7 +28,7 @@
             <h2>{{ member.name }}</h2>
             <p v-html="member.bio"></p>
             <div v-if="member.portrait" class="fake-img" :style="`--src:url('/images/${member.portrait}');`"></div>
-            <div v-else-if="member.background" class="background-img" :style="`background-image: ${member.fade ? FADE : ''}url('/images/${member.background}');`"></div>
+            <div v-else-if="member.background" class="background-img" :style="`background-image: url('/images/${member.background}');`"></div>
           </div>
         </li>
       </SiteCarousel>
