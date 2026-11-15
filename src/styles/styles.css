@@ -92,21 +92,6 @@ button[disabled]{
 	z-index: -1;
 }
 
-.notfound-text {
-	font-size: 50px;
-	color: var(--colour-text-red);
-	text-align: center;
-	margin-top: 1em;
-	opacity: 1;
-	
-}
-
-.notfound-image {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;
-}
 .fake-img{
 	background-image: var(--src);
 	background-repeat: no-repeat;
