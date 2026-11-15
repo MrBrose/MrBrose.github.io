@@ -1,8 +1,8 @@
 <script setup>
   import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
-  import { FancyParticles, GlowParticles, Particles } from "../lib/particles.js"
+  import { GlowParticles, Particles } from "../lib/particles.js"
 
-  const KINDS = { dust: Particles, fancy: FancyParticles, glow: GlowParticles }
+  const KINDS = { dust: Particles, glow: GlowParticles }
 
   const props = defineProps({ kind: { type: String, required: true } })
   const canvas = useTemplateRef("canvas")
@@ -18,5 +18,5 @@
 
 <template>
   <canvas v-if="kind === 'dust'" ref="canvas" id="dust"></canvas>
-  <canvas v-else ref="canvas" id="dust404" class="dust"></canvas>
+  <canvas v-else ref="canvas" class="dust"></canvas>
 </template>

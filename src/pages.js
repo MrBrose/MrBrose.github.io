@@ -32,7 +32,7 @@ export const PAGES = [
   page("making-stepbystep", "making-a-logo/stepbystep.html", "/making-a-logo/stepbystep", "Minecraft Titles | Making a Logo | Illustrator"),
   page("official", "official-logos/index.html", "/official-logos/", "Minecraft Titles | Official Logos"),
   page("official-history", "official-logos/history.html", "/official-logos/history", "Minecraft Titles | History of the Minecraft logo", { ogTitle: "Minecraft Titles | Official Old Logos" })
-].concat(FONT_PAGES, LOGO_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"], dust: "fancy" }))
+].concat(FONT_PAGES, LOGO_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"] }))
 
 export const MENU = [
   { label: "Home", href: "/" },
