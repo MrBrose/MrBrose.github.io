@@ -11,7 +11,7 @@ const SOCIALS = ["twitter", "discord", "youtube"]
 const GRID_CALCULATOR = "https://grid-calculator.theannoying.dev/"
 
 function page(name, file, path, title, details = {}) {
-  return { name, file, path, title, ogTitle: title, ogDescription: LEARN, description: ABOUT, image: DISCORD_IMAGE, icon: FAVICON, bodyClass: "", header: "full", hide: [], footer: SOCIALS, dust: "dust", ...details }
+  return { name, file, path, title, ogTitle: title, ogDescription: LEARN, description: ABOUT, image: DISCORD_IMAGE, icon: FAVICON, bodyClass: "", header: true, footer: SOCIALS, dust: "dust", ...details }
 }
 
 const FONT_PAGES = Object.entries(FONTS).map(([id, author]) => page(`fonts-${id}`, `download-fonts/${author.page}.html`, `/download-fonts/${author.page}`, "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", component: "font-author", author: id }))
@@ -19,10 +19,9 @@ const LOGO_PAGES = Object.entries(LOGOS).map(([id, category]) => page(`official-
 
 export const PAGES = [
   page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, footer: SOCIALS.concat("github") }),
-  page("calculator", "calculator.html", "/calculator", "Minecraft Titles | Grid Calculator", { ogTitle: "Minecraft Titles |TheAnnoying's Grid Calculator", ogDescription: `${LEARN} Use TheAnnoying's Grid Calculator.`, header: "compact", hide: [GRID_CALCULATOR], footer: null }),
-  page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: null, footer: ["twitter", "discord", "fiverr"], dust: null }),
+  page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: false, footer: ["twitter", "discord", "fiverr"], dust: null }),
   page("particles", "particles.html", "/particles", "Minecraft Titles | Home", { description: null, dust: "custom" }),
-  page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: null, footer: null, dust: null }),
+  page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: false, footer: null, dust: null }),
   page("fonts", "download-fonts/index.html", "/download-fonts/", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", ogDescription: ABOUT }),
   page("making", "making-a-logo/index.html", "/making-a-logo/", "Minecraft Titles | Making a Logo"),
   page("making-blockbench", "making-a-logo/blockbench.html", "/making-a-logo/blockbench", "Minecraft Titles | Making a Logo | Blockbench"),

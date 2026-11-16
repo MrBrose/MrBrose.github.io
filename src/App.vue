@@ -11,7 +11,7 @@
 
 <template>
   <DustCanvas v-if="page.dust === 'dust'" />
-  <SiteHeader v-if="page.header" :page="page" />
+  <SiteHeader v-if="page.header" />
   <RouterView />
   <SiteFooter v-if="page.footer" :links="page.footer" />
 </template>

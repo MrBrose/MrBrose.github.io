@@ -1,13 +1,10 @@
 <script setup>
-  import { computed, ref, watch } from "vue"
+  import { ref, watch } from "vue"
   import { useRoute } from "vue-router"
   import { MENU } from "../pages.js"
 
-  const props = defineProps({ page: { type: Object, required: true } })
   const route = useRoute()
   const open = ref(false)
-
-  const links = computed(() => MENU.filter(link => !props.page.hide.includes(link.href)))
 
   function isCurrent(link) {
     const path = route.path.replace(/(.)\/$/, "$1")
@@ -28,17 +25,14 @@
 </script>
 
 <template>
-  <a v-if="page.header === 'compact'" href="/" class="compact-logo">
-    <img src="/images/logo.png" alt="MCTitles home">
-  </a>
-  <header v-else :class="{ open }">
+  <header :class="{ open }">
     <div class="bar">
       <a href="/" class="brand">
         <img src="/images/logo.png" class="cube" alt="">
         <img src="/images/MCTitles.svg" class="wordmark" alt="MCTitles">
       </a>
       <nav id="site-nav" class="nav">
-        <a v-for="link in links" :key="link.href" :href="link.href" :target="link.external ? '_blank' : null" :aria-current="isCurrent(link) ? 'page' : null">
+        <a v-for="link in MENU" :key="link.href" :href="link.href" :target="link.external ? '_blank' : null" :aria-current="isCurrent(link) ? 'page' : null">
           {{ link.label }}
           <svg v-if="link.external" class="external" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" /></svg>
         </a>
@@ -183,23 +177,6 @@
   }
   .backdrop {
     display: none;
-  }
-  .compact-logo {
-    position: absolute;
-    top: .8rem;
-    left: 1.25rem;
-    z-index: 15;
-    user-select: none;
-    transition: scale var(--short-animation-time);
-  }
-  .compact-logo:hover,
-  .compact-logo:focus-visible {
-    scale: 1.1;
-  }
-  .compact-logo img {
-    display: block;
-    height: 2.9rem;
-    width: auto;
   }
   @media (max-width: 70em) {
     .toggle {
