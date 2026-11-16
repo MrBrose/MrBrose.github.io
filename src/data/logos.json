@@ -426,12 +426,12 @@
     "heading": "Other Minecraft logos",
     "logos": [
       {
-        "name": "Celebrating 10 Years",
-        "file": "10years.webp"
-      },
-      {
         "name": "Minecraft Earth",
         "file": "minecraft-earth.webp"
+      },
+      {
+        "name": "Celebrating 10 Years",
+        "file": "10years.webp"
       },
       {
         "name": "Minecraft Story Mode",
