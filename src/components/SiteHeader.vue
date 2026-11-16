@@ -11,7 +11,7 @@
 
   watch(transitioning, isOn => {
     if (isOn) {
-      held = bar.value.querySelector(".nav a:hover")
+      held = bar.value.querySelector(".brand:hover, .nav a:hover")
       held?.classList.add("held")
     } else {
       held?.classList.remove("held")
@@ -84,6 +84,12 @@
     height: 100%;
     margin-right: auto;
     user-select: none;
+    transition: filter var(--short-animation-time);
+  }
+  .brand:hover,
+  .brand:focus-visible,
+  .brand.held {
+    filter: drop-shadow(0 .15rem .5rem #000000a6);
   }
   .brand:focus-visible {
     outline: 2px solid var(--colour-white);
