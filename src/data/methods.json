@@ -2,7 +2,7 @@
   {
     "name": "Illustrator",
     "page": "illustrator",
-    "icon": "adobe-illustrator.svg",
+    "icon": "illustrator.svg",
     "alt": "illustrator logo",
     "description": "The more powerful but also an expensive method, the official logos were made in a similar way to this.",
     "note": "(This method is more complex than the blockbench method)"
@@ -10,7 +10,7 @@
   {
     "name": "Blockbench",
     "page": "blockbench",
-    "icon": "blockbench_logo_white.svg",
+    "icon": "blockbench.svg",
     "alt": "blockbench logo",
     "description": "Not as powerful as the Illustrator method, however it is free and really quick and easy to use ",
     "note": "(I highly recommend using this method rather than mine-imator)"
@@ -18,7 +18,7 @@
   {
     "name": "Photoshop",
     "page": "photoshop",
-    "icon": "ps.svg",
+    "icon": "photoshop.svg",
     "alt": "photoshop logo",
     "description": "Not as powerful as the Illustrator method, however it is still powerful",
     "note": "(I recommend using the Illustrator method rather than this method if possible)"
