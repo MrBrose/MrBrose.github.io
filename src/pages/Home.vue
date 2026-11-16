@@ -228,7 +228,6 @@
     grid-area: image;
     display: grid;
     place-items: center;
-    margin-left: 2em;
   }
   .placeholder img {
     display: block;

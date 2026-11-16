@@ -279,27 +279,29 @@ main{
 	margin: 0 auto;
 	display: grid;
 	grid-template-areas: "title image" "text image" "spacer image";
-	grid-template-rows: min-content min-content;
-	grid-template-columns: 1fr 30%;
-	font-size: 1.1rem;
+	grid-template-rows: min-content min-content 1fr;
+	grid-template-columns: minmax(0, 1fr) 30%;
+	column-gap: 2.5rem;
+	font-size: 1.05rem;
 	height: 100%;
 }
 
 .about-me h2 {
-	margin: 0;
-	padding-top: 0.3em;
+	margin: 0 0 .75rem;
+	padding: 0;
+	line-height: 1;
 	text-align: left;
 	grid-area: title;
 	color: var(--colour-text-light);
 	font-weight: normal;
 	font-size: 2.1em;
-	padding-bottom: 0.05em;
 }
 
 .about-me p {
-	padding-bottom: 3.7em;
+	max-width: 40rem;
 	margin: 0;
-	padding-top: 0.3em;
+	padding-bottom: calc(var(--icons-size) + var(--icons-bottom) + 2rem);
+	line-height: 1.6;
 	text-align: left;
 	grid-area: text;
 	color: var(--colour-text-light);
@@ -310,16 +312,27 @@ main{
 .about-me .fake-img{
 	height: 90%;
 	margin-top: auto;
-	margin-left: 2em;
 	grid-area: image;
 	background-position: bottom;
 }
 @media (max-width: 60em) {
 	.about-me{
-		grid-template-columns: 1fr 0;
+		grid-template-columns: minmax(0, 1fr) 0;
+		column-gap: 0;
 	}
 	.about-me .fake-img{
 		display: none;
+	}
+}
+@media (max-width: 500px) {
+	.about-me {
+		font-size: 1rem;
+	}
+	.about-me h2 {
+		font-size: 1.9em;
+	}
+	.about-me p {
+		padding-bottom: calc(var(--icons-size) + var(--icons-bottom) + 1.5rem);
 	}
 }
 
@@ -561,7 +574,7 @@ footer ul a{
 }
 
 #carousel-list li {
-	padding: 0 var(--button-width);
+	padding: 0 var(--pad);
 }
 
 .about-us [component="carousel"] {
@@ -571,22 +584,16 @@ footer ul a{
 .about-me {
 	position: relative;
 	z-index: 1;
-	padding: 2px 0 0;
+	padding: var(--pad) 0 0;
 }
 
 .about-me .background-img {
 	position: absolute;
-	inset: 0 calc(var(--button-width) * -1);
+	inset: 0 calc(var(--pad) * -1);
 	z-index: -1;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
-}
-
-.about-us [component="carousel"] button {
-	z-index: 2;
-	margin-top: 0;
-	margin-bottom: 0;
 }
 
 @media (max-width: 60em) {
