@@ -7,6 +7,9 @@ function isOverText(e) {
   return Array.from(range.getClientRects()).some(r => e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
 }
 
+const random = (min, max) => Math.random() * (max - min) + min
+const randomSign = () => Math.random() > 0.5 ? 1 : -1
+
 export class Particles {
   MIN_SIZE = 2
   MAX_SIZE = 10
@@ -21,7 +24,6 @@ export class Particles {
   MAX_ALPHA = 1
 
   PARTICLES_PER_PIXEL = 0.05
-  INITIAL_PARTICLES_PER_PIXEL = this.PARTICLES_PER_PIXEL
 
   PARTICLE_R = 32
   PARTICLE_G = 40
@@ -34,138 +36,129 @@ export class Particles {
   MOUSE_REPULSION = 2.5
   MAX_REPULSION_VEL = 0.3
 
-  constructor(dustCanvas) {
-    this.dustCanvas = dustCanvas
-    this.previousTimeStamp = undefined
+  constructor(canvas) {
+    this.canvas = canvas
+    this.ctx = canvas.getContext("2d")
     this.particles = []
   }
 
-  stop() {
-    this.running = false
-    removeEventListener("resize", this.resizeListener)
-    this.bodyObserver?.disconnect()
-    document.removeEventListener("mousemove", this.mousemoveListener)
-    document.removeEventListener("touchmove", this.touchmoveListener)
-    document.removeEventListener("mousedown", this.mousedownListener)
-  }
-
   start() {
-    this.running = true
+    this.controller = new AbortController()
+    const { signal } = this.controller
 
-    this.resizeListener = this.resizeCanvas.bind(this)
-    addEventListener("resize", this.resizeListener)
-    this.bodyObserver = new ResizeObserver(this.resizeListener)
-    this.bodyObserver.observe(document.body)
+    this.observer = new ResizeObserver(() => this.resize())
+    this.observer.observe(document.body)
+    this.resize()
 
-    this.resizeCanvas()
+    const { width, height } = this.canvas
+    for (let i = 0; i < this.PARTICLES_PER_PIXEL * height; i++) this.particles.push(this.spawn({ X: Math.random() * width, Y: Math.random() * height }))
 
-    requestAnimationFrame(this.renderCanvas.bind(this))
+    document.addEventListener("mousemove", e => this.pointer = { x: e.pageX, y: e.pageY }, { signal })
+    document.addEventListener("touchmove", e => this.pointer = { x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY }, { signal, passive: true })
+    document.addEventListener("mousedown", e => this.burst(e), { signal })
 
-    for (let i = 0; i < this.INITIAL_PARTICLES_PER_PIXEL * this.dustCanvas.height; i++) this.createInitialParticle()
+    this.frame = requestAnimationFrame(time => this.render(time))
+  }
 
-    this.mousemoveListener = e => this.makeParticlesScaredOfPoint(e.pageX, e.pageY)
-    document.addEventListener("mousemove", this.mousemoveListener)
-    this.touchmoveListener = e => this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY)
-    document.addEventListener("touchmove", this.touchmoveListener)
+  stop() {
+    cancelAnimationFrame(this.frame)
+    this.controller.abort()
+    this.observer.disconnect()
+  }
 
-    this.mousedownListener = e => {
-      if (e.detail > 1 && !isOverText(e)) e.preventDefault()
-      this.createParticles(this.CLICK_AMOUNT, { X: e.pageX, Y: e.pageY, mouseMade: true, both: true })
+  spawn(at, burst = false) {
+    let velX, velY
+    for (let i = 0; i < 20; i++) {
+      velX = (burst ? randomSign() : 1) * random(this.MIN_XVEL, this.MAX_XVEL)
+      velY = (burst ? randomSign() : 1) * -random(this.MIN_YVEL, this.MAX_YVEL)
+      if (velX ** 2 / this.MAX_XVEL ** 2 + velY ** 2 / this.MAX_YVEL ** 2 <= 1) break
     }
-    document.addEventListener("mousedown", this.mousedownListener)
-  }
 
-  createInitialParticle() {
-    this.createParticle({
-      X: this.dustCanvas.width * Math.random(),
-      Y: this.dustCanvas.height * Math.random()
-    })
-  }
+    let X = at?.X
+    let Y = at?.Y
+    if (!at) {
+      const { width, height } = this.canvas
+      const pos = Math.random() * (width + height)
+      if (pos > height) {
+        X = pos - height
+        Y = velY > 0 ? -this.MAX_SIZE : height
+      } else {
+        X = velX < 0 ? width : -this.MAX_SIZE
+        Y = pos
+      }
+    }
 
-  createParticle(defaultObj = {}) {
-    const pos = Math.random() * (this.dustCanvas.width + this.dustCanvas.height)
-    const p = Object.assign({
-      size: defaultObj.size || (Math.random() * (this.MAX_SIZE - this.MIN_SIZE) + this.MIN_SIZE),
-      X: defaultObj.X || (pos > this.dustCanvas.height ? pos - this.dustCanvas.height : -this.MAX_SIZE),
-      Y: defaultObj.Y || (pos < this.dustCanvas.height ? pos : this.dustCanvas.height),
-      velX: defaultObj.velX || (defaultObj.both ? (Math.random() > 0.5 ? 1 : -1) : 1) * (Math.random() * (this.MAX_XVEL - this.MIN_XVEL) + this.MIN_XVEL),
-      velY: defaultObj.velY || (defaultObj.both ? (Math.random() > 0.5 ? 1 : -1) : 1) * -(Math.random() * (this.MAX_YVEL - this.MIN_YVEL) + this.MIN_YVEL),
-      alpha: defaultObj.alpha || (Math.random() * (this.MAX_ALPHA - this.MIN_ALPHA) + this.MIN_ALPHA),
+    return {
+      X,
+      Y,
+      velX,
+      velY,
+      fadeVelX: 0,
       fadeVelY: 0,
-      fadeVelX: 0
-    }, defaultObj)
-
-    if (p.velX ** 2 / this.MAX_XVEL ** 2 + p.velY ** 2 / this.MAX_YVEL ** 2 > 1) return this.createParticle(defaultObj)
-
-    if (p.velX < 0 && p.X === -this.MAX_SIZE) p.X = this.dustCanvas.width
-    if (p.velY > 0 && p.Y === this.dustCanvas.height) p.Y = -this.MAX_SIZE
-
-    this.particles.push(p)
-    return p
+      size: random(this.MIN_SIZE, this.MAX_SIZE),
+      alpha: random(this.MIN_ALPHA, this.MAX_ALPHA),
+      burst
+    }
   }
 
-  createParticles(amount, defaultObj = {}) {
-    for (let i = 0; i < amount; i++) this.createParticle(defaultObj)
+  burst(e) {
+    if (e.detail > 1 && !isOverText(e)) e.preventDefault()
+    for (let i = 0; i < this.CLICK_AMOUNT; i++) this.particles.push(this.spawn({ X: e.pageX, Y: e.pageY }, true))
   }
 
-  isInBounds(particle) {
-    return particle.X < this.dustCanvas.width && particle.Y > -this.MAX_SIZE && particle.X > -this.MAX_SIZE && particle.Y < this.dustCanvas.height
+  repel({ x, y }) {
+    const max = this.MAX_REPULSION_VEL
+    for (const p of this.particles) {
+      const dx = p.X - x
+      const dy = p.Y - y
+      const distSq = dx * dx + dy * dy
+      if (!distSq) continue
+      p.fadeVelX = Math.max(-max, Math.min(max, this.MOUSE_REPULSION * dx / distSq))
+      p.fadeVelY = Math.max(-max, Math.min(max, this.MOUSE_REPULSION * dy / distSq))
+    }
   }
 
-  renderParticle(ctx, particle) {
-    ctx.fillStyle = `rgba(${this.PARTICLE_R}, ${this.PARTICLE_G}, ${this.PARTICLE_B}, ${particle.alpha})`
-    ctx.fillRect(particle.X, particle.Y, particle.size, particle.size)
-  }
+  render(time) {
+    this.frame = requestAnimationFrame(time => this.render(time))
+    const dt = Math.min(time - (this.lastTime ?? time), 100)
+    this.lastTime = time
 
-  renderCanvas(timeStamp) {
-    if (!this.running) return
-    const dt = timeStamp - this.previousTimeStamp
-    if (this.previousTimeStamp === undefined) {
-      this.previousTimeStamp = timeStamp
-      requestAnimationFrame(this.renderCanvas.bind(this))
-      return
+    if (this.pointer) {
+      this.repel(this.pointer)
+      this.pointer = null
     }
 
-    const ctx = this.dustCanvas.getContext("2d")
-    ctx.clearRect(0, 0, this.dustCanvas.width, this.dustCanvas.height)
+    const { ctx, particles } = this
+    const { width, height } = this.canvas
+    const fade = 1 - this.MOUSE_VEL_FADE_SPEED * dt
+    const edge = -this.MAX_SIZE
 
-    const oldParticleLen = this.particles.filter(p => !p.mouseMade).length
+    ctx.clearRect(0, 0, width, height)
+    ctx.fillStyle = `rgb(${this.PARTICLE_R}, ${this.PARTICLE_G}, ${this.PARTICLE_B})`
 
-    this.particles = this.particles.map(particle => {
-      particle.X += (particle.fadeVelX + particle.velX) * dt
-      particle.fadeVelX -= particle.fadeVelX * this.MOUSE_VEL_FADE_SPEED * dt
-      particle.Y += (particle.fadeVelY + particle.velY) * dt
-      particle.fadeVelY -= particle.fadeVelY * this.MOUSE_VEL_FADE_SPEED * dt
-      return particle
-    }).filter(this.isInBounds.bind(this))
-
-    this.createParticles(oldParticleLen - this.particles.filter(p => !p.mouseMade).length)
-
-    this.particles.forEach(p => this.renderParticle(ctx, p))
-
-    this.previousTimeStamp = timeStamp
-    requestAnimationFrame(this.renderCanvas.bind(this))
+    let kept = 0
+    for (let p of particles) {
+      p.X += (p.fadeVelX + p.velX) * dt
+      p.Y += (p.fadeVelY + p.velY) * dt
+      p.fadeVelX *= fade
+      p.fadeVelY *= fade
+      if (p.X <= edge || p.X >= width || p.Y <= edge || p.Y >= height) {
+        if (p.burst) continue
+        p = this.spawn()
+      }
+      ctx.globalAlpha = p.alpha
+      ctx.fillRect(p.X, p.Y, p.size, p.size)
+      particles[kept++] = p
+    }
+    particles.length = kept
+    ctx.globalAlpha = 1
   }
 
-  resizeCanvas() {
+  resize() {
     const { width, height } = document.body.getBoundingClientRect()
-    if (this.dustCanvas.width !== width) this.dustCanvas.width = width
-    if (this.dustCanvas.height !== height) this.dustCanvas.height = height
-  }
-
-  makeParticlesScaredOfPoint(x, y) {
-    this.particles.forEach(p => this.makeParticleScaredOfPoint(p, x, y))
-  }
-
-  makeParticleScaredOfPoint(p, x, y) {
-    const Vx = p.X - x
-    const Vy = p.Y - y
-    const dist = Math.sqrt(Vx * Vx + Vy * Vy)
-    const unitX = Vx / dist
-    const unitY = Vy / dist
-    let t = this.MOUSE_REPULSION * (unitX / dist)
-    p.fadeVelX = Math.min(this.MAX_REPULSION_VEL, Math.abs(t)) * Math.sign(t)
-    t = this.MOUSE_REPULSION * (unitY / dist)
-    p.fadeVelY = Math.min(this.MAX_REPULSION_VEL, Math.abs(t)) * Math.sign(t)
+    const w = Math.round(width)
+    const h = Math.round(height)
+    if (this.canvas.width !== w) this.canvas.width = w
+    if (this.canvas.height !== h) this.canvas.height = h
   }
 }

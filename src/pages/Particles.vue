@@ -2,7 +2,7 @@
   import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
   import { Particles } from "../lib/particles.js"
 
-  const SETTINGS = ["MIN_SIZE", "MAX_SIZE", "MIN_XVEL", "MAX_XVEL", "MIN_YVEL", "MAX_YVEL", "MIN_ALPHA", "MAX_ALPHA", "PARTICLES_PER_PIXEL", "INITIAL_PARTICLES_PER_PIXEL", "PARTICLE_R", "PARTICLE_G", "PARTICLE_B", "CLICK_AMOUNT", "MOUSE_VEL_FADE_SPEED", "MOUSE_REPULSION", "MAX_REPULSION_VEL"]
+  const SETTINGS = ["MIN_SIZE", "MAX_SIZE", "MIN_XVEL", "MAX_XVEL", "MIN_YVEL", "MAX_YVEL", "MIN_ALPHA", "MAX_ALPHA", "PARTICLES_PER_PIXEL","PARTICLE_R", "PARTICLE_G", "PARTICLE_B", "CLICK_AMOUNT", "MOUSE_VEL_FADE_SPEED", "MOUSE_REPULSION", "MAX_REPULSION_VEL"]
 
   const canvas = useTemplateRef("canvas")
   const main = useTemplateRef("main")
@@ -93,11 +93,6 @@
       <label>PARTICLES_PER_PIXEL</label>
       <input type="range" step="any" min="0" max="50" id="PARTICLES_PER_PIXEL_R">
       <input type="number" id="PARTICLES_PER_PIXEL_N">
-    </div>
-    <div class="value">
-      <label>INITIAL_PARTICLES_PER_PIXEL</label>
-      <input type="range" step="any" min="0" max="50" id="INITIAL_PARTICLES_PER_PIXEL_R">
-      <input type="number" id="INITIAL_PARTICLES_PER_PIXEL_N">
     </div>
 
     <div class="value">
