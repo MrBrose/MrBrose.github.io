@@ -3,7 +3,7 @@
 
 @font-face {
 	font-family:minecraft10;
-	src: url(/fonts/minecraft10.ttf);
+	src: url(/fonts/minecraft10-centred.ttf);
 	font-display: swap;
 }
 @font-face {
@@ -356,6 +356,7 @@ main{
 	font-size: 2em;
 	max-width: 12em;
 	margin: .8em auto 0;
+	padding-top: .3em;
 }
 
 .about-us {
