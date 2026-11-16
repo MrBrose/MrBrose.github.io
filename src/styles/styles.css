@@ -214,27 +214,6 @@ main{
 
 
 
-[component^=panel-link-long] {
-	flex-basis: 0;
-	--scale: 1.03;
-	padding: 0 0 0.5em;
-	display: grid;
-	position: relative;
-	width: 70%;
-	max-width: 63.1em;
-	margin: 0 auto;
-}
-
-@media only screen and (max-width: 65em) {
-	[component^=panel-link-long] {
-		width: 100%;
-	}
-}
-
-[component^=panel-link-long] p {
-	padding: 0 1em 1em 1em;
-}
-
 [component^=panel-link] h2 {
 	margin: .2em 0;
 }
@@ -344,21 +323,6 @@ main{
 	}
 }
 
-.about-us > h2 {
-	background-color: var(--colour-bg-panel);
-	text-align: center;
-	color: var(	--colour-text-light);
-	font-weight: normal;
-	font-size: 2em;
-	max-width: 12em;
-	margin: .8em auto 0;
-	padding-top: .3em;
-}
-
-.about-us {
-	margin-top: .8em;
-}
-
 iframe[component^=video-embed] {
 	width: 100%;
 	aspect-ratio: var(--aspect-ratio);
@@ -393,20 +357,6 @@ iframe[component^=video-embed] {
 
 
 
-[component^=title] {
-	width: 100%;
-	max-width: 60em;
-	margin: 0 auto;
-	text-align: center;
-	color: var(--colour-text-light);
-	font-size: 400%;
-	padding-top: .5em;
-}
-@media (max-width: 60em) {
-	[component^=title] {
-		font-size: 300%;
-	}
-}
 
 
 

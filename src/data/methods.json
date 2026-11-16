@@ -1,6 +1,6 @@
 [
   {
-    "name": "illustrator",
+    "name": "Illustrator",
     "page": "illustrator",
     "icon": "adobe-illustrator.svg",
     "alt": "illustrator logo",
@@ -8,7 +8,7 @@
     "note": "(This method is more complex than the blockbench method)"
   },
   {
-    "name": "BlockBench",
+    "name": "Blockbench",
     "page": "blockbench",
     "icon": "blockbench_logo_white.svg",
     "alt": "blockbench logo",
