@@ -4,6 +4,7 @@
   import { MENU } from "../pages.js"
   import { transitioning } from "../router.js"
   import ArrowIcon from "./ArrowIcon.vue"
+  import DiscordIcon from "./DiscordIcon.vue"
 
   const route = useRoute()
   const open = ref(false)
@@ -46,9 +47,10 @@
         <img src="/images/MCTitles.svg" class="wordmark" alt="MCTitles">
       </a>
       <nav id="site-nav" class="nav">
-        <a v-for="link in MENU" :key="link.href" :href="link.href" :target="link.external ? '_blank' : null" :aria-current="isCurrent(link) ? 'page' : null">
-          {{ link.label }}
-          <ArrowIcon v-if="link.external" external class="external" />
+        <a v-for="link in MENU" :key="link.href" :href="link.href" :target="link.external ? '_blank' : null" :aria-current="isCurrent(link) ? 'page' : null" :class="{ 'icon-link': link.icon }" :title="link.icon ? link.label : null">
+          <DiscordIcon v-if="link.icon === 'discord'" />
+          <span class="label">{{ link.label }}</span>
+          <ArrowIcon v-if="link.external && !link.icon" external class="external" />
         </a>
       </nav>
       <button type="button" class="toggle" :aria-expanded="open" aria-controls="site-nav" aria-label="Menu" @click="open = !open">
@@ -125,6 +127,17 @@
   }
   .nav a:focus-visible {
     outline: 2px solid var(--colour-white);
+  }
+  .nav a.icon-link {
+    padding-inline: .7em;
+  }
+  .icon-link .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .nav a[aria-current="page"]::after {
     content: "";
@@ -208,6 +221,17 @@
       justify-content: center;
       padding: .75em;
       font-size: 1.5rem;
+    }
+    .nav a.icon-link {
+      gap: .5em;
+      padding-inline: .75em;
+    }
+    .icon-link .label {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip-path: none;
     }
     .nav a[aria-current="page"]::after {
       left: 50%;

@@ -35,7 +35,7 @@ export const PAGES = [
 export const MENU = [
   { label: "Official Logos", href: "/official-logos" },
   { label: "Making a Logo", href: "/making-a-logo" },
-  { label: "Grid Calculator", href: GRID_CALCULATOR, external: true },
   { label: "Fonts", href: "/download-fonts" },
-  { label: "Discord", href: "https://discord.gg/mxV7yXhXH3", external: true }
+  { label: "Grid Calculator", href: GRID_CALCULATOR, external: true },
+  { label: "Discord", href: "https://discord.gg/mxV7yXhXH3", external: true, icon: "discord" }
 ]
