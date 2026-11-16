@@ -1,10 +1,23 @@
 <script setup>
-  import { ref, watch } from "vue"
+  import { ref, useTemplateRef, watch } from "vue"
   import { useRoute } from "vue-router"
   import { MENU } from "../pages.js"
+  import { transitioning } from "../router.js"
 
   const route = useRoute()
   const open = ref(false)
+  const bar = useTemplateRef("bar")
+  let held
+
+  watch(transitioning, isOn => {
+    if (isOn) {
+      held = bar.value.querySelector(".nav a:hover")
+      held?.classList.add("held")
+    } else {
+      held?.classList.remove("held")
+      held = null
+    }
+  }, { flush: "sync" })
 
   function isCurrent(link) {
     const path = route.path.replace(/(.)\/$/, "$1")
@@ -26,7 +39,7 @@
 
 <template>
   <header :class="{ open }">
-    <div class="bar">
+    <div ref="bar" class="bar">
       <a href="/" class="brand">
         <img src="/images/logo.png" class="cube" alt="">
         <img src="/images/MCTitles.svg" class="wordmark" alt="MCTitles">
@@ -71,11 +84,6 @@
     height: 100%;
     margin-right: auto;
     user-select: none;
-    transition: scale var(--short-animation-time);
-  }
-  .brand:hover,
-  .brand:focus-visible {
-    scale: 1.04;
   }
   .brand:focus-visible {
     outline: 2px solid var(--colour-white);
@@ -110,7 +118,8 @@
     transition: background-color var(--short-animation-time);
   }
   .nav a:hover,
-  .nav a:focus-visible {
+  .nav a:focus-visible,
+  .nav a.held {
     background: var(--colour-dropdown-hover);
   }
   .nav a:focus-visible {

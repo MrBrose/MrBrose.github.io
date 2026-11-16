@@ -1,4 +1,4 @@
-import { nextTick } from "vue"
+import { nextTick, ref } from "vue"
 import { START_LOCATION, createRouter, createWebHistory } from "vue-router"
 import { PAGES } from "./pages.js"
 import { pageRoutes, routed } from "./routes.js"
@@ -25,6 +25,8 @@ export const router = createRouter({
 
 const fades = new WeakMap()
 
+export const transitioning = ref(false)
+
 function crossfade(to, from) {
   if (from === START_LOCATION || to.path === from.path) return
   if (!document.startViewTransition || matchMedia("(prefers-reduced-motion: reduce)").matches) return
@@ -39,6 +41,8 @@ function crossfade(to, from) {
     const waiting = setTimeout(() => transition.skipTransition(), CAPTURE_WAIT)
     // ready rejects whenever a transition is skipped, eg by the next navigation starting
     transition.ready.catch(() => {})
+    transitioning.value = true
+    transition.finished.catch(() => {}).finally(() => transitioning.value = false)
   })
 }
 
