@@ -5,12 +5,92 @@
   import MethodPanels from "../components/MethodPanels.vue"
   import SiteCarousel from "../components/SiteCarousel.vue"
   import { previewPath } from "../lib/logos.js"
+  import animatedLogo from "../assets/mctitles-animated.svg?raw"
+  import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
+
+  const FOLLOW_DELAY = 1000
+  const SPRING = 7
+  const MAX_SPEED = 0.85
 
   const logoPreview = previewPath("game", LOGOS.game.logos[0].file)
+  const heroTitle = useTemplateRef("heroTitle")
+  let stopFollowing
+
+  function followPointer(animations, area) {
+    const { delay, activeDuration } = animations[0].effect.getComputedTiming()
+    let target
+    let current = 1
+    let velocity = 0
+    let following = false
+    let frame
+    let last
+    let waiting
+
+    function step(now) {
+      const dt = Math.min(0.05, (now - last) / 1000)
+      last = now
+      velocity += (SPRING ** 2 * (target - current) - 2 * SPRING * velocity) * dt
+      velocity = Math.min(MAX_SPEED, Math.max(-MAX_SPEED, velocity))
+      current += velocity * dt
+      if (Math.abs(target - current) < 0.0005 && Math.abs(velocity) < 0.001) {
+        current = target
+        velocity = 0
+        frame = null
+      } else frame = requestAnimationFrame(step)
+      for (const animation of animations) animation.currentTime = delay + Math.min(1, Math.max(0, current)) * activeDuration
+    }
+
+    function chase() {
+      if (!following || target === undefined || frame) return
+      last = performance.now()
+      frame = requestAnimationFrame(step)
+    }
+
+    function onMove(e) {
+      if (e.pointerType !== "mouse") return
+      const { left, width } = area.getBoundingClientRect()
+      target = Math.min(1, Math.max(0, (e.clientX - left) / width))
+      chase()
+    }
+
+    addEventListener("pointermove", onMove, { passive: true })
+    Promise.all(animations.map(animation => animation.finished)).then(() => {
+      waiting = setTimeout(() => {
+        for (const animation of animations) animation.pause()
+        following = true
+        chase()
+      }, FOLLOW_DELAY)
+    }, error => {
+      if (error.name !== "AbortError") throw error
+    })
+
+    return () => {
+      removeEventListener("pointermove", onMove)
+      clearTimeout(waiting)
+      cancelAnimationFrame(frame)
+    }
+  }
+
+  onMounted(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !matchMedia("(hover: hover) and (pointer: fine)").matches) return
+    const animations = heroTitle.value.querySelector("svg").getAnimations({ subtree: true })
+    if (!animations.length) throw new Error("the hero logo has no animations to follow the pointer with")
+    stopFollowing = followPointer(animations, heroTitle.value.parentElement)
+  })
+
+  onBeforeUnmount(() => stopFollowing?.())
 </script>
 
 <template>
   <main class="home">
+    <section class="hero">
+      <h1 ref="heroTitle" v-html="animatedLogo"></h1>
+      <p>Official Minecraft logos, 40+ fonts and guides for making your own Minecraft style titles.</p>
+      <div class="actions">
+        <a href="/official-logos" class="primary">Browse official logos</a>
+        <a href="/making-a-logo">Make your own</a>
+      </div>
+    </section>
     <section class="tools">
       <LinkCard href="/official-logos" title="Official Logos" cta="Browse logos">
         <template #visual>
@@ -75,6 +155,66 @@
     line-height: 1.1;
     text-align: center;
     color: var(--colour-text-light);
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 2rem 1rem;
+    text-align: center;
+  }
+  .hero h1 {
+    width: min(46rem, 100%);
+    margin: 0;
+  }
+  .hero h1 :deep(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .hero p {
+    max-width: 36rem;
+    margin: 0;
+    font-family: poppins-medium, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--colour-text-muted);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-top: .5rem;
+  }
+  .actions > * {
+    padding: .8em 1.5em;
+    border: 0;
+    font: inherit;
+    font-family: poppins-medium, sans-serif;
+    color: var(--colour-text-light);
+    text-decoration: none;
+    background: var(--colour-bg-panel);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--short-animation-time);
+  }
+  .actions > :hover,
+  .actions > :focus-visible {
+    background: var(--colour-dropdown-hover);
+  }
+  .actions > :focus-visible {
+    outline: 2px solid var(--colour-white);
+  }
+  .actions > .primary {
+    color: var(--colour-bg-light);
+    background: var(--colour-link);
+  }
+  .actions > .primary:hover,
+  .actions > .primary:focus-visible {
+    background: #a3d5ff;
   }
   .tools {
     display: grid;
