@@ -1,3 +1,12 @@
+function isOverText(e) {
+  if (e.target.closest("input, textarea, select, [contenteditable]")) return true
+  const node = document.caretPositionFromPoint(e.clientX, e.clientY)?.offsetNode
+  if (node?.nodeType !== Node.TEXT_NODE) return false
+  const range = document.createRange()
+  range.selectNodeContents(node)
+  return Array.from(range.getClientRects()).some(r => e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
+}
+
 export class Particles {
   MIN_SIZE = 2
   MAX_SIZE = 10
@@ -59,7 +68,10 @@ export class Particles {
     this.touchmoveListener = e => this.makeParticlesScaredOfPoint(e.changedTouches[0].pageX, e.changedTouches[0].pageY)
     document.addEventListener("touchmove", this.touchmoveListener)
 
-    this.mousedownListener = e => this.createParticles(this.CLICK_AMOUNT, { X: e.pageX, Y: e.pageY, mouseMade: true, both: true })
+    this.mousedownListener = e => {
+      if (e.detail > 1 && !isOverText(e)) e.preventDefault()
+      this.createParticles(this.CLICK_AMOUNT, { X: e.pageX, Y: e.pageY, mouseMade: true, both: true })
+    }
     document.addEventListener("mousedown", this.mousedownListener)
   }
 
