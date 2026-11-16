@@ -3,7 +3,7 @@
 	position: relative;
 	background-color: var(--colour-bg-panel);
 	margin: 0 auto;
-	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
+	border-bottom: 4px solid rgba(150, 166, 255, 0.274);
 	--button-width: calc(2.5em + 17px); /*this calc is the width of the button including the shadow*/
 }
 [component^="carousel"] .splide__arrow{
@@ -63,11 +63,9 @@
 [component^="carousel"] .splide__arrow--next::before{
 	rotate: 0.38turn;
 }
-[component^="carousel"] .splide__track{
-	margin: 2px;
-}
 [component^="carousel"] .splide__track:focus-visible{
 	outline: 1px solid white;
+	outline-offset: -1px;
 }
 [component^="carousel"] > ul.icons {
 	position: absolute;
