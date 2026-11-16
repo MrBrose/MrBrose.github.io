@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <DustCanvas v-if="page.dust && page.dust !== 'custom'" :key="page.dust" :kind="page.dust" />
+  <DustCanvas v-if="page.dust === 'dust'" />
   <SiteHeader v-if="page.header" :page="page" />
   <RouterView />
   <SiteFooter v-if="page.footer" :links="page.footer" />

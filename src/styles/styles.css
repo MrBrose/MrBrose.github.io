@@ -70,10 +70,6 @@ body.rad-grad{
 body.linear-grad-red{
 	background-image: linear-gradient(var(--colour-bg-light),var(--colour-bg-light),var(--colour-bg-light),var(--colour-bg-light),#121822,#111a26,#182131);
 }
-
-body.linear-black{
-	background-image: linear-gradient(#000000,#000000);
-}
 a:focus-visible{
 	outline: 2px solid var(--colour-white);
 }

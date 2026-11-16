@@ -21,7 +21,6 @@ export const PAGES = [
   page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, footer: SOCIALS.concat("github") }),
   page("calculator", "calculator.html", "/calculator", "Minecraft Titles | Grid Calculator", { ogTitle: "Minecraft Titles |TheAnnoying's Grid Calculator", ogDescription: `${LEARN} Use TheAnnoying's Grid Calculator.`, header: "compact", hide: [GRID_CALCULATOR], footer: null }),
   page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: "checkbox", footer: ["twitter", "discord", "fiverr"], dust: null }),
-  page("fun", "fun.html", "/fun", "MCTitles", { description: null, bodyClass: "linear-black", header: "checkbox", footer: null, dust: "glow" }),
   page("particles", "particles.html", "/particles", "Minecraft Titles | Home", { description: null, hide: ["/"], dust: "custom" }),
   page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: null, footer: null, dust: null }),
   page("fonts", "download-fonts/index.html", "/download-fonts/", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", ogDescription: ABOUT }),
