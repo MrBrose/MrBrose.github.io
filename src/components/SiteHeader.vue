@@ -3,6 +3,7 @@
   import { useRoute } from "vue-router"
   import { MENU } from "../pages.js"
   import { transitioning } from "../router.js"
+  import ArrowIcon from "./ArrowIcon.vue"
 
   const route = useRoute()
   const open = ref(false)
@@ -47,7 +48,7 @@
       <nav id="site-nav" class="nav">
         <a v-for="link in MENU" :key="link.href" :href="link.href" :target="link.external ? '_blank' : null" :aria-current="isCurrent(link) ? 'page' : null">
           {{ link.label }}
-          <svg v-if="link.external" class="external" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" /></svg>
+          <ArrowIcon v-if="link.external" external class="external" />
         </a>
       </nav>
       <button type="button" class="toggle" :aria-expanded="open" aria-controls="site-nav" aria-label="Menu" @click="open = !open">
@@ -137,9 +138,6 @@
   .external {
     width: .6em;
     height: .6em;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.75;
     opacity: .7;
   }
   .toggle {

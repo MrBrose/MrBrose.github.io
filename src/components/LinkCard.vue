@@ -1,4 +1,6 @@
 <script setup>
+  import ArrowIcon from "./ArrowIcon.vue"
+
   defineProps({
     href: { type: String, required: true },
     title: { type: String, required: true },
@@ -15,7 +17,7 @@
     <div class="body">
       <h3>{{ title }}</h3>
       <slot></slot>
-      <span class="cta">{{ cta }} <span aria-hidden="true">{{ external ? "↗" : "→" }}</span></span>
+      <span class="cta">{{ cta }}<ArrowIcon :external="external" class="cta-icon" :class="{ external }" /></span>
     </div>
   </a>
 </template>
@@ -73,11 +75,25 @@
     color: var(--colour-text-muted);
   }
   .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .45em;
     margin-top: auto;
     padding-top: .4rem;
     font-family: poppins-medium, sans-serif;
     font-size: .95rem;
     color: var(--colour-link);
+  }
+  .cta-icon {
+    width: .8em;
+    height: .8em;
+    transition: translate var(--short-animation-time);
+  }
+  .link-card:is(:hover, :focus-visible) .cta-icon {
+    translate: .2em 0;
+  }
+  .link-card:is(:hover, :focus-visible) .cta-icon.external {
+    translate: .15em -.15em;
   }
   @media (max-width: 500px) {
     .visual {
