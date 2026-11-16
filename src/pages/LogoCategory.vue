@@ -21,12 +21,11 @@
     <h2>{{ category.heading }}</h2>
     <p v-if="category.note" class="note">{{ category.note }}</p>
     <ul class="logo-grid">
-      <li v-for="(logo, i) in logos" :key="i" class="logo-card">
+      <li v-for="(logo, i) in logos" :key="i" class="logo-item">
         <div class="preview">
-          <img v-popupable="{ src: logo.url }" :src="logo.preview" :alt="logo.name" loading="lazy">
+          <img v-popupable="{ src: logo.url }" :src="logo.preview" :alt="logo.name" :title="logo.name" loading="lazy">
         </div>
-        <h3>{{ logo.name }}</h3>
-        <LogoDownloads :url="logo.url" :file="logo.file" class="card-downloads" />
+        <LogoDownloads :url="logo.url" :file="logo.file" />
       </li>
     </ul>
   </main>
@@ -53,22 +52,54 @@
     margin: -1em 0 1.75em;
   }
   .logo-grid {
+    --line: 3px solid #2c3440;
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5em;
   }
-  .logo-card {
-    background: var(--colour-bg-panel);
-    padding: 1em;
+  .logo-item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: .75em;
+    gap: 1.25rem;
+    padding: 2.5rem 3rem 2rem;
+  }
+  .logo-item:nth-child(n + 3) {
+    border-top: var(--line);
+  }
+  .logo-item:nth-child(odd) {
+    border-right: var(--line);
+  }
+  .logo-item:nth-child(even):nth-child(n + 3)::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: -18px;
+    z-index: 1;
+    width: 33px;
+    height: 33px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' shape-rendering='crispEdges'%3E%3Cpath fill='%2310151c' d='M4 4h3v3H4z'/%3E%3Cpath fill='%232c3440' d='M5 0h1v3H5zM5 8h1v3H5zM0 5h3v1H0zM8 5h3v1H8zM3 3h5v1H3zM3 7h5v1H3zM3 4h1v3H3zM7 4h1v3H7zM5 5h1v1H5z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+  .logo-item:last-child:nth-child(odd):nth-child(n + 3)::after {
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: -18px;
+    z-index: 1;
+    width: 33px;
+    height: 33px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' shape-rendering='crispEdges'%3E%3Cpath fill='%2310151c' d='M4 4h3v3H4z'/%3E%3Cpath fill='%232c3440' d='M5 0h1v3H5zM5 8h1v3H5zM0 5h3v1H0zM3 3h5v1H3zM3 7h5v1H3zM3 4h1v3H3zM7 4h1v3H7zM5 5h1v1H5z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    image-rendering: pixelated;
+    pointer-events: none;
   }
   .preview {
-    margin-top: auto;
+    flex: 1;
+    display: grid;
+    place-items: center;
   }
   .preview img {
     display: block;
@@ -76,19 +107,19 @@
     height: auto;
     cursor: zoom-in;
   }
-  .logo-card h3 {
-    margin: 0;
-    font-family: poppins-medium, sans-serif;
-    font-weight: normal;
-    font-size: 1em;
-    text-align: center;
-  }
-  .card-downloads {
-    margin-top: auto;
-  }
   @media (max-width: 50em) {
     .logo-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .logo-item:nth-child(n + 2) {
+      border-top: var(--line);
+    }
+    .logo-item:nth-child(odd) {
+      border-right: 0;
+    }
+    .logo-item:nth-child(even):nth-child(n + 3)::before,
+    .logo-item:last-child:nth-child(odd):nth-child(n + 3)::after {
+      display: none;
     }
   }
   @media (max-width: 500px) {
@@ -97,6 +128,9 @@
     }
     .logo-page > h2 {
       font-size: 2em;
+    }
+    .logo-item {
+      padding: 1.75rem .5rem 1.5rem;
     }
   }
 </style>
