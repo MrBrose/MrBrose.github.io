@@ -33,7 +33,7 @@
 }
 [component^="carousel"] .splide__arrow::before{
 	content: "";
-	height: 50%;
+	height: calc(50% + .4em);
 	aspect-ratio: 1;
 	display: block;
 	border: 0.4em solid var(--colour-text-light);

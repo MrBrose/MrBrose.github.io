@@ -108,22 +108,22 @@
     color: var(--colour-text-light);
   }
   .grid-sample {
+    --cell: 20px;
     position: relative;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, #7cc4ff2e 1px, transparent 1px), linear-gradient(to bottom, #7cc4ff2e 1px, transparent 1px);
-    background-size: 1rem 1rem;
-    background-position: center;
+    display: block;
+    width: calc(round(down, 100% - 1px, var(--cell)) + 1px);
+    height: calc(var(--cell) * 4 + 1px);
+    background-image: linear-gradient(to right, #7cc4ff40 1px, transparent 1px), linear-gradient(to bottom, #7cc4ff40 1px, transparent 1px);
+    background-size: var(--cell) var(--cell);
   }
   .grid-sample::after {
     content: "";
     position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 4rem;
-    height: 3rem;
-    translate: -50% -50%;
-    border: 2px solid var(--colour-link);
+    left: calc(round(down, (100% - 1px) / 2, var(--cell)) - var(--cell) * 2 - 1px);
+    top: calc(var(--cell) - 1px);
+    width: calc(var(--cell) * 4 + 3px);
+    height: calc(var(--cell) * 2 + 3px);
+    border: 3px solid var(--colour-link);
     background: #7cc4ff26;
   }
   @media (max-width: 56em) {
@@ -135,6 +135,9 @@
     .home {
       gap: 3.5rem;
       padding-top: 1.5rem;
+    }
+    .grid-sample {
+      --cell: 16px;
     }
   }
 </style>

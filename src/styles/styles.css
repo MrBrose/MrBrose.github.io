@@ -61,7 +61,7 @@ body {
 body[no-header]{
 	grid-template-rows: 1fr min-content;	
 }
-* {
+*, *::before, *::after {
 	box-sizing: border-box;
 }
 body.rad-grad{
