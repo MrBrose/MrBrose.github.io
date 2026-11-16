@@ -20,8 +20,8 @@ const LOGO_PAGES = Object.entries(LOGOS).map(([id, category]) => page(`official-
 export const PAGES = [
   page("home", "index.html", "/", "Minecraft Titles | Home", { description: null, footer: SOCIALS.concat("github") }),
   page("calculator", "calculator.html", "/calculator", "Minecraft Titles | Grid Calculator", { ogTitle: "Minecraft Titles |TheAnnoying's Grid Calculator", ogDescription: `${LEARN} Use TheAnnoying's Grid Calculator.`, header: "compact", hide: [GRID_CALCULATOR], footer: null }),
-  page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: "checkbox", footer: ["twitter", "discord", "fiverr"], dust: null }),
-  page("particles", "particles.html", "/particles", "Minecraft Titles | Home", { description: null, hide: ["/"], dust: "custom" }),
+  page("commissions", "commissions.html", "/commissions", "MrBrose's Logo Commissions", { ogDescription: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", description: "MrBrose's Minecraft Logo Commissions, starting at $5\\nRead more...", image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", header: null, footer: ["twitter", "discord", "fiverr"], dust: null }),
+  page("particles", "particles.html", "/particles", "Minecraft Titles | Home", { description: null, dust: "custom" }),
   page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: null, footer: null, dust: null }),
   page("fonts", "download-fonts/index.html", "/download-fonts/", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", ogDescription: ABOUT }),
   page("making", "making-a-logo/index.html", "/making-a-logo/", "Minecraft Titles | Making a Logo"),
@@ -31,10 +31,9 @@ export const PAGES = [
   page("making-stepbystep", "making-a-logo/stepbystep.html", "/making-a-logo/stepbystep", "Minecraft Titles | Making a Logo | Illustrator"),
   page("official", "official-logos/index.html", "/official-logos/", "Minecraft Titles | Official Logos"),
   page("official-history", "official-logos/history.html", "/official-logos/history", "Minecraft Titles | History of the Minecraft logo", { ogTitle: "Minecraft Titles | Official Old Logos" })
-].concat(FONT_PAGES, LOGO_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red", hide: ["/"] }))
+].concat(FONT_PAGES, LOGO_PAGES, page("not-found", "404.html", "/:path(.*)*", "Minecraft Titles | 404", { description: null, bodyClass: "linear-grad-red" }))
 
 export const MENU = [
-  { label: "Home", href: "/" },
   { label: "Official Logos", href: "/official-logos" },
   { label: "Making a Logo", href: "/making-a-logo" },
   { label: "Grid Calculator", href: GRID_CALCULATOR, external: true },
