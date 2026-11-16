@@ -29,7 +29,6 @@
     color: var(--colour-text-light);
     background: var(--colour-button);
     border: 0;
-    border-radius: .4em;
     padding: .55em .5em;
     cursor: pointer;
     user-select: none;

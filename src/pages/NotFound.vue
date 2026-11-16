@@ -51,7 +51,6 @@
     text-decoration: none;
     color: var(--colour-text-light);
     background: var(--colour-bg-panel);
-    border-radius: .4em;
     padding: .6em 1.2em;
     user-select: none;
     transition: background-color var(--short-animation-time);

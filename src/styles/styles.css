@@ -133,7 +133,6 @@ main{
 	font-size: 1.4rem;
 	padding: 0 0.5em 0.5em;
 	text-decoration: none;
-	border-radius: 0.5em;
 }
 
 [component^=panel] *{
@@ -164,7 +163,6 @@ main{
 	flex-basis: 17em;
 	transition: translate var(--short-animation-time), box-shadow var(--short-animation-time), scale var(--short-animation-time), opacity var(--short-animation-time);
 	cursor: pointer;
-	border-radius: .5em;
 	translate: 0 var(--pressed);
 }
 
@@ -348,8 +346,6 @@ main{
 
 .about-us > h2 {
 	background-color: var(--colour-bg-panel);
-	border-top-left-radius: 0.3em;
-	border-top-right-radius: 0.3em;
 	text-align: center;
 	color: var(	--colour-text-light);
 	font-weight: normal;
@@ -453,7 +449,6 @@ iframe[component^=video-embed] {
 margin-left: 2em;
 	background-color: var(--colour-text-light);
 	padding: .2em .4em .4em;
-	border-radius: .4em;
 
 }
 
@@ -525,7 +520,6 @@ main:has(>[component^=side-scroll]){
 	margin-left: 2em;
 	background-color: var(--colour-text-light);
 	padding: .2em .4em .4em;
-	border-radius: .4em;
 
 }
 body.no-scroll{
@@ -716,7 +710,6 @@ footer ul a{
 	align-items: center; 
 	background-color: rgba(10, 0, 156, 0.05);
 	margin-bottom: 1em;
-	border-radius: 0.8em;
 	transition: grid-template-columns var(--animation-time) ease, backdrop-filter var(--animation-time) ease;
   }
 
@@ -774,7 +767,6 @@ footer ul a{
 	cursor: pointer;
 	translate: 0 var(--pressed);
 	background-color: var(--colour-bg-panel);
-	border-radius: 0.2em;
 	padding: 0.5em 0.5em 1.3em;
 	flex-basis: 49.25%;
 }
@@ -849,7 +841,6 @@ footer ul a{
 	text-align: center;
 	font-family: poppins-medium, sans-serif;
 	color: var(--colour-bg-object);
-	border-radius: 0.2em 0.2em 0.5em 0.5em;
 }
 
 

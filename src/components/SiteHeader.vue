@@ -80,7 +80,6 @@
   .brand:focus-visible {
     outline: 2px solid var(--colour-white);
     outline-offset: .25em;
-    border-radius: .25em;
   }
   .cube {
     display: block;
@@ -103,7 +102,6 @@
     align-items: center;
     gap: .35em;
     padding: .55em .8em;
-    border-radius: .4em;
     font-size: 1.15rem;
     color: var(--colour-text-light);
     text-decoration: none;
@@ -125,7 +123,6 @@
     right: .8em;
     bottom: .2em;
     height: .15em;
-    border-radius: 1em;
     background: var(--colour-link);
   }
   .external {
@@ -145,7 +142,6 @@
     height: 2.75rem;
     padding: 0 .6rem;
     border: 0;
-    border-radius: .4em;
     background: none;
     cursor: pointer;
     user-select: none;
@@ -160,7 +156,6 @@
   .toggle span {
     display: block;
     height: 3px;
-    border-radius: 2px;
     background: var(--colour-text-light);
     transition: translate var(--animation-time), rotate var(--animation-time), opacity var(--animation-time);
   }

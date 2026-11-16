@@ -1,7 +1,6 @@
 [component^="carousel"] {
 	max-width: 75em;
 	position: relative;
-	border-radius:1em;
 	background-color: var(--colour-bg-panel);
 	margin: 0 auto;
 	border-bottom: .1em solid rgba(150, 166, 255, 0.274);
@@ -115,7 +114,6 @@
 }
 @media only screen and (max-width: 500px) {
 	[component^="carousel"] {
-		border-radius: 0 0 0 0;
 		--button-width: 1em;
 	}
 	[component^="carousel"] .splide__arrow{

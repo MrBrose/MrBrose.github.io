@@ -62,7 +62,6 @@
   }
   .logo-card {
     background: var(--colour-bg-panel);
-    border-radius: .5em;
     padding: 1em;
     display: flex;
     flex-direction: column;
