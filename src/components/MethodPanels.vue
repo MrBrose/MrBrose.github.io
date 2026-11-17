@@ -5,7 +5,7 @@
 
 <template>
   <div class="methods">
-    <LinkCard v-for="method in METHODS" :key="method.page" :href="`/making-a-logo/${method.page}`" :title="method.name" cta="Read the guide">
+    <LinkCard v-for="method in METHODS" :key="method.page" :href="`/making-a-logo/?method=${method.page}`" :title="method.name" cta="Read the guide">
       <template #visual>
         <img :src="`/images/${method.icon}`" :alt="method.alt" class="icon">
       </template>

@@ -21,9 +21,11 @@ export const router = createRouter({
       return creator && creator !== "index" ? { path: "/fonts/", query: { creator } } : "/fonts/"
     }
   }, {
-    path: "/making-a-logo/blockbench",
-    alias: "/making-a-logo/blockbench.html",
-    redirect: "/making-a-logo/minecraft-title-generator"
+    path: "/making-a-logo/:method",
+    redirect: to => {
+      const method = to.params.method.replace(/\.html$/, "").toLowerCase()
+      return { path: "/making-a-logo/", query: { method: method === "blockbench" ? "minecraft-title-generator" : method } }
+    }
   }),
   scrollBehavior(to, from, saved) {
     if (saved) return { ...saved, behavior: "instant" }
