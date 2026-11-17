@@ -1,0 +1,132 @@
+[component^="carousel"] {
+	--pad: 2.5rem;
+	--icons-size: 2rem;
+	--icons-bottom: 1.75rem;
+	max-width: 75em;
+	position: relative;
+	background-color: var(--colour-bg-panel);
+	margin: 0 auto;
+	border-bottom: 4px solid rgba(150, 166, 255, 0.274);
+}
+[component^="carousel"] .splide__track:focus-visible{
+	outline: 1px solid white;
+	outline-offset: -1px;
+}
+[component^="carousel"] .carousel-nav {
+	position: absolute;
+	left: var(--pad);
+	right: var(--pad);
+	bottom: var(--icons-bottom);
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	pointer-events: none;
+}
+[component^="carousel"] .carousel-nav > * {
+	pointer-events: auto;
+}
+[component^="carousel"] .splide__arrows {
+	display: flex;
+	gap: .4rem;
+	flex: none;
+}
+[component^="carousel"] .splide__arrow {
+	display: grid;
+	place-items: center;
+	width: var(--icons-size);
+	height: var(--icons-size);
+	padding: 0;
+	border: 0;
+	background: #0000004d;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color var(--short-animation-time), opacity var(--short-animation-time);
+}
+[component^="carousel"] .splide__arrow::before {
+	content: "";
+	width: 35%;
+	aspect-ratio: 1;
+	border: 3px solid var(--colour-text-light);
+	border-bottom: 0;
+	border-left: 0;
+}
+[component^="carousel"] .splide__arrow--prev::before {
+	rotate: -135deg;
+	translate: 15% 0;
+}
+[component^="carousel"] .splide__arrow--next::before {
+	rotate: 45deg;
+	translate: -15% 0;
+}
+[component^="carousel"] .splide__arrow:not([disabled]):is(:hover, :focus-visible) {
+	background: var(--colour-dropdown-hover);
+}
+[component^="carousel"] .splide__arrow:focus-visible {
+	outline: 2px solid var(--colour-white);
+}
+[component^="carousel"] .splide__arrow[disabled] {
+	opacity: .35;
+	cursor: default;
+}
+[component^="carousel"] ul.icons {
+	display: flex;
+	flex: 0 1 auto;
+	min-width: 0;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	gap: .5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+[component^="carousel"] ul.icons li {
+	display: block;
+	flex: 0 1 var(--icons-size);
+	width: var(--icons-size);
+	min-width: 0;
+	aspect-ratio: 1;
+	transition: translate var(--short-animation-time);
+}
+[component^="carousel"] ul.icons li:has(.is-active) {
+	translate: 0 -.3em;
+}
+[component^="carousel"] ul.icons button{
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	user-select: none;
+}
+[component^="carousel"] ul.icons button.is-active{
+	cursor: default;
+}
+[component^="carousel"] ul.icons button:not(.is-active):hover{
+	outline: 2px solid var(--colour-text-light);
+}
+[component^="carousel"] ul.icons button:focus-visible{
+	outline: 2px solid white;
+}
+[component^="carousel"] ul.icons img{
+	min-width: 0;
+	width: 100%;
+	display: block;
+}
+@media only screen and (max-width: 500px) {
+	[component^="carousel"] {
+		--pad: 1.25rem;
+		--icons-size: 1.75rem;
+		--icons-bottom: 1.25rem;
+		margin-inline: -1em;
+	}
+	[component^="carousel"] .carousel-nav {
+		gap: .75rem;
+	}
+	[component^="carousel"] ul.icons {
+		gap: .35rem;
+	}
+}

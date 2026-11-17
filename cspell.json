@@ -1,6 +1,7 @@
 {
 	"version": "0.2",
 	"language": "en",
+	"ignorePaths": ["dist", "node_modules", "package-lock.json"],
 	"words": [
 		"horz",
 		"imator",
