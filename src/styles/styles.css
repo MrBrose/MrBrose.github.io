@@ -390,6 +390,7 @@ footer{
 	background-color: var(--colour-bg-footer);
 }
 footer svg{
+	display: block;
 	height: 1em;
 }
 footer ul li#twitterLinkFooter:hover,
@@ -422,6 +423,7 @@ footer ul{
 	display: flex;
 }
 footer ul a{
+	display: block;
 	color: inherit;
 }
 
