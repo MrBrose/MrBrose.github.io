@@ -22,7 +22,7 @@ export const PAGES = [
   page("portfolio", "portfolio.html", "/portfolio", "MrBrose's Portfolio", { ogDescription: "MrBrose's Portfolio", description: null, image: `${SITE}/images/MB2.png`, icon: "/images/MB.png", bodyClass: "rad-grad no-scroll", noHeader: true, header: false, footer: null, dust: null }),
   page("fonts", "fonts/index.html", "/fonts/", "Minecraft Titles | Fonts", { ogTitle: "MCTitles website", ogDescription: ABOUT }),
   page("making", "making-a-logo/index.html", "/making-a-logo/", "Minecraft Titles | Making a Logo"),
-  page("making-blockbench", "making-a-logo/blockbench.html", "/making-a-logo/blockbench", "Minecraft Titles | Making a Logo | Blockbench"),
+  page("making-minecraft-title-generator", "making-a-logo/minecraft-title-generator.html", "/making-a-logo/minecraft-title-generator", "Minecraft Titles | Making a Logo | Minecraft Title Generator"),
   page("making-illustrator", "making-a-logo/illustrator.html", "/making-a-logo/illustrator", "Minecraft Titles | Making a Logo | Illustrator"),
   page("making-photoshop", "making-a-logo/photoshop.html", "/making-a-logo/photoshop", "Minecraft Titles | Making a Logo | Photoshop"),
   page("making-stepbystep", "making-a-logo/stepbystep.html", "/making-a-logo/stepbystep", "Minecraft Titles | Making a Logo | Illustrator"),

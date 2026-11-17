@@ -20,6 +20,10 @@ export const router = createRouter({
       const creator = (to.params.creator ?? "").replace(/\.html$/, "").toLowerCase()
       return creator && creator !== "index" ? { path: "/fonts/", query: { creator } } : "/fonts/"
     }
+  }, {
+    path: "/making-a-logo/blockbench",
+    alias: "/making-a-logo/blockbench.html",
+    redirect: "/making-a-logo/minecraft-title-generator"
   }),
   scrollBehavior(to, from, saved) {
     if (saved) return { ...saved, behavior: "instant" }

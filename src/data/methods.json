@@ -5,15 +5,15 @@
     "icon": "illustrator.svg",
     "alt": "illustrator logo",
     "description": "The more powerful but also an expensive method, the official logos were made in a similar way to this.",
-    "note": "(This method is more complex than the blockbench method)"
+    "note": "(This method is more complex than the Minecraft Title Generator)"
   },
   {
-    "name": "Blockbench",
-    "page": "blockbench",
-    "icon": "blockbench.svg",
-    "alt": "blockbench logo",
-    "description": "Not as powerful as the Illustrator method, however it is free and really quick and easy to use ",
-    "note": "(I highly recommend using this method rather than mine-imator)"
+    "name": "Minecraft Title Generator",
+    "page": "minecraft-title-generator",
+    "icon": "minecraft-title-generator.svg",
+    "alt": "Minecraft Title Generator logo",
+    "description": "Free, quick and easy. Type your text, pick a font and texture, and render your title right in your browser.",
+    "note": "(Also available as a Blockbench plugin if you want full control over the model)"
   },
   {
     "name": "Photoshop",
