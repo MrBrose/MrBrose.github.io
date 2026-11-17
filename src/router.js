@@ -14,7 +14,13 @@ function component(name) {
 
 export const router = createRouter({
   history: createWebHistory(),
-  routes: pageRoutes(Object.fromEntries(PAGES.map(page => [page.name, component(page.component ?? page.name)]))),
+  routes: pageRoutes(Object.fromEntries(PAGES.map(page => [page.name, component(page.component ?? page.name)]))).concat({
+    path: "/download-fonts/:creator?",
+    redirect: to => {
+      const creator = (to.params.creator ?? "").replace(/\.html$/, "").toLowerCase()
+      return creator && creator !== "index" ? { path: "/fonts/", query: { creator } } : "/fonts/"
+    }
+  }),
   scrollBehavior(to, from, saved) {
     if (saved) return { ...saved, behavior: "instant" }
     if (to.hash) return { el: to.hash }

@@ -8,3 +8,9 @@ export function fontFamily(author, file) {
   }
   return family
 }
+
+export async function loadFont(author, file) {
+  const family = fontFamily(author, file)
+  await document.fonts.load(`bold 1em "${family}"`)
+  return family
+}

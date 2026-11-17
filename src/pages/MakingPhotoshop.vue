@@ -17,7 +17,7 @@
         the initial process of creating your very own Minecraft logo.
       </p>
       <p>
-        For the fonts, you can download lots of Minecraft Style fonts from our <a href="/download-fonts/">font page</a>
+        For the fonts, you can download lots of Minecraft Style fonts from our <a href="/fonts">font page</a>
       </p>
       <iframe component="video-embed" style="--aspect-ratio: 1000 / 563" src="https://www.youtube.com/embed/yb6QJl6mqf4" title=" " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <p>

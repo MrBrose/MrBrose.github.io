@@ -6,7 +6,7 @@
     <nav class="links">
       <a href="/" class="primary">Back to home</a>
       <a href="/official-logos">Official logos</a>
-      <a href="/download-fonts">Fonts</a>
+      <a href="/fonts">Fonts</a>
     </nav>
   </main>
 </template>

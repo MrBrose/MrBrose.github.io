@@ -98,7 +98,7 @@
         </template>
         <p>Find and download all the official Minecraft logos.</p>
       </LinkCard>
-      <LinkCard href="/download-fonts" title="Fonts" cta="Browse fonts">
+      <LinkCard href="/fonts" title="Fonts" cta="Browse fonts">
         <template #visual>
           <span class="font-sample">ABC 123</span>
         </template>

@@ -1,7 +1,6 @@
 {
   "official": {
-    "name": "Official Fonts",
-    "page": "official",
+    "name": "Official",
     "fonts": [
       {
         "name": "Minecraft Ten",
@@ -18,8 +17,7 @@
     ]
   },
   "dmart": {
-    "name": "DMart's fonts",
-    "page": "DMart",
+    "name": "DMart",
     "fonts": [
       {
         "name": "Minecraft Logotype",
@@ -35,8 +33,7 @@
       },
       {
         "name": "Minecraft Japanese",
-        "file": "mc-ten-japanese.ttf",
-        "sample": "タイトル"
+        "file": "mc-ten-japanese.ttf"
       },
       {
         "name": "Minecraft education",
@@ -48,24 +45,20 @@
       },
       {
         "name": "Minecrafter Legends",
-        "file": "minecrafter-legends.ttf",
-        "size": "mobilesmaller"
+        "file": "minecrafter-legends.ttf"
       },
       {
         "name": "Minecraft eighteen",
-        "file": "minecraft-eighteen.ttf",
-        "size": "mobilesmaller"
+        "file": "minecraft-eighteen.ttf"
       },
       {
         "name": "Slimetime Arcade",
-        "file": "slimetime-arcade.ttf",
-        "sample": "abcdefghijk lmnopqrstu",
-        "size": "mobilesmaller"
+        "file": "slimetime-arcade.ttf"
       },
       {
         "name": "Minecraft Disblock",
         "file": "disblock.ttf",
-        "sample": "ABC"
+        "uppercase": true
       },
       {
         "name": "Minecraft Five Lowercase",
@@ -82,8 +75,7 @@
     ]
   },
   "patred": {
-    "name": "patred's Fonts",
-    "page": "patred",
+    "name": "patred",
     "fonts": [
       {
         "name": "Minecraft Ten Lowercase",
@@ -119,9 +111,7 @@
       },
       {
         "name": "Minecraft Ten alt",
-        "file": "mc-ten-alt-lowercase.ttf",
-        "sample": "abcdef",
-        "size": "mobilesmaller"
+        "file": "mc-ten-alt-lowercase.ttf"
       },
       {
         "name": "Minecraft Ten Elongated",
@@ -145,14 +135,11 @@
       },
       {
         "name": "Minecraft Ten Toony",
-        "file": "mc-ten-toony.ttf",
-        "sample": "abc",
-        "size": "negmargin"
+        "file": "mc-ten-toony.ttf"
       },
       {
         "name": "Minecraft Ten Extended",
-        "file": "mc-ten-extend.ttf",
-        "size": "mobilesmaller"
+        "file": "mc-ten-extend.ttf"
       },
       {
         "name": "Minecraft Ten Outline",
@@ -160,9 +147,7 @@
       },
       {
         "name": "Minecraft Ten Icons",
-        "file": "mc-ten-icons.ttf",
-        "sample": "fabcd",
-        "size": "mobilesmaller"
+        "file": "mc-ten-icons.ttf"
       },
       {
         "name": "Minecraft Dungeons v1",
@@ -170,21 +155,16 @@
       },
       {
         "name": "Dungeons v1 alt",
-        "file": "dungeons-alt-lowercase.ttf",
-        "sample": "abcdef",
-        "size": "mobilesmaller"
+        "file": "dungeons-alt-lowercase.ttf"
       },
       {
         "name": "Dungeons v2",
         "file": "dungeons-v2.ttf",
-        "sample": "ABCDEF",
-        "size": "mobilesmaller"
+        "uppercase": true
       },
       {
         "name": "Dungeons v2 alt",
-        "file": "dungeons-v2-altlw.ttf",
-        "sample": "abcdef",
-        "size": "mobilesmaller"
+        "file": "dungeons-v2-altlw.ttf"
       },
       {
         "name": "Legendary",
@@ -197,8 +177,7 @@
     ]
   },
   "floiden": {
-    "name": "FloideN's Fonts",
-    "page": "floiden",
+    "name": "FloideN",
     "fonts": [
       {
         "name": "Minecraft Ten Fire",
@@ -210,23 +189,19 @@
       },
       {
         "name": "minecraft Thick Ten",
-        "file": "minecraft-thick-ten.ttf",
-        "size": "big"
+        "file": "minecraft-thick-ten.ttf"
       },
       {
         "name": "Minecraft Bold Ten",
-        "file": "minecraft-bold-ten.ttf",
-        "size": "big"
+        "file": "minecraft-bold-ten.ttf"
       },
       {
         "name": "Minecraft alt",
-        "file": "mc-ten-alt.ttf",
-        "size": "big"
+        "file": "mc-ten-alt.ttf"
       },
       {
         "name": "Minecraft Eleven",
-        "file": "mc-eleven.ttf",
-        "size": "mobilesmaller"
+        "file": "mc-eleven.ttf"
       }
     ]
   }
